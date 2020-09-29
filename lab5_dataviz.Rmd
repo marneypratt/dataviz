@@ -1,0 +1,46 @@
+---
+title: "Intro to Data Visualization"
+author: "Your Name Here"
+date: "9/29/2020"
+output: html_document
+---
+
+## Restart your R session 
+Before getting started, it is a good practice to start with a clean slate by restarting your R session
+
+Go to the top menu, select Session then select Restart R
+
+
+## Load necessary packages
+
+Run the code below at the start of the session to make sure all the necessary packages are loaded.
+It is recommended that you put all your code to load pacakges in one R chunk at the start
+
+```{r load pacakges}
+
+library(tidyverse)
+library(ggbeeswarm)
+library(swirl)
+
+```
+
+## Import the Water Quality Data
+
+```{r import data}
+
+waterQ <- read_csv("data/waterQ.csv",
+                   col_types = cols(date = col_date(format = "%m/%d/%Y"), 
+                                    year = col_factor(),
+                                    season = col_factor(levels = c("Summer", "Fall")),
+                                    location = col_factor(levels = c("Downstream","Upstream")),
+                                    microhabitat = col_factor(levels = 
+                                              c("DSR", "DFR", "DM", "DSH", "DSP", 
+                                                "USR", "UFR", "UM", "USH", "USU"))
+                                    ))
+
+```
+
+
+Use the skills you learned in the "Getting Data into R" Swirl lesson to look at the structure of the dataframe that was just imported.  
+
+I personally usually click on the name of the dataframe in the Global Environment as a shortcut to using the View() function, and click on the blue arrow next to the dataframe in the Global Environment to see all the variable names and types
