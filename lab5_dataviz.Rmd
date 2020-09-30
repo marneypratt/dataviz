@@ -51,20 +51,18 @@ Also click on the Files tab and click on the file called "waterQ_metadata.txt" t
 
 We can use this dataset to look at differences in the water quality upstream versus downstream of Paradise Pond to test for possible effects of the pond on the Mill River.
 
-Paradise Pond is an impoundment in the river that slows the flow and makes it more like a pond and less like a river. The water falling over the dam creates a lot of turbulence.  How might the slow flow in the pond and/or the rubulence from the water falling over the dam affect the water quality downstream vs upstream?
+Paradise Pond is an impoundment in the river that slows the flow and makes it more like a pond and less like a river. The water falling over the dam creates a lot of turbulence.  How might the slow flow in the pond and/or the turbulence from the water falling over the dam affect the water quality downstream vs upstream?
 
 **Question: Look at the 7 water quality variables and choose ONE that you want to explore today.  Type below which variable you chose:**
 
 
 
 
-**Question: What do you predict to see in the data comparing the upstream and downstream locations for this variable? (in other words, How do you predict Paradise Pond will affect this variable (if at all)?).  Write your answer below:**
+**Question: What do you predict to see in the data comparing the upstream and downstream locations for this variable? (in other words, How do you predict Paradise Pond will affect this variable (if at all)?).  Write your prediction and explain why you made that prediction below:**
+
+For help understanding the variable better and how the pond might affect it, see the [Background Information on Water Quality Measurements](https://docs.google.com/document/d/1-rDncCF33sDK6o3ZdSo-zzSdCUxo77DIoDGmnp4i8EI/edit?usp=sharing)
 
 
-
-
-
-**Question: Why did you make the prediction above?  Explain your answer below:**
 
 
 
@@ -307,7 +305,7 @@ The simplest thing to do is probably just right-click (Windows) or control-click
 
 When saving with the ggsave function, you need to name the resulting file with surrounding “ “, tell R which ggplot object we want (assign the plot to a name such as g1), and indicate the size via height, width, and units. Don't forget to save the graph with a dpi call to make it nice and crisp! 
 
-```{r, Save your graph, eval = F}
+```{r Save your graph, eval = F}
 
 # save the graph!
 ggsave(filename="graph-name.png", 
