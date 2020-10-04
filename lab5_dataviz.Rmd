@@ -14,7 +14,7 @@ Go to the top menu, select Session then select Restart R
 ## Load necessary packages
 
 Run the code below at the start of the session to make sure all the necessary packages are loaded.
-It is recommended that you put all your code to load pacakges in one R chunk at the start
+It is recommended that you put all your code to load packages in one R chunk at the start
 
 ```{r load pacakges, eval=TRUE, include=FALSE}
 
@@ -32,7 +32,8 @@ waterQ <- read_csv("waterQ.csv",
                    col_types = cols(date = col_date(format = "%m/%d/%Y"), 
                                     year = col_factor(),
                                     season = col_factor(levels = c("Summer", "Fall")),
-                                    location = col_factor(levels = c("Downstream","Upstream")),
+                                    location = col_factor(levels =
+                                              c("Downstream","Upstream")),
                                     microhabitat = col_factor(levels = 
                                               c("DSR", "DFR", "DM", "DSH", "DSP", 
                                                 "USR", "UFR", "UM", "USH", "USU"))
@@ -108,7 +109,9 @@ Look at the new dataset (waterQ2) in the Global Environment.  The new number of 
 
 Next we are going to calculate the descriptive statistics.  Before you do this for the Mill River water quality data, let's first get some practice by doing the "Descriptive Statistics" lesson from the "Intro to R for Biology" Swirl course.
 
-Have one person from your group run the code below to start Swirl, then work in the console to run through the "Descriptive Statistics" lesson.  Go through the lesson together as a group.  When you finish the lesson, exit Swirl.
+Have one person from your group run the code below to start Swirl, then work in the console to run through the "Descriptive Statistics" lesson.  Go through the lesson together as a group.  When you finish the lesson, exit Swirl (if you at a command prompt, you can type bye() to exit Swirl.  You can select 0 or press escape if you are at a point where it asks you to select something).
+
+See the "swirl-commands.txt" and "swirl-tips.txt" files for help with Swirl
 
 
 ```{r run swirl1, eval=FALSE, include=FALSE}
@@ -159,7 +162,7 @@ Upstream IQR:
 
 Next let's round the standard deviation (SD).  Recall that you should round the SD to 1-2 significant digits at the most.
 
-**Question: Give the rounded values for SD (use 2 signifiacnt digits) for each group below:**
+**Question: Give the rounded values for SD (use 2 significant digits) for each group below:**
 
 Downstream SD:
 Upstream SD:
