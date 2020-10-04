@@ -111,7 +111,9 @@ Next we are going to calculate the descriptive statistics.  Before you do this f
 
 Have one person from your group run the code below to start Swirl, then work in the console to run through the "Descriptive Statistics" lesson.  Go through the lesson together as a group.  When you finish the lesson, exit Swirl (if you at a command prompt, you can type bye() to exit Swirl.  You can select 0 or press escape if you are at a point where it asks you to select something).
 
-See the "swirl-commands.txt" and "swirl-tips.txt" files for help with Swirl
+Note that you must save a script and then type submit() in the console to run the script code for Swirl to know you have run the script.
+
+See the "swirl-commands.txt" and "swirl-tips.txt" files for more help with Swirl
 
 
 ```{r run swirl1, eval=FALSE, include=FALSE}
