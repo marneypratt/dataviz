@@ -1,0 +1,9 @@
+If you get stuck at a prompt that is asking you to make a selection, try typing 0 to get back to a higher menu, or press Esc to help you get out
+
+If you get stuck at a console prompt while in swirl (>), you can try typing skip() to skip a question or type bye() to get out of swirl
+
+
+For working with scripts 
+--Make sure to read the directions in the script carefully
+--SAVE your script if you change anything (you can tell you need to save if the file name in the tab is in red and has an asterisk at the end)
+--To run the script, type submit() in the console rather than running the script itself (using the submit() function will tell Swirl that you have run the code in script)
