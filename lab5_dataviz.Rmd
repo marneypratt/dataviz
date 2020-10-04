@@ -136,9 +136,11 @@ waterQ2 %>%
             n())
 
 ```
+
+
 How do we report these values? We have to round appropriately and include the correct units.
 
-**Question: What units is your variable of interest measured in? (Look at the "waterQ_metadata.txt" file in the data folder and then scroll down to your variable of interest to see what units it was measured in)**
+**Question: What units is your variable of interest measured in? (Look at the "waterQ_metadata.txt" file in the dataviz folder and then scroll down to your variable of interest to see what units it was measured in)**
 
 
 
@@ -148,7 +150,7 @@ How should we round these values?
 
 Let's start with the median.
 
-If there is a odd number of values, then median is just the middle number of the dataset when arranged from smallest to largest value.  In this case, you should report the median in the same way the data were originally recorded.  Note, you can look at the "waterQ_metadata.txt" file in the data folder and then scroll down to your variable of interest to see that level of accuracy the variable was measured to. You can usually go one digit to the right beyond the level of accuracy (because that next digit is the estimated digit) at most.  Note that it is okay to be a little more conservative and round more, you just don't want to give the impression that you have more accuracy than you do by giving too many digits.
+If there is an odd number of values, then median is just the middle number of the dataset when arranged from smallest to largest value.  In this case, you should report the median in the same way the data were originally recorded.  Note, you can look at the "waterQ_metadata.txt" file in the data folder and then scroll down to your variable of interest to see that level of accuracy the variable was measured to. You can usually go one digit to the right beyond the level of accuracy (because that next digit is the estimated digit) at most.  Note that it is okay to be a little more conservative and round more, you just don't want to give the impression that you have more accuracy than you do by giving too many digits.
 
 If there is an even number of values, then the median is the average of the two middle numbers.  Because calculating an average includes division, you can go one digit further to the right than how you reported the original values at most. 
 
