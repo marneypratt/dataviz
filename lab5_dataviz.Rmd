@@ -110,7 +110,7 @@ Look at the new dataset (waterQ2) in the Global Environment.  The new number of 
 
 Next we are going to calculate the descriptive statistics.  Before you do this for the Mill River water quality data, let's first get some practice by doing the "Descriptive Statistics" lesson from the "Intro to R for Biology" Swirl course. 
 
-IT IS A GOOD IDEA TO SAVE THIS .Rmd FILE BEFORE YOU START SWIRL IN CASE SWIRL CAUSES PROBLEMS
+IT IS A GOOD IDEA TO SAVE THIS .Rmd FILE BEFORE YOU START SWIRL IN CASE SWIRL CAUSES PROBLEMS  
 
 Have one person from your group run the code below to start Swirl, then work in the console to run through the "Descriptive Statistics" lesson.  Go through the lesson together as a group.  When you finish the lesson, exit Swirl (if you at a command prompt, you can type bye() to exit Swirl.  You can select 0 or press escape if you are at a point where it asks you to select something).  
 
