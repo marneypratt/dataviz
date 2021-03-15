@@ -20,5 +20,5 @@ ggplot(
   theme(legend.position="none") # remove this line if you DO want a legend/key
 
 #see the resources below for some additional options to make a nice plot 
-# https://www.datanovia.com/en/lessons/ggplot-boxplot/
+# https://www.datanovia.com/en/lessons/ggplot-dot-plot/
 # https://ggplot2.tidyverse.org/index.html
