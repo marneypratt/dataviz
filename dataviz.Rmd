@@ -100,7 +100,7 @@ While this step is not strictly necessary, let's remove some of the columns we d
 ```{r remove unneeded columns}
 
 waterQ2 <- waterQ2 %>% 
-  select(date, year, season, location, sampleID, sampling, microhabitat, sample_num, _______)
+  select(date, year, season, location, sampleID, sampling, microhabitat, quadrat, _______)
 
 ```
 
