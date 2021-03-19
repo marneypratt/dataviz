@@ -164,7 +164,7 @@ Round the interquartile range (IQR) the same way you do the median.
 * Upstream IQR:
 
 
-Next let's round the standard deviation (SD).  Recall that you should round the SD to 1-2 significant digits at the most.
+Next let's round the standard deviation (SD).  Recall that you should round the SD to 1-2 SIGNIFICANT DIGITS at the most.
 
 **Question: Give the rounded values for SD (use 2 significant digits) for each group below:**
 
