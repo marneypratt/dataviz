@@ -214,9 +214,8 @@ Delete all the code except for your variable of interest, then run the code to m
 
 ```{r Histogram, eval=TRUE, include=TRUE}
 
-
 #Histogram for Flow 
-ggplot(data = waterQ2, aes(x = flow_rate_m.s, fill=location))+ 
+ggplot(data = waterQ2.f, aes(x = flow, fill=location))+ 
   geom_histogram(binwidth = 0.05, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
   xlab("Flow Rate (m/s)") +
@@ -225,7 +224,7 @@ ggplot(data = waterQ2, aes(x = flow_rate_m.s, fill=location))+
   theme_classic(base_size=20) 
 
 #Histogram for DO
-ggplot(data = waterQ2, aes(x = DO_mg.L, fill=location))+ 
+ggplot(data = waterQ2.do, aes(x = DO, fill=location))+ 
   geom_histogram(binwidth = 0.1, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
   xlab("Dissolved Oxygen (mg/L)") +
@@ -234,7 +233,7 @@ ggplot(data = waterQ2, aes(x = DO_mg.L, fill=location))+
   theme_classic(base_size=20)
 
 #Histogram for Light
-ggplot(data = waterQ2, aes(x = light_umol.m2.s, fill=location))+ 
+ggplot(data = waterQ2.l, aes(x = light, fill=location))+ 
   geom_histogram(binwidth = 50, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
   xlab(~paste("PAR"," ", "(" ,mu, "mol m"^-2,"s"^-1, ")")) +
@@ -243,7 +242,7 @@ ggplot(data = waterQ2, aes(x = light_umol.m2.s, fill=location))+
   theme_classic(base_size=20)
 
 #Histogram for pH
-ggplot(data = waterQ2, aes(x = pH, fill=location))+ 
+ggplot(data = waterQ2.ph, aes(x = pH, fill=location))+ 
   geom_histogram(binwidth = 0.05, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
   xlab("pH") +
@@ -252,7 +251,7 @@ ggplot(data = waterQ2, aes(x = pH, fill=location))+
   theme_classic(base_size=20)
 
 #Histogram for Water Temperature
-ggplot(data = waterQ2, aes(x = water_temp_C, fill=location))+ 
+ggplot(data = waterQ2.wt, aes(x = wTemp, fill=location))+ 
   geom_histogram(binwidth = 0.5, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
   xlab("Water Temperature ("~degree~"C)") +
@@ -261,7 +260,7 @@ ggplot(data = waterQ2, aes(x = water_temp_C, fill=location))+
   theme_classic(base_size=20)
 
 #Histogram for Turbidity
-ggplot(data = waterQ2, aes(x = turbidity_NTU, fill=location))+ 
+ggplot(data = waterQ2.t, aes(x = turb, fill=location))+ 
   geom_histogram(binwidth = 1, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
   xlab("Turbidity (NTU)") +
@@ -270,14 +269,13 @@ ggplot(data = waterQ2, aes(x = turbidity_NTU, fill=location))+
   theme_classic(base_size=20)
 
 #Histogram for Conductivity    
-ggplot(data = waterQ2, aes(x = conductivity_uS.cm, fill=location))+ 
+ggplot(data = waterQ2.c, aes(x = cond, fill=location))+ 
   geom_histogram(binwidth = 5, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
   xlab(~paste("Conductivity"," ", "(" ,mu, "S cm"^-1, ")")) +
   ylab("Count") +
   coord_cartesian(expand=FALSE) +
   theme_classic(base_size=20)
-
 
 ```
 
