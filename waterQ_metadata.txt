@@ -178,14 +178,14 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 	Description: Longitude coordinate as measured by Vernier's LabQuest 2 (uses WGS84, accruacy: half of data points fall within a radius of 2m)
 	https://www.vernier.com/products/interfaces/labq2/
 
-    K. Name: alt_m
+    K. Name: alt
 	Description: Altitude in meters as measured by Vernier's LabQuest 2 (uses WGS84, accruacy: half of data points fall within a radius of 2m)
 	https://www.vernier.com/products/interfaces/labq2/
 
-    L. Name: depth_cm
+    L. Name: depth
        Description: depth of the water in centimeters, measured with a meter stick with millimeter markings
 
-    M. Name: DO_mg.L
+    M. Name: DO
        Description: Dissolved oxygen was measured in milligrams of oxygen per liter by the Vernier Optical Dissolved Oxygen Probe (accurate to ± 0.1 mg/L). 
 	https://www.vernier.com/manuals/odo-bta/
 	The reading taken just below the surface (with the probe all the way in the water at least up to the temperature sensor) and was a 10 second average. 
@@ -194,7 +194,7 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 	Effort was made to make sure that the probe had settled on a reading before it was recorded (it can take a little while for the first reading or two to settle as the temperature 
 	adjusts)
 
-    N. Name: light_umol.m2.s
+    N. Name: light
        Description: The photosyntehtically active radiation was measured in photosynthetic photon flux density (PPFD) which corresponds to the micromoles of photons per meter squared per second
 	https://www.vernier.com/files/manuals/par-bta.pdf
 	The sensor was mounted on a PVC pipe with one section that was bent to be parallel to the bottom of the river.  The sensor faced upstream (with the cord facing downstream)
@@ -216,8 +216,7 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 		slope 500 umol m-2 s-1/ V
 		intercept 0 
 
-
-    O. Name: flow_rate_m_s
+    O. Name: flow
        Description: the flow rate of the water in meters per second
 	flow rate was measured in meters per second by the Vernier Flow Rate Sensor (without any spacer on the bottom) (accurate to 0.04 m/s, resolution of 0.0012 m/s). https://www.vernier.com/files/manuals/flo-bta.pdf
 	Does not measure really low flows well, there were times when the water could be seen to be moving very slowly but the propeller did not spin at all.
@@ -230,7 +229,7 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 	which was calibrated ahead of time using buffers made using the Vernier pH capsule set
 	Effort was made to wait until the meter stabilized on a reading before the pH was recorded
 
-    Q. Name: water_temp_C
+    Q. Name: wTemp
        Description: Water temperature was measured in Celcius by different tools depending on year
 
 	2018-2019 we used the Vernier Stainless Steel Temperature Probe (accuracy: ±0.2°C at 0°C, ±0.5°C at 100°C) . 
@@ -242,13 +241,13 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 	In all cases, the reading taken just below the surface (with the whole metal part of the sensor in the water) and was a 10 second average once the reading seemed to stabilize. 
 
  
-    R. Name: turbidity_NTU
+    R. Name: turb
        Description: Turbidity was measured in Nephelometric Turbidity Units (NTU) by the Vernier Turbidity Sensor (accurate to ±2 NTU for readings under 25 NTU). https://www.vernier.com/files/manuals/trb-bta.pdf
 	Samples of water from each location were taken with a clean turbidity bottle (https://www.vernier.com/products/accessories/trb-bot/)
 	Calibration was done using Millipore filtered RO water and the 100 NTU calibration bottle that came with the sensor.  All bottles were tipped upside down three times before a measurement was taken or calibration was performed
 	Bottles were wiped clean by a Kim Wipe before the bottle was placed in the sensor.
 
-    S. Name: conductivity_uS.cm
+    S. Name: cond
        Description: Conductivity was measured in microsiemens per centimeter (µS/cm) by the Vernier Conductivity Probe (accurate to ±2% of full-scale). https://www.vernier.com/manuals/con-bta/
 	The conductivity probe was calibrated with Millipore filtered RO water and conductivity standard solution (low) of 150 µ S/cm. Measurements were made in the low range setting.
 	https://www.vernier.com/products/accessories/con-lst/
