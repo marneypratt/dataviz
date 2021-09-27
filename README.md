@@ -2,13 +2,13 @@
 
 ### by Marney Pratt
 
-### Last updated on March 15, 2021
+### Last updated on Sepctember 27, 2021
 
 This webpage details how to download the Introduction to Data Visualization set of activities.
 
-It is assumed that you have access to R and Rstudio (installed on your computer or access to an RStudio cloud-based server) and you have already installed the **Intro to R for Biology** tutorials.
+It is assumed that you have access to R and Rstudio (installed on your computer or access to an RStudio cloud-based server) and you have access to the **Intro to R for Biology** tutorials.
 
-If you need to install the **Intro to R for Biology** tutorials, you can follow instructions here: [Intro to R for Biology learnr tutorials](https://github.com/marneypratt/r4bio)
+If you are not part of Smith College and need to install the **Intro to R for Biology** tutorials, you can follow instructions here: [Intro to R for Biology learnr tutorials](https://github.com/marneypratt/r4bio)
 
 
 ## Download this repository from GitHub using the usethis package
@@ -32,3 +32,5 @@ This series of instructions will copy all the files you need from here on GitHub
 5. When asked "Shall we delete the ZIP file" select the number for the option that says "Definitely" or similar positive response
 
 A new session of RStudio will open with the unzipped folder containing all the files you need ready for you.
+
+Make sure you have the {tidyverse} and {ggbeeswarm} packages installed before you run through this activity.

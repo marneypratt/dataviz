@@ -1,4 +1,4 @@
-This file was originally generated on 2018-08-31 and revised on 2020-09-29 by Marney Pratt
+This file was originally generated on 2018-08-31 and revised on 2021-10-01 by Marney Pratt
 
 
 -------------------
@@ -8,7 +8,7 @@ GENERAL INFORMATION
 
 1. Title of Dataset 
 
-Mill River Water Quality Data for 2018-2020
+Mill River Water Quality Data for 2018-2021
 
 
 2. Author Information
@@ -24,7 +24,7 @@ Mill River Water Quality Data for 2018-2020
 
 3. Date of data collection (single date, range, approximate date) <dates in format YYYY-MM-DD>
 
-2018-06 to 2020-09
+2018-06 to 2021-09
 
 
 4. Geographic location of data collection (where was data collected?): 
@@ -36,13 +36,9 @@ Mill River in Northampton, MA  USA
 5. Information about funding sources that supported the collection of the data:
 
 Smith College Facilities Management funded summary salary for Marney Pratt and 
-Summer Undergradate Research Fellowships awarded to 
-Sasha Clapp and Lyric Williams in 2018
-Amy Turgeon and Samikshya Dhami in 2019
+various Summer Undergradate Research Fellowships awarded to students
 
-The Horner Fund funded a Summer Undergradate Research Fellowship for 
-Renee Halloran in 2018
-Sasha Clapp in 2019
+The Horner Fund also funded Summer Undergradate Research Fellowships to students 
 
 The Smith College Department of Biological Sciences funded some of the materials and supplies in 
 addition to Smith College Facilities Management
@@ -58,11 +54,11 @@ No restrictions other than proper citation/attribution
 
 2. Recommended citation for this metadata text file:
 
-Pratt, MC.  2020.  Mill River water quality data metadata for 2018-2020.  Smith College, Northampton, MA.
+Pratt, MC.  2021.  Mill River water quality data metadata for 2018-2021.  Smith College, Northampton, MA.
 
 7. Recommended citation for the data:
 
-Pratt, MC.  2020.  Mill River water quality data for 2018-2020.  Smith College, Northampton, MA.
+Pratt, MC.  2021.  Mill River water quality data for 2018-2021.  Smith College, Northampton, MA.
 
 
 
@@ -74,7 +70,7 @@ DATA & FILE OVERVIEW
 1. File List
    A. Filename: waterQ.csv       
       Short description:
-Water quality data were measured for both locations (upstream and downstream riffle) in June & September/October 2018-2020
+Water quality data were measured for both locations (upstream and downstream riffle) in June & September/October 2018-2021
 
 
 --------------------------
@@ -95,12 +91,8 @@ See DATA-SPECIFIC INFORMATION below
 
 Investigators included:
 MP - Marney Pratt
-SC - Sasha Clapp
-LW - Lyric Williams
-LM - Lisa Mena
-RH - Renee Halloran
 DL - Denise Lello
-Smith College Bio 131 students and other volunteers
+Smith College Bio 131 and SURF students and other volunteers
 
 
 -----------------------------------------
