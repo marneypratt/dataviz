@@ -33,4 +33,4 @@ This series of instructions will copy all the files you need from here on GitHub
 
 A new session of RStudio will open with the unzipped folder containing all the files you need ready for you.
 
-Make sure you have the {tidyverse} and {ggbeeswarm} packages installed before you run through this activity.
+Make sure you have the `tidyverse` and `ggbeeswarm` packages installed before you run through this activity.
