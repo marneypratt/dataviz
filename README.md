@@ -8,7 +8,7 @@ This webpage details how to download the Introduction to Data Visualization set 
 
 It is assumed that you have access to R and Rstudio (installed on your computer or access to an RStudio cloud-based server) and you have access to the **Intro to R for Biology** tutorials.
 
-If you are not part of Smith College and need to install the **Intro to R for Biology** tutorials, you can follow instructions here: [Intro to R for Biology learnr tutorials](https://github.com/marneypratt/r4bio)
+Note that if you are not part of Smith College and need to install the **Intro to R for Biology** tutorials locally on your computer, you can follow instructions here: [Intro to R for Biology learnr tutorials](https://github.com/marneypratt/r4bio).
 
 
 ## Download this repository from GitHub using the usethis package
