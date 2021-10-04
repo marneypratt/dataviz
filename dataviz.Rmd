@@ -30,7 +30,7 @@ library(ggbeeswarm)
 
 waterQ <- read_csv("waterQ.csv",
           col_types = cols(
-            date = col_date(format = "%m/%d/%Y"), 
+            date = col_date(format = "%Y-%m-%d"), 
             year = col_factor(),
             season = col_factor(levels = c("Summer", "Fall")),
             location = col_factor(levels = c("Downstream","Upstream")),
@@ -60,7 +60,7 @@ Paradise Pond is an impoundment in the river that slows the flow and makes it mo
 
 **Question: What do you predict to see in the data comparing the upstream and downstream locations for this variable? (in other words, How do you predict Paradise Pond will affect this variable (if at all)?). Write your prediction and explain why you made that prediction below:**
 
-For help understanding the variable better and how the pond might affect it, see the [Background Information on Water Quality Measurements](https://docs.google.com/document/d/1-rDncCF33sDK6o3ZdSo-zzSdCUxo77DIoDGmnp4i8EI/edit?usp=sharing)
+**For help understanding the variable better and how the pond might affect it, see the [Background Information on Water Quality Measurements](https://docs.google.com/document/d/1-rDncCF33sDK6o3ZdSo-zzSdCUxo77DIoDGmnp4i8EI/edit?usp=sharing)**
 
 ## Missing Data
 
