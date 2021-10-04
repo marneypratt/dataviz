@@ -1,4 +1,4 @@
-This file was originally generated on 2018-08-31 and revised on 2021-10-01 by Marney Pratt
+This file was originally generated on 2018-08-31 and revised on 2021-10-04 by Marney Pratt
 
 
 -------------------
@@ -99,13 +99,7 @@ Smith College Bio 131 and SURF students and other volunteers
 DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 -----------------------------------------
 
-1. Number of variables: 19
-
-
-2. Number of cases/rows: 439 cases + heading row for a total of 440 rows
-
-
-3. Variable List
+Variable List
     
     A. Name: date
        Description: sampling date in mm/dd/yyyy format
@@ -134,15 +128,24 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 	The upstream site is fairly sandy "downstream of the bend" but we tried to sample in the rockier areas
 
     E. Name: sampleID
+	Description: unique identification for each sampling day for each microhabitat.  
+
+    F. Name: sampleID.prefix
 	Description: unique identification for each sampling day.  
 
-    F. Name: sampling
+    G. Name: sampling
 	Description: what type of sampling occurred on a particular day
 
 	macros: a sample of macroinvertebrates was taken on the same day.  
 	water: no macroinvertebrate sample was taken on the same day.  During these sampling days, both the upstream and downstream locations were sampled on the same day so that overall weather conditions could be better controlled for.
 
-    G. Name: microhabitat
+    H. Name: sky
+	Description: weather description for the day (sunny, cloudy, rainy, etc)
+
+    I. Name: startTime
+	Description: the time a measurement was taken using a 24-hour clock in the Eastern Daylight Timezone
+
+    J. Name: microhabitat
 	Description: microhabitat within the sampling area where samples were taken.   
 	See the map of each habitat for locations.
 
@@ -159,25 +162,42 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 	USU - Upstream sunny (on the far side of the river ("upstream of the bend", further from the path we come in on), in a realtively fast flow area just downstream of USH that is sunnier        
 
 
-    H. Name: sample_num
+    K. Name: quadrat
 	Description: sample number within a microhabitat on a particular day.  1-3 samples were made in each microhabitat per day
 
-    I. Name: lat
+    L. Name: lat
 	Description: Latitude coordinate as measured by Vernier's LabQuest 2 (uses WGS84, accruacy: half of data points fall within a radius of 2m)
 	https://www.vernier.com/products/interfaces/labq2/
 
-    J. Name: long
+    M. Name: long
 	Description: Longitude coordinate as measured by Vernier's LabQuest 2 (uses WGS84, accruacy: half of data points fall within a radius of 2m)
 	https://www.vernier.com/products/interfaces/labq2/
 
-    K. Name: alt
+    N. Name: alt
 	Description: Altitude in meters as measured by Vernier's LabQuest 2 (uses WGS84, accruacy: half of data points fall within a radius of 2m)
 	https://www.vernier.com/products/interfaces/labq2/
 
-    L. Name: depth
+    O. Name: depth
        Description: depth of the water in centimeters, measured with a meter stick with millimeter markings
 
-    M. Name: DO
+    P. Name: pH
+       Description: the pH 
+	pH was measured using an Oakton pH Testr 50 Waterproof Pocket pH Tester (accuracy: ±0.01 pH)
+	which was calibrated ahead of time using buffers made using the Vernier pH capsule set
+	Effort was made to wait until the meter stabilized on a reading before the pH was recorded
+
+    Q. Name: wTemp
+       Description: Water temperature was measured in Celcius by different tools depending on year
+
+	2018-2019 we used the Vernier Stainless Steel Temperature Probe (accuracy: ±0.2°C at 0°C, ±0.5°C at 100°C) . 
+	https://www.vernier.com/manuals/tmp-bta/
+	
+	Starting in 2020, we used the Oakton pH Testr 50 Waterproof Pocket pH Tester (accuracy: ±0.2°C) to minimize the number of different tools to bring in the field
+
+
+	In all cases, the reading taken just below the surface (with the whole metal part of the sensor in the water) and was a 10 second average once the reading seemed to stabilize. 
+
+    R. Name: DO
        Description: Dissolved oxygen was measured in milligrams of oxygen per liter by the Vernier Optical Dissolved Oxygen Probe (accurate to ± 0.1 mg/L). 
 	https://www.vernier.com/manuals/odo-bta/
 	The reading taken just below the surface (with the probe all the way in the water at least up to the temperature sensor) and was a 10 second average. 
@@ -186,7 +206,7 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 	Effort was made to make sure that the probe had settled on a reading before it was recorded (it can take a little while for the first reading or two to settle as the temperature 
 	adjusts)
 
-    N. Name: light
+    S. Name: light
        Description: The photosyntehtically active radiation was measured in photosynthetic photon flux density (PPFD) which corresponds to the micromoles of photons per meter squared per second
 	https://www.vernier.com/files/manuals/par-bta.pdf
 	The sensor was mounted on a PVC pipe with one section that was bent to be parallel to the bottom of the river.  The sensor faced upstream (with the cord facing downstream)
@@ -208,38 +228,20 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 		slope 500 umol m-2 s-1/ V
 		intercept 0 
 
-    O. Name: flow
+    T. Name: flow
        Description: the flow rate of the water in meters per second
 	flow rate was measured in meters per second by the Vernier Flow Rate Sensor (without any spacer on the bottom) (accurate to 0.04 m/s, resolution of 0.0012 m/s). https://www.vernier.com/files/manuals/flo-bta.pdf
 	Does not measure really low flows well, there were times when the water could be seen to be moving very slowly but the propeller did not spin at all.
 	Flow measurement was taken by facing the propeller upstream and taking a 10 second average 
 	The flow rate sensor was zeroed before measurements began.
 
-    P. Name: pH
-       Description: the pH 
-	pH was measured using an Oakton pH Testr 50 Waterproof Pocket pH Tester (accuracy: ±0.01 pH)
-	which was calibrated ahead of time using buffers made using the Vernier pH capsule set
-	Effort was made to wait until the meter stabilized on a reading before the pH was recorded
-
-    Q. Name: wTemp
-       Description: Water temperature was measured in Celcius by different tools depending on year
-
-	2018-2019 we used the Vernier Stainless Steel Temperature Probe (accuracy: ±0.2°C at 0°C, ±0.5°C at 100°C) . 
-	https://www.vernier.com/manuals/tmp-bta/
-	
-	Starting in 2020, we used the Oakton pH Testr 50 Waterproof Pocket pH Tester (accuracy: ±0.2°C) to minimize the number of different tools to bring in the field
-
-
-	In all cases, the reading taken just below the surface (with the whole metal part of the sensor in the water) and was a 10 second average once the reading seemed to stabilize. 
-
- 
-    R. Name: turb
+    U. Name: turb
        Description: Turbidity was measured in Nephelometric Turbidity Units (NTU) by the Vernier Turbidity Sensor (accurate to ±2 NTU for readings under 25 NTU). https://www.vernier.com/files/manuals/trb-bta.pdf
 	Samples of water from each location were taken with a clean turbidity bottle (https://www.vernier.com/products/accessories/trb-bot/)
 	Calibration was done using Millipore filtered RO water and the 100 NTU calibration bottle that came with the sensor.  All bottles were tipped upside down three times before a measurement was taken or calibration was performed
 	Bottles were wiped clean by a Kim Wipe before the bottle was placed in the sensor.
 
-    S. Name: cond
+    V. Name: cond
        Description: Conductivity was measured in microsiemens per centimeter (µS/cm) by the Vernier Conductivity Probe (accurate to ±2% of full-scale). https://www.vernier.com/manuals/con-bta/
 	The conductivity probe was calibrated with Millipore filtered RO water and conductivity standard solution (low) of 150 µ S/cm. Measurements were made in the low range setting.
 	https://www.vernier.com/products/accessories/con-lst/
@@ -248,11 +250,9 @@ DATA-SPECIFIC INFORMATION FOR: waterQ.csv
 	Mid range: 0 to 2000 µS/cm (0 to 1000 mg/L TDS)
 	High range: 0 to 20,000 µS/cm (0 to 10,000 mg/L TDS)
 
-4. Missing data codes:
-        Code/symbol     Definition
-	NA        	Not Available
-        
+    W. Name: notes
+       Description: notes from sampling
 
+    X. Name: dateTime.UTC
+       Description: the date and time together with the time converted from EDT to UTC
 
-5. Specialized formats of other abbreviations used
-dates are all given in month/day/year (mm/dd/yyyy) format
