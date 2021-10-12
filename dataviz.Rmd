@@ -210,16 +210,13 @@ ggplot(data = waterQ2,
 
     [Delete this text and place your answer here]
 
-
 Note that when you make a histogram you are only looking at one variable at a time and because it is easier to look at, we place that variable on the x-axis (and count will be on the y-axis). This same variable may be better placed on the y-axis when making other types of graphs.
-
-
 
 ### Choosing the Best Graph
 
-In the final activity for this assignment, you will make a graph that shows the water quality variable you chose for both locations. Think about what type of variables each is (what type of variable is the water quality variable? what type of variable is location?), and then which one should be the dependent variable (on the y-axis) and which should be the independent variable (on the x-axis). We want to know what effect the independent variable has on the dependent variable. 
+In the final activity for this assignment, you will make a graph that shows the water quality variable you chose for both locations. Think about what type of variables each is (what type of variable is the water quality variable? what type of variable is location?), and then which one should be the dependent variable (on the y-axis) and which should be the independent variable (on the x-axis). We want to know what effect the independent variable has on the dependent variable.
 
-Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean and/or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) or show all the points. 
+Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean and/or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) or show all the points.
 
 Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced), or by writing what the sample size is in the figure legend below the graph (you will write the figure legend in OneNote). Recall that you had R calculate descriptive statistics including the sample size for each group above.
 
