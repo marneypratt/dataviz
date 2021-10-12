@@ -80,7 +80,7 @@ summary(waterQ)
 
     [Delete this text and place your answer here]
 
-Let's remove the NA's for your variable. Run the code below making sure to replace the \_\_\_\_ with the name of your variable of interest.
+Let's remove the NA's for your variable. Run the code below making sure to replace the blank below with the name of your variable of interest.
 
 ```{r remove NAs}
 
@@ -89,7 +89,7 @@ waterQ2 <- waterQ %>%
 
 ```
 
-While this step is not strictly necessary, let's remove some of the columns we don't need to make the data easier to look at. Run the code below making sure to replace the \_\_\_\_ with the name of your variable of interest.
+While this step is not strictly necessary, let's remove some of the columns we don't need to make the data easier to look at. Run the code below making sure to replace the blank below with the name of your variable of interest.
 
 ```{r remove unneeded columns}
 
@@ -102,7 +102,7 @@ Look at the new dataset (waterQ2) in the Global Environment. The new number of o
 
 ## Descriptive Statistics
 
-Next let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data. Run the code below making sure to replace the \_\_\_\_\_ with the name of your variable of interest.
+Next let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data. Run the code below making sure to replace the blanks below with the name of your variable of interest.
 
 ```{r descriptive stats}
 
@@ -112,7 +112,7 @@ waterQ2 %>%
             median = median(_____), 
             SD = sd(_____), 
             IQR = IQR(_____), 
-            n())
+            sample size = n())
 
 ```
 
@@ -177,28 +177,28 @@ Let's first use a histogram to look at the distribution of your water quality va
 
 The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **x-variable**, the **binwidth**, and the **x-label**. Place the name of the column of your variable of interest in the first blank, play with the binwidth to give you enough but not too many bins, and replace the xlab line using the following code below as needed:
 
-xlab("Flow Rate (m/s)") +
+    xlab("Flow Rate (m/s)") +
 
-xlab("Dissolved Oxygen (mg/L)") +
+    xlab("Dissolved Oxygen (mg/L)") +
 
-xlab(\~paste("PAR"," ", "(" ,mu, "mol m"\^-2,"s"\^-1, ")")) +
+    xlab(~paste("PAR"," ", "(" ,mu, "mol m"^-2,"s"^-1, ")")) +
 
-xlab("pH") +
+    xlab("pH") +
 
-xlab("Water Temperature ("\~degree\~"C)") +
+    xlab("Water Temperature ("~degree~"C)") +
 
-xlab("Turbidity (NTU)") +
+    xlab("Turbidity (NTU)") +
 
-xlab(\~paste("Conductivity"," ", "(" ,mu, "S cm"\^-1, ")")) +
+    xlab(~paste("Conductivity"," ", "(" ,mu, "S cm"^-1, ")")) +
 
 ```{r Histogram, eval=TRUE, include=TRUE}
 
 #Histogram  
 ggplot(data = waterQ2, 
-       aes(x = ____, fill=location)) + #place the variable name here
-  geom_histogram(binwidth = 0.05, color = "white", show.legend = FALSE) +
+       aes(x = ____, fill=location)) + #place the variable name in the blank after x=
+  geom_histogram(binwidth = 10, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
-  xlab(____) +
+  xlab("_____") +
   ylab("Count") +
   coord_cartesian(expand=FALSE) +
   theme_classic(base_size=20) 
@@ -210,9 +210,20 @@ ggplot(data = waterQ2,
 
     [Delete this text and place your answer here]
 
+
+Note that when you make a histogram you are only looking at one variable at a time and because it is easier to look at, we place that variable on the x-axis (and count will be on the y-axis). This same variable may be better placed on the y-axis when making other types of graphs.
+
+
+
 ### Choosing the Best Graph
 
-The last thing we will do is choose the best way to graph your data to present in a paper or presentation. Open the "script_templates" folder and look through the script files for the code you want to try. Copy the code of the graph type you think would be best and paste the code in the code chunk below (feel free to try several before you decide which one is best).
+In the final activity for this assignment, you will make a graph that shows the water quality variable you chose for both locations. Think about what type of variables each is (what type of variable is the water quality variable? what type of variable is location?), and then which one should be the dependent variable (on the y-axis) and which should be the independent variable (on the x-axis). We want to know what effect the independent variable has on the dependent variable. 
+
+Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean and/or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) or show all the points. 
+
+Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced), or by writing what the sample size is in the figure legend below the graph (you will write the figure legend in OneNote). Recall that you had R calculate descriptive statistics including the sample size for each group above.
+
+I have created a bunch of scripts with a template you can fill in the blanks for to make your own version of what you think is the best graphing option. Open the "script_templates" folder and look through the script files for the code you want to try. Copy the code of the graph type you think would be best and paste the code in the code chunk below (feel free to try several before you decide which one is best).
 
 Tweak the script template code so that it works with your water quality variable of interest. Feel free to play around to see what happens when you remove or change things in the code.
 
