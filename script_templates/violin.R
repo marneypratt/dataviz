@@ -8,7 +8,8 @@ ggplot(
   geom_violin() +
   ylab("___") +
   xlab("___") +
-  theme_classic(base_size=18) 
+  theme_classic(base_size=18) +
+  theme(legend.position="none") # remove this line if you DO want a legend/key
 
 #see the resources below for some additional options to make a nice plot 
 # https://www.datanovia.com/en/lessons/ggplot-violin-plot/
