@@ -14,4 +14,5 @@ ggplot(
 
 #see the resources below for some additional options to make a nice plot 
 # https://www.datanovia.com/en/lessons/ggplot-violin-plot/
+# http://www.sthda.com/english/wiki/ggplot2-violin-plot-quick-start-guide-r-software-and-data-visualization
 # https://ggplot2.tidyverse.org/index.html
