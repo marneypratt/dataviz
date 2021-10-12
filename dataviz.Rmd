@@ -112,7 +112,7 @@ waterQ2 %>%
             median = median(_____), 
             SD = sd(_____), 
             IQR = IQR(_____), 
-            sample size = n())
+            sample_size = n())
 
 ```
 
