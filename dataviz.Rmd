@@ -1,15 +1,9 @@
 ---
 title: "Intro to Data Visualization"
 author: "Your Name Here"
-date: "10/6/2021"
+date: "2/28/2022"
 output: html_document
 ---
-
-## Restart your R session
-
-Before getting started, it is a good practice to start with a clean slate by restarting your R session
-
-Go to the top menu, select Session then select Restart R
 
 ## Load necessary packages
 
@@ -17,7 +11,7 @@ Run the code below at the start of the session to make sure all the necessary pa
 
 It is recommended that you put all your code to load packages in one R chunk at the start
 
-```{r load pacakges, eval=TRUE, include=FALSE}
+```{r setup, eval=TRUE, include=FALSE}
 
 library(tidyverse)
 library(ggbeeswarm)
@@ -52,7 +46,7 @@ Also click on the Files tab and click on the file called "waterQ_metadata.txt" t
 
 We can use this dataset to look at differences in the water quality upstream versus downstream of Paradise Pond to test for possible effects of the pond on the Mill River.
 
-Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in November 2019 and winter of 2020/21. In today's lab, we will be concentrating more on the general effect of the pond rather than from sediment redistribution.
+Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in November 2019 and winter of 2020 & 2022. In today's lab, we will be concentrating more on the general effect of the pond rather than from sediment redistribution.
 
 Paradise Pond is an impoundment in the river that slows the flow and makes it more like a pond and less like a river. The water falling over the dam creates a lot of turbulence. How might the slow flow in the pond and/or the turbulence from the water falling over the dam affect the water quality downstream vs upstream?
 
@@ -80,7 +74,7 @@ summary(waterQ)
 
     [Delete this text and place your answer here]
 
-Let's remove the NA's for your variable. Run the code below making sure to replace the blank below with the name of your variable of interest.
+Let's remove the NA's for your variable. Run the code below making sure to replace the blank below with the name of your variable of interest (use the exact match to the column name of the variable of interest)
 
 ```{r remove NAs}
 

@@ -2,7 +2,7 @@
 
 ### by Marney Pratt
 
-### Last updated on October 4, 2021
+### Last updated on February 15, 2022
 
 This webpage details how to download the Introduction to Data Visualization set of activities.
 
@@ -27,7 +27,7 @@ This series of instructions will copy all the files you need from here on GitHub
 
 `use_course("https://github.com/marneypratt/dataviz/archive/master.zip")`
 
-4. When told "Downloading into..." "OK to proceed?" select the number for the option next to "I agree" or similar positive response and note what directory it is putting the zipped file into. (Note that you can move the files later if needed)
+4. When told "Downloading into..." "OK to proceed?" select the number for the option next to "I agree" or similar positive response and note what directory it is putting the zipped file into. 
 
 5. When asked "Shall we delete the ZIP file" select the number for the option that says "Definitely" or similar positive response
 
