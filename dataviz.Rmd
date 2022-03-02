@@ -169,7 +169,7 @@ Complete the tutorial called [Intro to R for Biology: Graphing with ggplot](http
 
 Let's first use a histogram to look at the distribution of your water quality variable of interest for each group.
 
-The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **y-variable**, the **binwidth**, and the **y-label**. Place the name of the column of your variable of interest in the first blank, play with the binwidth to give you enough but not too many bins, and replace the xlab line using the following code below as needed:
+The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **y-variable** (must match column name from dataframe), the **binwidth**, and the **y-label** (the nicer label that will show up on the figure). Place the name of the column of your variable of interest in the first blank, play with the binwidth to give you enough but not too many bins, and replace the ylab line using the following code below as needed:
 
     ylab("Flow Rate (m/s)") +
 
@@ -197,14 +197,13 @@ ggplot(data = waterQ2,
   coord_cartesian(expand=FALSE) +
   theme_classic(base_size=20) 
 
-
 ```
 
 **Question: Does the distribution for each location look like a normal distribution?**
 
     [Delete this text and place your answer here]
 
-Note that when you make a histogram you are only looking at one variable at a time and because it is easier to look at, we place that variable on the x-axis (and count will be on the y-axis). This same variable may be better placed on the y-axis when making other types of graphs.
+
 
 ### Choosing the Best Graph
 
