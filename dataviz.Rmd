@@ -169,31 +169,31 @@ Complete the tutorial called [Intro to R for Biology: Graphing with ggplot](http
 
 Let's first use a histogram to look at the distribution of your water quality variable of interest for each group.
 
-The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **x-variable**, the **binwidth**, and the **x-label**. Place the name of the column of your variable of interest in the first blank, play with the binwidth to give you enough but not too many bins, and replace the xlab line using the following code below as needed:
+The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **y-variable**, the **binwidth**, and the **y-label**. Place the name of the column of your variable of interest in the first blank, play with the binwidth to give you enough but not too many bins, and replace the xlab line using the following code below as needed:
 
-    xlab("Flow Rate (m/s)") +
+    ylab("Flow Rate (m/s)") +
 
-    xlab("Dissolved Oxygen (mg/L)") +
+    ylab("Dissolved Oxygen (mg/L)") +
 
-    xlab(~paste("PAR"," ", "(" ,mu, "mol m"^-2,"s"^-1, ")")) +
+    ylab(~paste("PAR"," ", "(" ,mu, "mol m"^-2,"s"^-1, ")")) +
 
-    xlab("pH") +
+    ylab("pH") +
 
-    xlab("Water Temperature ("~degree~"C)") +
+    ylab("Water Temperature ("~degree~"C)") +
 
-    xlab("Turbidity (NTU)") +
+    ylab("Turbidity (NTU)") +
 
-    xlab(~paste("Conductivity"," ", "(" ,mu, "S cm"^-1, ")")) +
+    ylab(~paste("Conductivity"," ", "(" ,mu, "S cm"^-1, ")")) +
 
 ```{r Histogram, eval=TRUE, include=TRUE}
 
 #Histogram  
 ggplot(data = waterQ2, 
-       aes(x = ____, fill=location)) + #place the variable name in the blank after x=
+       aes(y = ____, fill=location)) + #place the variable name in the blank after x=
   geom_histogram(binwidth = 10, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
-  xlab("_____") +
-  ylab("Count") +
+  ylab("_____") +
+  xlab("Count") +
   coord_cartesian(expand=FALSE) +
   theme_classic(base_size=20) 
 
