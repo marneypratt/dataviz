@@ -197,7 +197,6 @@ ggplot(data = waterQ2,
   coord_cartesian(expand=FALSE) +
   theme_classic(base_size=20) 
 
-
 ```
 
 **Question: Does the distribution for each location look like a normal distribution?**
