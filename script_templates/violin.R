@@ -5,7 +5,7 @@
 ggplot(
   data = ___, 
   aes(x = ___, y = ___, fill = ___)) + 
-  geom_violin() +
+  geom_violin(width=1.4) +
   ylab("___") +
   xlab("___") +
   theme_classic(base_size=18) +
