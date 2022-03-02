@@ -46,7 +46,7 @@ Also click on the Files tab and click on the file called "waterQ_metadata.txt" t
 
 We can use this dataset to look at differences in the water quality upstream versus downstream of Paradise Pond to test for possible effects of the pond on the Mill River.
 
-Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in November 2019 and winter of 2020 & 2022. In today's lab, we will be concentrating more on the general effect of the pond rather than from sediment redistribution.
+Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in November-December in 2019, 2020, and 2021. In today's lab, we will be concentrating more on the general effect of the pond rather than from sediment redistribution.
 
 Paradise Pond is an impoundment in the river that slows the flow and makes it more like a pond and less like a river. The water falling over the dam creates a lot of turbulence. How might the slow flow in the pond and/or the turbulence from the water falling over the dam affect the water quality downstream vs upstream?
 
@@ -96,7 +96,7 @@ Look at the new dataset (waterQ2) in the Global Environment. The new number of o
 
 ## Descriptive Statistics
 
-Next let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data. Run the code below making sure to replace the blanks below with the name of your variable of interest.
+Next let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data. Run the code below making sure to replace the blanks below with the name of your variable of interest. (note - do not place anything in the empty parentheses in the n(), only replace the underlined blanks for the mean, median, SD and IQR)
 
 ```{r descriptive stats}
 
@@ -147,7 +147,7 @@ To round the mean, you round it to the same DECIMAL place as the SD. Rounding th
     Downstream mean:
     Upstream mean:
 
-**Question: Are the values for the mean and median for each group similar or different? (you have to use some judgment about what is "similar" vs "different" at this point)**
+**Question: Are the values for the mean and median within each group similar or different? (compare the downstream mean to the downstream median, then compare the upstream mean to the upstream median. You have to use some judgment about what is "similar" vs "different" at this point)**
 
     [Delete this text and place your answer here]
 
