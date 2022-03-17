@@ -1,6 +1,6 @@
 # Introduction to Data Visualization
 
-### by Marney Pratt test
+### by Marney Pratt
 
 ### Last updated on February 15, 2022
 
