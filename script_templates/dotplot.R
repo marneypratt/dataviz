@@ -6,10 +6,9 @@
 
 ggplot(
   data = ___, 
-  aes(x = ___, y = ___)) + 
+  aes(x = ___, y = ___, , fill = ___)) + 
   geom_quasirandom(
-    aes(x= ___, y = ___, fill = ___), 
-    shape=21, size=3, alpha = 0.75, width=0.3) +
+     shape=21, size=3, alpha = 0.75, width=0.3) +
   stat_summary(fun = median, fun.min = median, fun.max = median, #change median to mean if desired
                geom = "crossbar", na.rm = TRUE,
                width = 0.5, size = 0.75, color = "black") +

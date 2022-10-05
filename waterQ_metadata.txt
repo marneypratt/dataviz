@@ -236,12 +236,12 @@ notes: notes from sampling
 
 dateTime.UTC: the date and time together with the time converted from EDT to UTC
 
-nitrate: the concentration of Nitrate (NO3–) in mg/L (=ppm) in the water as measured by the Vernier Nitrate Ion-Selective Electrode (accurate to ±10% of full scale (calibrated 1 to 100 mg/L)). https://www.vernier.com/product/nitrate-ion-selective-electrode/
+nitrate: the concentration of Nitrate (NO3–) in milligrams per liter (mg/L) (=ppm) in the water as measured by the Vernier Nitrate Ion-Selective Electrode (accurate to ±10% of full scale (calibrated 1 to 100 mg/L)). https://www.vernier.com/product/nitrate-ion-selective-electrode/
 
   The Nitrate Ion-Selective Electrode was calibrate with a low (1 mg/L) and high (100 mg/L) Nitrate standard that were each purchased from Vernier (catalog codes NO3-LST and NO3_HST respectively).
 
 
-alkalinity: the total alkalinity of a water sample in ppm of CaCO3
+alkalinity: the total alkalinity of a water sample in parts per million of calcium carbonate (ppm of CaCO3)
 
   In Summer 2022, alkalinity was measured using the Alkalinity Test Kit- Titrator from Lamotte (Order Code  4491-DR-01, https://lamotte.com/products/aquarium-and-fish-farming/individual-test-kits/alkalinity-test-kit-titrator-4491-dr-01). This kit required watching for a color change while adding 4 ppm increments of the reagent. To convert the results to degrees of carbonate hardness (dKH): ppm CaCO3 x 0.056 = dKH CaCO3
   
@@ -249,6 +249,4 @@ alkalinity: the total alkalinity of a water sample in ppm of CaCO3
 
 phosphate: the phosphate (PO4) level of a water sample in ppm of (PO4)3- 
 
-  In Summer 2022, phosphate level was measured using the Lamotte TesTab Phosphate Kit. After adding a tablet containing ammonium molybdate, mixing, and waiting 5 minutes, the color in the sample was matched to a card that had 0ppm, 1ppm, 2ppm, or 4 ppm results.
-  
   Starting in Fall 2022, phosphate was measured using the Hanna Instruments High Range Phosphate Colorimeter Checker (order code: HI717, https://www.hannainst.com/hi717-phosphate-hr.html). This instrument has a resolution of 0.1 ppm, a range of 0-30ppm, and an accuracy of ±1.0 ppm or ±5% of reading.

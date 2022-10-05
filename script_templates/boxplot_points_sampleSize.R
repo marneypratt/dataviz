@@ -10,14 +10,14 @@ sample_size = ___ %>% #put the data frame name here
   summarize (num=n())
 
 
-#violin plot with box plots and sample sizes
+#dotplot with box plots and sample sizes
 ___ %>%   #put the data frame name here
   left_join(sample_size, by="___") %>% #put the grouping variable name here
   mutate(myaxis = paste0(___, "\n", "n=", num)) %>%  #put the grouping variable name here
+  
   ggplot(aes(x=myaxis, y=___, fill=___)) + #put the y-variable first and then the grouping variable for fill
-  geom_boxplot(outlier.shape= NA) +  #remove the outliers when all the points are included
-  geom_quasirandom(
-    aes(x= ___, y = ___, fill = ___),   #adds quasirandom jittered points but colors them by fill
+  geom_boxplot(width=0.2, alpha=0.8, outlier.shape= NA) +  #remove the outliers when all the points are included
+  geom_quasirandom(                              #adds quasirandom jittered points but colors them by fill
     shape=21, size=1, alpha = 0.5, width=0.25) + #sets the size, shape, and transparency of the points
   stat_summary(fun=mean, geom="point", shape=4, size=2, colour="black", stroke=2) + #adds mean with an X
   ylab("___") +

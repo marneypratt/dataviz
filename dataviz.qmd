@@ -1,5 +1,5 @@
 ---
-title: "Intro to Data Visualizatio"
+title: "Intro to Data Visualization"
 author: "Your Name Here"
 date: "October 5,2022"
 format: html
@@ -185,6 +185,12 @@ The code to make histograms for each of the water quality variables is included 
 
     ylab(~paste("Conductivity"," ", "(" ,mu, "S cm"^-1, ")")) +
 
+    ylab("Nitrate Concentration (mg/L)") +
+
+    ylab(expression(Alkalinity~(ppm~of~CaCO[3]))) +
+
+    ylab(expression(Phosphate~Concentration~(ppm~of~PO[4]^{"3-"}))) +
+
 ```{r Histogram, eval=TRUE, include=TRUE}
 
 #Histogram  
@@ -195,7 +201,7 @@ ggplot(data = waterQ2,
   ylab("_____") +
   xlab("Count") +
   coord_cartesian(expand=FALSE) +
-  theme_classic(base_size=20) 
+  theme_classic(base_size=20) #this number can be decreased if labels get cut off
 
 ```
 
@@ -238,12 +244,10 @@ ggsave(filename="___.png",  #recommended to use.png or .jpg file types
 
 ```
 
-
 ## Render this File to PDF
 
 You are all done with this activity, but you want to make sure to save all your work and put a copy of it in your OneNote lab notebook. Ultimately, you need a PDF file to put into your lab notebook. If you are working in the Smith RStudio Server, then you can render this file straight to PDF by changing the format at the very top (line 5) from html to pdf.
 
-If you are working on your own computer and you haven't installed the required software and packages to render to PDF (which is a bit tricky to do sometimes), then the easiest thing to do is render to html, then open that file with your browser and print to PDF from your browser. 
+If you are working on your own computer and you haven't installed the required software and packages to render to PDF (which is a bit tricky to do sometimes), then the easiest thing to do is render to html, then open that file with your browser and print to PDF from your browser.
 
 Make sure the PDF file is saved somewhere on your computer that you can get to (you will first need to export this file to your computer if you are working on the Smith RStudio Server). Then insert the PDF of this file into your lab notebook as instructed.
-

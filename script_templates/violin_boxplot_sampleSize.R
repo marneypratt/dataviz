@@ -13,6 +13,7 @@ sample_size = ___ %>% #put the data frame name here
 ___ %>%   #put the data frame name here
   left_join(sample_size, by="___") %>% #put the grouping variable name here
   mutate(myaxis = paste0(___, "\n", "n=", num)) %>%  #put the grouping variable name here
+  
   ggplot(aes(x=myaxis, y=___, fill=___)) + #put the y-variable first and then the grouping variable for fill
   geom_violin(width=1.4) +
   geom_boxplot(width=0.1, color="black", alpha=0.8) +
