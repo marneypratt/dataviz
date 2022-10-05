@@ -3,12 +3,12 @@
 
 
 ggplot(
-  data = ___, 
-  aes(x = ___, y = ___, fill = ___)) + 
+  data = ___, #put the data frame name here 
+  aes(x = ___, y = ___, fill=___)) + #factor = x & fill, continuous variable = y, 
   geom_violin(width=1.4) +
   geom_boxplot(width=0.1, color="black", alpha=0.8) +
-  ylab("___") +
-  xlab("___") +
+  ylab("___") + #put formatted label for the axis here (include units as needed)
+  xlab("___") + #put formatted label for the axis here (include units as needed)
   theme_classic(base_size=18) +
   theme(legend.position="none") # remove this line if you DO want a legend/key
 

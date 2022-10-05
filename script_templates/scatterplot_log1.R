@@ -4,12 +4,12 @@
 # wrapping the x and y variables in the log() function
 
 ggplot(
-  data = ___, 
-  aes(x = log(___), y = log(___), color = ___)) + 
+  data = ___, #put the data frame name here
+  aes(x = ___, y = ___, color=___)) + #factor = x & color, continuous variable = y, 
   geom_point(size = 3) +                   #play with the point attributes as needed
   geom_smooth(method = "lm", se = FALSE) + #adds line of best fit
-  ylab("log(___)") +
-  xlab("log(___)") +
+  ylab("log(___)") + #put formatted label for the axis here (include units as needed)
+  xlab("log(___)") + #put formatted label for the axis here (include units as needed)
   labs(color = "___") +
   theme_classic(base_size = 18)
 

@@ -5,20 +5,20 @@
 
 # first calculate the sample size
 sample_size = ___ %>% #put the data frame name here
-  group_by(___) %>%  #put the grouping variable name here
+  group_by(___) %>%  #put the factor variable name here
   summarize (num=n())
 
 
 #violin plot with box plots and sample sizes
 ___ %>%   #put the data frame name here
-  left_join(sample_size, by="___") %>% #put the grouping variable name here
-  mutate(myaxis = paste0(___, "\n", "n=", num)) %>%  #put the grouping variable name here
+  left_join(sample_size, by="___") %>% #put the factor variable name here
+  mutate(myaxis = paste0(___, "\n", "n=", num)) %>%  #put the factor variable name here
   
-  ggplot(aes(x=myaxis, y=___, fill=___)) + #put the y-variable first and then the grouping variable for fill
+  ggplot(aes(x=myaxis, y=___, fill=___)) + #put the y-variable first and then the factor for fill
   geom_violin(width=1.4) +
   geom_boxplot(width=0.1, color="black", alpha=0.8) +
-  ylab("___") +
-  xlab("___") +
+  ylab("___") + #put formatted label for the axis here (include units as needed)
+  xlab("___") + #put formatted label for the axis here (include units as needed)
   theme_classic(base_size=16) +
   theme(legend.position="none")
 
