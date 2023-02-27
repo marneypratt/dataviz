@@ -196,7 +196,8 @@ The code to make histograms for each of the water quality variables is included 
 #Histogram  
 ggplot(data = waterQ2, 
        aes(y = __, fill=location)) + #place the variable name in the blank after y=
-  geom_histogram(binwidth = 10, color = "white", show.legend = FALSE) +
+  geom_histogram(binwidth = __,   #adjust the binwidth as needed
+                 color = "white", show.legend = FALSE) + 
   facet_grid(location ~ .) +
   ylab("_____") + #replace this line with the appropriate one given above
   xlab("Count") +
