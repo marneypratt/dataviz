@@ -9,10 +9,10 @@ ggplot(
   aes(x=___, y=____,  fill = ___)) + #factor = x & fill, continuous variable = y, 
   ggdist::stat_halfeye(
     adjust = .5, width = .5, .width = 0, justification = -.14, point_colour = NA) + 
-  geom_boxplot(width = .08, outlier.shape = NA, size = 1) +
+  geom_boxplot(width = .08, outlier.shape = NA, size = 0.4) +
   gghalves::geom_half_point(
     side = "l", size = 2, range_scale = .65, alpha = .5, 
-    width = .8, shape = 21, color = "white", stroke = 1.3) +
+    width = .8, shape = 21, color = "gray", stroke = 0.3) +
   ylab("___") + #put formatted label for the axis here (include units as needed)
   xlab("___") + #put formatted label for the axis here (include units as needed)
   scale_y_continuous(limits = c(__, ___)) + #change these to min and max limit
