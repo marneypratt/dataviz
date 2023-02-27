@@ -15,7 +15,6 @@ ggplot(
     width = .8, shape = 21, color = "gray", stroke = 0.3) +
   ylab("___") + #put formatted label for the axis here (include units as needed)
   xlab("___") + #put formatted label for the axis here (include units as needed)
-  scale_y_continuous(limits = c(__, ___)) + #change these to min and max limit
   theme_classic(base_size=16)  +
   theme(legend.position="none") + #remove this if you want a legend to show
   coord_flip()
