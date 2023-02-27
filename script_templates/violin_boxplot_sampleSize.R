@@ -15,7 +15,7 @@ ___ %>%   #put the data frame name here
   mutate(myaxis = paste0(___, "\n", "n=", num)) %>%  #put the factor variable name here
   
   ggplot(aes(x=myaxis, y=___, fill=___)) + #put the y-variable first and then the factor for fill
-  geom_violin(width=1.4) +
+  geom_violin(width=1.4, alpha=0.5) +
   geom_boxplot(width=0.1, color="black", alpha=0.8) +
   ylab("___") + #put formatted label for the axis here (include units as needed)
   xlab("___") + #put formatted label for the axis here (include units as needed)
