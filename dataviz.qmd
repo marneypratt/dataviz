@@ -167,9 +167,9 @@ Complete the tutorial called [Intro to R for Biology: Graphing with ggplot](http
 
 ### Histogram
 
-Let's first use a histogram to look at the distribution of your water quality variable of interest for each group.
+Let's first use a histogram to look at the distribution of your water quality variable of interest for each group. (just note that we are graphing these histograms sideways compared to how they are typically graphed to keep things consistent with the having the water quality variable as the y-variable)
 
-The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **y-variable** (must match column name from dataframe), the **binwidth**, and the **y-label** (the nicer label that will show up on the figure). Place the name of the column of your variable of interest in the first blank, play with the binwidth to give you enough but not too many bins, and replace the ylab line using the following code below as needed:
+The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **y-variable** (must match column name from dataframe), the **binwidth**, and the **y-label** (the nicer label that will show up on the figure). Place the name of the column of your variable of interest in the first blank, play with the binwidth to give you enough but not too many bins (something similar to the SD you got above might be a good starting place), and replace the ylab line using the following code below as needed:
 
     ylab("Flow Rate (m/s)") +
 
@@ -195,10 +195,10 @@ The code to make histograms for each of the water quality variables is included 
 
 #Histogram  
 ggplot(data = waterQ2, 
-       aes(y = ____, fill=location)) + #place the variable name in the blank after x=
+       aes(y = __, fill=location)) + #place the variable name in the blank after y=
   geom_histogram(binwidth = 10, color = "white", show.legend = FALSE) +
   facet_grid(location ~ .) +
-  ylab("_____") +
+  ylab("_____") + #replace this line with the appropriate one given above
   xlab("Count") +
   coord_cartesian(expand=FALSE) +
   theme_classic(base_size=20) #this number can be decreased if labels get cut off
