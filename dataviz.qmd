@@ -1,7 +1,7 @@
 ---
 title: "Intro to Data Visualization"
 author: "Your Name Here"
-date: "February __, 2023"
+date: "March __, 2023"
 format: html
 ---
 
@@ -52,13 +52,17 @@ Paradise Pond is an impoundment in the river that slows the flow and makes it mo
 
 **Question: Look at the 7 water quality variables and choose ONE that you want to explore today. Type below which variable you chose:**
 
-    [Delete this text and place your answer here]
+::: {.callout-note appearance="minimal" icon="false"}
+\[Delete this text and place your answer here\]
+:::
 
 **Question: What do you predict to see in the data comparing the upstream and downstream locations for this variable? (in other words, How do you predict Paradise Pond will affect this variable (if at all)?). Write your prediction and explain why you made that prediction below:**
 
 **For help understanding the variable better and how the pond might affect it, see the [Background Information on Water Quality Measurements](https://docs.google.com/document/d/1j0aGgQS0CMSPLzv-2JTGoWulUJEeRxhiMKhggGTxysU/edit?usp=sharing)**
 
-    [Delete this text and place your answer here]
+::: {.callout-note appearance="minimal" icon="false"}
+\[Delete this text and place your answer here\]
+:::
 
 ## Missing Data
 
@@ -72,7 +76,9 @@ summary(waterQ)
 
 **Question: How many NA's (=missing data) does your variable of interest have?**
 
-    [Delete this text and place your answer here]
+::: {.callout-note appearance="minimal" icon="false"}
+\[Delete this text and place your answer here\]
+:::
 
 Let's remove the NA's for your variable. Run the code below making sure to replace the blank below with the name of your variable of interest (use the exact match to the column name of the variable of interest)
 
@@ -114,46 +120,61 @@ How do we report these values? We have to round appropriately and include the co
 
 **Question: What units is your variable of interest measured in? (Look at the "waterQ_metadata.txt" file in the dataviz folder and then scroll down to your variable of interest to see what units it was measured in)**
 
-    [Delete this text and place your answer here]
+::: {.callout-note appearance="minimal" icon="false"}
+\[Delete this text and place your answer here\]
+:::
 
 How should we round these values?
 
-Let's start with the median.
+Note, you can look at the "waterQ_metadata.txt" file in the data folder and then scroll down to your variable of interest to see that level of accuracy the variable was measured to. You can usually go one digit to the right beyond the level of accuracy (because that next digit is the estimated digit) at most. Note that it is okay to be a little more conservative and round more, you just don't want to give the impression that you have more accuracy than you do by giving too many digits.
 
-If there is an odd number of values, then median is just the middle number of the dataset when arranged from smallest to largest value. In this case, you should report the median in the same way the data were originally recorded. Note, you can look at the "waterQ_metadata.txt" file in the data folder and then scroll down to your variable of interest to see that level of accuracy the variable was measured to. You can usually go one digit to the right beyond the level of accuracy (because that next digit is the estimated digit) at most. Note that it is okay to be a little more conservative and round more, you just don't want to give the impression that you have more accuracy than you do by giving too many digits.
+Personally, I think it is easiest to use the standard deviation (SD) to tell us on average how much variability there is in the data.
 
-If there is an even number of values, then the median is the average of the two middle numbers. Because calculating an average includes division, you can go one digit further to the right than how you reported the original values at most.
-
-Round the interquartile range (IQR) the same way you do the median.
-
-**Question: Give the rounded values for median and IQR for each group below:**
-
-    Downstream median:
-    Downstream IQR:
-    Upstream median:
-    Upstream IQR:
-
-Next let's round the standard deviation (SD). Recall that you should round the SD to 1-2 SIGNIFICANT DIGITS at the most (this is not always the hundredth's place).
+Start by rounding the standard deviation (SD) to 2 SIGNIFICANT DIGITS.
 
 **Question: Give the rounded values for SD (use 2 significant digits) for each group below:**
 
-    Downstream SD:
-    Upstream SD:
+::: {.callout-note appearance="minimal" icon="false"}
+Downstream SD:
+
+Upstream SD:
+:::
 
 To round the mean, you round it to the same DECIMAL place as the SD. Rounding the SD tells us how variable the data are and how many decimals we can report to.
 
 **Question: Give the rounded values for mean for each group below:**
 
-    Downstream mean:
-    Upstream mean:
+::: {.callout-note appearance="minimal" icon="false"}
+Downstream mean:
+
+Upstream mean:
+:::
+
+Round the median and interquartile range (IQR) the same way you did for the mean.
+
+**Question: Give the rounded values for median and IQR for each group below:**
+
+::: {.callout-note appearance="minimal" icon="false"}
+Downstream median:
+
+Downstream IQR:
+
+Upstream median:
+
+Upstream IQR:
+:::
 
 **Question: Are the values for the mean and median within each group similar or different? (compare the downstream mean to the downstream median, then compare the upstream mean to the upstream median. You have to use some judgment about what is "similar" vs "different" at this point)**
 
-    [Delete this text and place your answer here]
+::: {.callout-note appearance="minimal" icon="false"}
+\[Delete this text and place your answer here\]
+:::
 
 **Question: Can you tell at this point if the data for your variable of interest is normally distributed or not?**
 
-    [Delete this text and place your answer here]
+::: {.callout-note appearance="minimal" icon="false"}
+\[Delete this text and place your answer here\]
+:::
 
 ## Data Visualization
 
@@ -208,7 +229,9 @@ ggplot(data = waterQ2,
 
 **Question: Does the distribution for each location look like a normal distribution?**
 
-    [Delete this text and place your answer here]
+::: {.callout-note appearance="minimal" icon="false"}
+\[Delete this text and place your answer here\]
+:::
 
 ### Choosing the Best Graph
 
