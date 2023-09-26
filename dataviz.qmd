@@ -192,25 +192,27 @@ Let's first use a histogram to look at the distribution of your water quality va
 
 The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **y-variable** (must match column name from dataframe), the **binwidth**, and the **y-label** (the nicer label that will show up on the figure). Place the name of the column of your variable of interest in the first blank, play with the binwidth to give you enough but not too many bins (something similar to the SD you got above might be a good starting place), and replace the ylab line using the following code below as needed:
 
-    ylab("Flow Rate (m/s)") +
+```         
+ylab("Flow Rate (m/s)") +
 
-    ylab("Dissolved Oxygen (mg/L)") +
+ylab("Dissolved Oxygen (mg/L)") +
 
-    ylab(~paste("PAR"," ", "(" ,mu, "mol m"^-2,"s"^-1, ")")) +
+ylab(~paste("PAR"," ", "(" ,mu, "mol m"^-2,"s"^-1, ")")) +
 
-    ylab("pH") +
+ylab("pH") +
 
-    ylab("Water Temperature ("~degree~"C)") +
+ylab("Water Temperature ("~degree~"C)") +
 
-    ylab("Turbidity (NTU)") +
+ylab("Turbidity (NTU)") +
 
-    ylab(~paste("Conductivity"," ", "(" ,mu, "S cm"^-1, ")")) +
+ylab(~paste("Conductivity"," ", "(" ,mu, "S cm"^-1, ")")) +
 
-    ylab("Nitrate Concentration (mg/L)") +
+ylab("Nitrate Concentration (mg/L)") +
 
-    ylab(expression(Alkalinity~(ppm~of~CaCO[3]))) +
+ylab(expression(Alkalinity~(ppm~of~CaCO[3]))) +
 
-    ylab(expression(Phosphate~Concentration~(ppm~of~PO[4]^{"3-"}))) +
+ylab(expression(Phosphate~Concentration~(ppm~of~PO[4]^{"3-"}))) +
+```
 
 ```{r Histogram, eval=TRUE, include=TRUE}
 
