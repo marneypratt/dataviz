@@ -5,15 +5,15 @@
 # alternatively, you can use geom_jitter() instead
 
 # first calculate the sample size
-sample_size = ___ %>% #put the data frame name here
-  group_by(___) %>%  #put the factor variable name here
+sample_size = ___  |>  #put the data frame name here
+  group_by(___) |>  #put the factor variable name here
   summarize (num=n())
 
 
 #dotplot with box plots and sample sizes
-___ %>%   #put the data frame name here
-  left_join(sample_size, by="___") %>% #put the factor variable name here
-  mutate(myaxis = paste0(___, "\n", "n=", num)) %>%  #put the factor variable name here
+___ |>   #put the data frame name here
+  left_join(sample_size, by="___") |> #put the factor variable name here
+  mutate(myaxis = paste0(___, "\n", "n=", num)) |>  #put the factor variable name here
   
   ggplot(aes(x=myaxis, y=___, fill=___)) + #put the y-variable first and then the factor variable for fill
   geom_boxplot(width=0.2, alpha=0.8, outlier.shape= NA) +  #remove the outliers when all the points are included
