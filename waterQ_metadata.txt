@@ -1,4 +1,4 @@
-This file was originally generated on 2018-08-31 and revised on 2022-10-04 by Marney Pratt
+This file was originally generated on 2018-08-31 and revised on 2023-09-27 by Marney Pratt
 
 
 -------------------
@@ -8,7 +8,7 @@ GENERAL INFORMATION
 
 1. Title of Dataset 
 
-Mill River Water Quality Data for 2018-2022
+Mill River Water Quality Data for 2018-2023
 
 
 2. Author Information
@@ -24,7 +24,7 @@ Mill River Water Quality Data for 2018-2022
 
 3. Date of data collection (single date, range, approximate date) <dates in format YYYY-MM-DD>
 
-2018-06 to 2022-10
+2018-06 to 2023-06
 
 
 4. Geographic location of data collection (where was data collected?): 
@@ -54,11 +54,11 @@ No restrictions other than proper citation/attribution
 
 2. Recommended citation for this metadata text file:
 
-Pratt, MC.  2022.  Mill River water quality data metadata for 2018-2022.  Smith College, Northampton, MA.
+Pratt, MC.  2023.  Mill River water quality data metadata for 2018-2023.  Smith College, Northampton, MA.
 
 7. Recommended citation for the data:
 
-Pratt, MC.  2022.  Mill River water quality data for 2018-2022.  Smith College, Northampton, MA.
+Pratt, MC.  2023.  Mill River water quality data for 2018-2023.  Smith College, Northampton, MA.
 
 
 
@@ -70,7 +70,7 @@ DATA & FILE OVERVIEW
 1. File List
    A. Filename: waterQ.csv       
       Short description:
-Water quality data were measured for both locations (upstream and downstream riffle) in June & September/October 2018-2022
+Water quality data were measured for both locations (upstream and downstream riffle) in June & September/October 2018-2023
 
 
 --------------------------
@@ -139,6 +139,8 @@ sky: weather description for the day (sunny, cloudy, rainy, etc)
 
 startTime
 	Description: the time a measurement was taken using a 24-hour clock in the Eastern Daylight Timezone
+	
+dateTime.UTC: the date and time together with the time converted from EDT to UTC
 
 microhabitat: microhabitat within the sampling area where samples were taken.   
 	See the map of each habitat for locations.
@@ -232,10 +234,6 @@ cond: Conductivity was measured in microsiemens per centimeter (µS/cm) by the V
 	Mid range: 0 to 2000 µS/cm (0 to 1000 mg/L TDS)
 	High range: 0 to 20,000 µS/cm (0 to 10,000 mg/L TDS)
 
-notes: notes from sampling
-
-dateTime.UTC: the date and time together with the time converted from EDT to UTC
-
 nitrate: the concentration of Nitrate (NO3–) in milligrams per liter (mg/L) (=ppm) in the water as measured by the Vernier Nitrate Ion-Selective Electrode (accurate to ±10% of full scale (calibrated 1 to 100 mg/L)). https://www.vernier.com/product/nitrate-ion-selective-electrode/
 
   The Nitrate Ion-Selective Electrode was calibrate with a low (1 mg/L) and high (100 mg/L) Nitrate standard that were each purchased from Vernier (catalog codes NO3-LST and NO3_HST respectively).
@@ -249,4 +247,8 @@ alkalinity: the total alkalinity of a water sample in parts per million of calci
 
 phosphate: the phosphate (PO4) level of a water sample in ppm of (PO4)3- 
 
-  Starting in Fall 2022, phosphate was measured using the Hanna Instruments High Range Phosphate Colorimeter Checker (order code: HI717, https://www.hannainst.com/hi717-phosphate-hr.html). This instrument has a resolution of 0.1 ppm, a range of 0-30ppm, and an accuracy of ±1.0 ppm or ±5% of reading.
+  In Fall 2022, phosphate was measured using the Hanna Instruments High Range Phosphate Colorimeter Checker (order code: HI717, https://www.hannainst.com/hi717-phosphate-hr.html). This instrument has a resolution of 0.1 ppm, a range of 0-30ppm, and an accuracy of ±1.0 ppm or ±5% of reading.
+  
+  In 2023, phosphate was measured using the Hanna Instruments Low Range Phosphate Colorimeter Checker (order code: HI713, https://www.hannainst.com/hi713-phosphate-lr.html). This instrument has a resolution of 0.01 ppm, a range of 0.00-2.50ppm, and an accuracy of ±0.04 ppm or ±4% of reading.
+  
+notes: notes from sampling
