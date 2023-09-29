@@ -82,7 +82,7 @@ summary(waterQ)
 
 ```
 
-If the output is hard to read because of a smaller screen, try clicking the "Show in New Window" pop-out icon in the upper right off the output to open the output in its own window.
+If the output is hard to read because of a smaller screen, try clicking the "Show in New Window" pop-out icon in the upper right of the output to open the output in its own window.
 
 **Question: How many NA's (=missing data) does your variable of interest have?**
 
