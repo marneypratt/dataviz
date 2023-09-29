@@ -1,8 +1,10 @@
 ---
 title: "Intro to Data Visualization"
 author: "Your Name Here"
-date: "March __, 2023"
-format: html
+date: "October __, 2023"
+format: 
+  html:
+    code-overflow: wrap
 ---
 
 ## Load necessary packages
@@ -11,7 +13,9 @@ Run the code below at the start of the session to make sure all the necessary pa
 
 It is recommended that you put all your code to load packages in one R chunk at the start
 
-```{r setup, eval=TRUE, include=FALSE}
+```{r}
+#| label: setup
+#| warning: false
 
 library(tidyverse)
 library(ggbeeswarm)
@@ -20,7 +24,10 @@ library(ggbeeswarm)
 
 ## Import the Water Quality Data
 
-```{r import data}
+Run the code below to import the water quality data
+
+```{r}
+#| label: import data
 
 waterQ <- read_csv("waterQ.csv",
           col_types = cols(
@@ -46,11 +53,11 @@ Also click on the Files tab and click on the file called "waterQ_metadata.txt" t
 
 We can use this dataset to look at differences in the water quality upstream versus downstream of Paradise Pond to test for possible effects of the pond on the Mill River.
 
-Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in November-December in 2019, 2020, and 2021. In today's lab, we will be concentrating more on the general effect of the pond rather than from sediment redistribution.
+Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in the winter (November-January) of most years starting in 2019. In today's lab, we will be concentrating more on the general effect of the pond rather than from sediment redistribution.
 
 Paradise Pond is an impoundment in the river that slows the flow and makes it more like a pond and less like a river. The water falling over the dam creates a lot of turbulence. How might the slow flow in the pond and/or the turbulence from the water falling over the dam affect the water quality downstream vs upstream?
 
-**Question: Look at the 7 water quality variables and choose ONE that you want to explore today. Type below which variable you chose:**
+**Question: Look at the water quality variables and choose ONE that you want to explore today. Type below which variable you chose:**
 
 ::: {.callout-note appearance="minimal" icon="false"}
 \[Delete this text and place your answer here\]
@@ -68,11 +75,14 @@ Paradise Pond is an impoundment in the river that slows the flow and makes it mo
 
 Does your variable of interest have missing data? Run the code below to summarize the whole dataset
 
-```{r Summary of Data}
+```{r}
+#| label: Summary of Data
 
 summary(waterQ)
 
 ```
+
+If the output is hard to read because of a smaller screen, try clicking the "Show in New Window" pop-out icon in the upper right off the output to open the output in its own window.
 
 **Question: How many NA's (=missing data) does your variable of interest have?**
 
@@ -82,18 +92,20 @@ summary(waterQ)
 
 Let's remove the NA's for your variable. Run the code below making sure to replace the blank below with the name of your variable of interest (use the exact match to the column name of the variable of interest)
 
-```{r remove NAs}
+```{r}
+#| label: remove NAs
 
-waterQ2 <- waterQ %>% 
+waterQ2 <- waterQ |> 
   filter(!is.na(_____))
 
 ```
 
 While this step is not strictly necessary, let's remove some of the columns we don't need to make the data easier to look at. Run the code below making sure to replace the blank below with the name of your variable of interest.
 
-```{r remove unneeded columns}
+```{r}
+#| label: remove unneeded columns
 
-waterQ2 <- waterQ2 %>% 
+waterQ2 <- waterQ2 |> 
   select(date, year, season, location, sampleID, sampling, microhabitat, quadrat, _______)
 
 ```
@@ -104,10 +116,11 @@ Look at the new dataset (waterQ2) in the Global Environment. The new number of o
 
 Next let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data. Run the code below making sure to replace the blanks below with the name of your variable of interest. (note - do not place anything in the empty parentheses in the n(), only replace the underlined blanks for the mean, median, SD and IQR)
 
-```{r descriptive stats}
+```{r}
+#| label: descriptive stats
 
-waterQ2 %>% 
-  group_by(location) %>% 
+waterQ2 |> 
+  group_by(location) |> 
   summarize(mean = mean(_____), 
             median = median(_____), 
             SD = sd(_____), 
@@ -214,7 +227,8 @@ ylab(expression(Alkalinity~(ppm~of~CaCO[3]))) +
 ylab(expression(Phosphate~Concentration~(ppm~of~PO[4]^{"3-"}))) +
 ```
 
-```{r Histogram, eval=TRUE, include=TRUE}
+```{r}
+#| label: Histogram
 
 #Histogram  
 ggplot(data = waterQ2, 
@@ -239,15 +253,17 @@ ggplot(data = waterQ2,
 
 In the final activity for this assignment, you will make a graph that shows the water quality variable you chose for both locations. Think about what type of variables each is (what type of variable is the water quality variable? what type of variable is location?), and then which one should be the dependent variable (on the y-axis) and which should be the independent variable (on the x-axis). We want to know what effect the independent variable has on the dependent variable.
 
-Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean and/or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) or show all the points.
+Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean and/or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) or show all the points. Take a look at this link to remind you of some of the best practices in [choosing a graph type](https://docs.google.com/presentation/d/1qSSHUw_SIXtrRFIxIqa4IfHOwUJetSD9qi6GUC7GsoE/edit?usp=sharing).
 
-Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced), or by writing what the sample size is in the figure legend below the graph (you will write the figure legend in OneNote). Recall that you had R calculate descriptive statistics including the sample size for each group above.
+Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced), or by writing what the sample size is in the figure legend below the graph (you will write the figure legend in a Google Doc). Recall that you had R calculate descriptive statistics including the sample size for each group above.
 
 I have created a bunch of scripts with a template you can fill in the blanks for to make your own version of what you think is the best graphing option. Open the "script_templates" folder and look through the script files for the code you want to try. Copy the code of the graph type you think would be best and paste the code in the code chunk below (feel free to try several before you decide which one is best).
 
 Tweak the script template code so that it works with your water quality variable of interest. Feel free to play around to see what happens when you remove or change things in the code.
 
-```{r best graph}
+```{r}
+#| label: best graph
+
 
 
 
@@ -261,7 +277,9 @@ The simplest thing to do is probably just right-click (Windows) or control-click
 
 When saving with the `ggsave()` function, you need to name the resulting file with surrounding " ", and indicate the size via height, width, and units. Don't forget to save the graph with a dpi call between 300-500 to make it nice and crisp! Look at the `ggsave()` help file for more information and options.
 
-```{r Save your graph, eval = F}
+```{r}
+#| label: Save your graph
+#| eval: false
 
 # save the graph!
 ggsave(filename="___.png",  #recommended to use.png or .jpg file types
@@ -272,8 +290,6 @@ ggsave(filename="___.png",  #recommended to use.png or .jpg file types
 
 ## Render this File to PDF
 
-You are all done with this activity, but you want to make sure to save all your work and put a copy of it in your OneNote lab notebook. Ultimately, you need a PDF file to put into your lab notebook. If you are working in the Smith RStudio Server, then you can render this file straight to PDF by changing the format at the very top (line 5) from html to pdf.
+You are all done with this activity, but you want to make sure to save all your work and put a copy of it in your OneNote lab notebook. Ultimately, you need a PDF file to put into your lab notebook. However, I have found that the formatting works best if you render to HTML first, then open that file with your browser and print to PDF from your browser.
 
-If you are working on your own computer and you haven't installed the required software and packages to render to PDF (which is a bit tricky to do sometimes), then the easiest thing to do is render to html, then open that file with your browser and print to PDF from your browser.
-
-Make sure the PDF file is saved somewhere on your computer that you can get to (you will first need to export this file to your computer if you are working on the Smith RStudio Server). Then insert the PDF of this file into your lab notebook as instructed.
+Make sure the PDF file is saved somewhere on your computer that you can get to (you will first need to export this file to your computer if you are working on the Smith Server). Then insert the PDF of this file into your lab notebook as instructed.
