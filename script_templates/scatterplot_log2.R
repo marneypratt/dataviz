@@ -1,11 +1,12 @@
 
 
 # this code will make a scatter plot with each graphed on a log-scale axis
+# since you cannot take the log of zero, add one to a continuous variable if it includes zeros
 
 ggplot(
   data = ___, #put the data frame name here                     
-  aes(x = ___, y = ___, color=___)) + #factor = x & color, continuous variable = y,
-  geom_point(size = 3) +                   #play with the point attributes as needed
+  aes(x = ___, y = ___, color=___)) + #continuous variables = X & y, factor = color
+  geom_point(size = 3, alpha=0.8) +                   #play with the point attributes as needed
   geom_smooth(method = "lm", se = FALSE) + #adds line of best fit
   ylab("___") + #put formatted label for the axis here (include units as needed)
   xlab("___") + #put formatted label for the axis here (include units as needed)

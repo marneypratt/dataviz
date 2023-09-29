@@ -5,7 +5,7 @@
 ggplot(
   data = ___, #put the data frame name here 
   aes(x = ___, y = ___, fill=___)) + #factor = x & fill, continuous variable = y, 
-  geom_violin(width=1.4) +
+  geom_violin(width=1, alpha=0.8) +
   ylab("___") + #put formatted label for the axis here (include units as needed)
   xlab("___") + #put formatted label for the axis here (include units as needed)
   theme_classic(base_size=18) +

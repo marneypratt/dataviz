@@ -7,7 +7,7 @@
 ggplot(
   data = ___, #put the data frame name here 
   aes(x = ___, y = ___, fill=___)) + #factor = x & fill, continuous variable = y,
-  geom_violin() +
+  geom_violin(width=1, alpha=0.8) +
   stat_summary(
     fun = median, fun.min = median, fun.max = median, #change median to mean if desired
     geom = "crossbar", na.rm = TRUE,
