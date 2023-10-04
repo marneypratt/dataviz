@@ -291,7 +291,7 @@ ggsave(filename="___.png",  #recommended to use.png or .jpg file types
 
 ```
 
-## Render this File to HTML then Pring to PDF
+## Render this File to HTML then Print to PDF
 
 You are all done with this activity, but you want to make sure to save all your work and put a copy of it in your OneNote lab notebook. Ultimately, you need a PDF file to put into your lab notebook. However, I have found that the formatting works best if you render to HTML first, then open that file with your browser and print to PDF from your browser.
 
