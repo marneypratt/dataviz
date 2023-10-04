@@ -16,6 +16,7 @@ It is recommended that you put all your code to load packages in one R chunk at 
 ```{r}
 #| label: setup
 #| warning: false
+#| message: false
 
 library(tidyverse)
 library(ggbeeswarm)
@@ -73,16 +74,18 @@ Paradise Pond is an impoundment in the river that slows the flow and makes it mo
 
 ## Missing Data
 
-Does your variable of interest have missing data? Run the code below to summarize the whole dataset
+Does your variable of interest have missing data? Replace the blank in the code below with the column name of your variable of interest to summarize that variable. 
+
+Make sure you spell and capitalize the variable name EXACTLY how it is in the waterQ data frame.
+
 
 ```{r}
 #| label: Summary of Data
 
-summary(waterQ)
+summary(waterQ$____) #replace the blank with the column name of your variable
 
 ```
 
-If the output is hard to read because of a smaller screen, try clicking the "Show in New Window" pop-out icon in the upper right of the output to open the output in its own window.
 
 **Question: How many NA's (=missing data) does your variable of interest have?**
 
@@ -90,7 +93,7 @@ If the output is hard to read because of a smaller screen, try clicking the "Sho
 \[Delete this text and place your answer here\]
 :::
 
-Let's remove the NA's for your variable. Run the code below making sure to replace the blank below with the name of your variable of interest (use the exact match to the column name of the variable of interest)
+Let's remove the NA's for your variable. Run the code below making sure to replace the blank below with the name of your variable of interest (again, use the exact match to the column name of the variable of interest)
 
 ```{r}
 #| label: remove NAs
@@ -119,13 +122,13 @@ Next let's calculate the descriptive statistics for your variable of interest fo
 ```{r}
 #| label: descriptive stats
 
-waterQ2 |> 
-  group_by(location) |> 
-  summarize(mean = mean(_____), 
-            median = median(_____), 
-            SD = sd(_____), 
-            IQR = IQR(_____), 
-            sample_size = n())
+waterQ2 |>                        #name of the data frame is here
+  group_by(location) |>           #name of grouping variable (=factor) is here
+  summarize(mean = mean(___),     #put the water quality variable name here
+            median = median(___), #put the water quality variable name here
+            SD = sd(___),         #put the water quality variable name here
+            IQR = IQR(___),       #put the water quality variable name here
+            n())                  #don't put anything here, leave as is
 
 ```
 
@@ -143,7 +146,7 @@ Note, you can look at the "waterQ_metadata.txt" file in the data folder and then
 
 Personally, I think it is easiest to use the standard deviation (SD) to tell us on average how much variability there is in the data.
 
-Start by rounding the standard deviation (SD) to 2 SIGNIFICANT DIGITS.
+Start by rounding the standard deviation (SD) to 2 SIGNIFICANT DIGITS. (Look above for the descriptive results you already calculated, the SD for each location is given there)
 
 **Question: Give the rounded values for SD (use 2 significant digits) for each group below:**
 
@@ -203,7 +206,7 @@ Complete the tutorial called [Intro to R for Biology: Graphing with ggplot](http
 
 Let's first use a histogram to look at the distribution of your water quality variable of interest for each group. (just note that we are graphing these histograms sideways compared to how they are typically graphed to keep things consistent with the having the water quality variable as the y-variable)
 
-The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **y-variable** (must match column name from dataframe), the **binwidth**, and the **y-label** (the nicer label that will show up on the figure). Place the name of the column of your variable of interest in the first blank, play with the binwidth to give you enough but not too many bins (something similar to the SD you got above might be a good starting place), and replace the ylab line using the following code below as needed:
+The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **y-variable** (must match column name for your water quality variable from dataframe), the **binwidth**, and the **y-label** (the nicer label that will show up on the figure). Place the name of the column of your water quality variable in the first blank, play with the binwidth to give you enough but not too many bins (something similar to the SD you got above might be a good starting place), and replace the ylab line using the following code below as needed:
 
 ```         
 ylab("Flow Rate (m/s)") +
@@ -232,7 +235,7 @@ ylab(expression(Phosphate~Concentration~(ppm~of~PO[4]^{"3-"}))) +
 
 #Histogram  
 ggplot(data = waterQ2, 
-       aes(y = __, fill=location)) + #place the variable name in the blank after y=
+       aes(y = __, fill=location)) + #y = water quality variable
   geom_histogram(binwidth = __,   #adjust the binwidth as needed
                  color = "white", show.legend = FALSE) + 
   facet_grid(location ~ .) +
@@ -288,7 +291,7 @@ ggsave(filename="___.png",  #recommended to use.png or .jpg file types
 
 ```
 
-## Render this File to PDF
+## Render this File to HTML then Pring to PDF
 
 You are all done with this activity, but you want to make sure to save all your work and put a copy of it in your OneNote lab notebook. Ultimately, you need a PDF file to put into your lab notebook. However, I have found that the formatting works best if you render to HTML first, then open that file with your browser and print to PDF from your browser.
 
