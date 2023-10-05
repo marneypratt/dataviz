@@ -2,6 +2,7 @@
 title: "Intro to Data Visualization"
 author: "Your Name Here"
 date: "October __, 2023"
+editor: visual
 format: 
   html:
     code-overflow: wrap
@@ -74,10 +75,9 @@ Paradise Pond is an impoundment in the river that slows the flow and makes it mo
 
 ## Missing Data
 
-Does your variable of interest have missing data? Replace the blank in the code below with the column name of your variable of interest to summarize that variable. 
+Does your variable of interest have missing data? Replace the blank in the code below with the column name of your variable of interest to summarize that variable.
 
 Make sure you spell and capitalize the variable name EXACTLY how it is in the waterQ data frame.
-
 
 ```{r}
 #| label: Summary of Data
@@ -85,7 +85,6 @@ Make sure you spell and capitalize the variable name EXACTLY how it is in the wa
 summary(waterQ$____) #replace the blank with the column name of your variable
 
 ```
-
 
 **Question: How many NA's (=missing data) does your variable of interest have?**
 
@@ -124,10 +123,10 @@ Next let's calculate the descriptive statistics for your variable of interest fo
 
 waterQ2 |>                        #name of the data frame is here
   group_by(location) |>           #name of grouping variable (=factor) is here
-  summarize(mean = mean(___),     #put the water quality variable name here
-            median = median(___), #put the water quality variable name here
-            SD = sd(___),         #put the water quality variable name here
-            IQR = IQR(___),       #put the water quality variable name here
+  summarize(mean = mean(___),     #water quality variable name here
+            median = median(___), #water quality variable name here
+            SD = sd(___),         #water quality variable name here
+            IQR = IQR(___),       #water quality variable name here
             n())                  #don't put anything here, leave as is
 
 ```
@@ -239,7 +238,7 @@ ggplot(data = waterQ2,
   geom_histogram(binwidth = __,   #adjust the binwidth as needed
                  color = "white", show.legend = FALSE) + 
   facet_grid(location ~ .) +
-  ylab("_____") + #replace this line with the appropriate one given above
+  ylab("_____") + #replace this line with appropriate one above
   xlab("Count") +
   coord_cartesian(expand=FALSE) +
   theme_classic(base_size=20) #this number can be decreased if labels get cut off
