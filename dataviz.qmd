@@ -1,11 +1,11 @@
 ---
 title: "Intro to Data Visualization"
 author: "Your Name Here"
-date: "October __, 2023"
-editor: visual
+date: "Feb , 2024"
 format: 
   html:
     code-overflow: wrap
+    embed-resources: true
 ---
 
 ## Load necessary packages
@@ -290,8 +290,8 @@ ggsave(filename="___.png",  #recommended to use.png or .jpg file types
 
 ```
 
-## Render this File to HTML then Print to PDF
+## Render this File to HTML
 
-You are all done with this activity, but you want to make sure to save all your work and put a copy of it in your OneNote lab notebook. Ultimately, you need a PDF file to put into your lab notebook. However, I have found that the formatting works best if you render to HTML first, then open that file with your browser and print to PDF from your browser.
+You are all done with this activity, ssave all your work and render it to an HTML file.
 
-Make sure the PDF file is saved somewhere on your computer that you can get to (you will first need to export this file to your computer if you are working on the Smith Server). Then insert the PDF of this file into your lab notebook as instructed.
+Make sure the HTML file is saved somewhere on your computer that you can get to (you will first need to export this file to your computer if you are working on the Smith Server). Then put a copy of the HTML file in your Individual Google Drive folder for this class
