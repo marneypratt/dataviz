@@ -292,6 +292,6 @@ ggsave(filename="___.png",  #recommended to use.png or .jpg file types
 
 ## Render this File to HTML
 
-You are all done with this activity, ssave all your work and render it to an HTML file.
+You are all done with this activity, save all your work and render it to an HTML file.
 
 Make sure the HTML file is saved somewhere on your computer that you can get to (you will first need to export this file to your computer if you are working on the Smith Server). Then put a copy of the HTML file in your Individual Google Drive folder for this class
