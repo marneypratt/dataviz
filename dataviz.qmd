@@ -283,15 +283,33 @@ When saving with the `ggsave()` function, you need to name the resulting file wi
 #| label: Save your graph
 #| eval: false
 
-# save the graph!
-ggsave(filename="___.png",  #recommended to use.png or .jpg file types
+# save the graph! (.png or .jpg file types are recommended)
+ggsave(filename = "datavizGraph.png",  
        height = 7, width = 8, units = "in", 
        dpi = 300)
 
 ```
 
+The above code will save the last graph you made and call it "datavizGraph.png". This file will appear in the dataviz folder under the Files tab in the lower right quadrant of this window.
+
+If you are working on the Smith server, you will first need to export this file to your computer:
+
+-   Check the box next to the "datavizGraph.png" file
+
+-   Go to the "More" menu with the gear icon and click the drop down arrow
+
+-   Select "Export" and then save the file to your computer
+
+You can now insert this graph into your Results document (see the lab notebook entry for today for more details).
+
 ## Render this File to HTML
 
-You are all done with this activity, save all your work and render it to an HTML file.
+Now that you are all done with this activity, complete the following:
 
-Make sure the HTML file is saved somewhere on your computer that you can get to (you will first need to export this file to your computer if you are working on the Smith Server). Then put a copy of the HTML file in your Individual Google Drive folder for this class
+-   Save this file and give it the name "dataviz_yourname.qmd"
+
+-   Render this Quarto file to HTML (just select the Render menu item at the top of this window)
+
+-   Make sure the HTML file is saved somewhere on your computer that you can get to (as with the graph file above, you will first need to export this file to your computer if you are working on the Smith server)
+
+-   Place a copy of the HTML file in your Individual Google Drive folder for this class
