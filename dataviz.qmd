@@ -1,12 +1,15 @@
 ---
-title: "Intro to Data Visualization"
+title: "dataviz_NAME"
+subtitle: "BIO 131 Intro to Data Visualization"
 author: "Your Name Here"
-date: "Feb , 2024"
+date: "Oct , 2024"
 format: 
   html:
     code-overflow: wrap
     embed-resources: true
 ---
+
+Before you start working, give this file a new name so it doesn't get written over if you accidentally download the GitHub repository a second time. Go to File in the menu and choose "Save as" and then give it the name "dataviz_Name.qmd" (replace "Name" with your full name)
 
 ## Load necessary packages
 
@@ -19,8 +22,10 @@ It is recommended that you put all your code to load packages in one R chunk at 
 #| warning: false
 #| message: false
 
-library(tidyverse)
-library(ggbeeswarm)
+library(tidyverse) ## for readr, dplyr, ggplot2
+library(ggbeeswarm) ## for jittering points in a dotplot
+library(flextable) ## for making formatted tables that can be pasted into Word or Google Docs
+library(ggpubr) ## for making QQ-plots
 
 ```
 
@@ -62,7 +67,7 @@ Paradise Pond is an impoundment in the river that slows the flow and makes it mo
 **Question: Look at the water quality variables and choose ONE that you want to explore today. Type below which variable you chose:**
 
 ::: {.callout-note appearance="minimal" icon="false"}
-\[Delete this text and place your answer here\]
+Delete this text and place your answer here
 :::
 
 **Question: What do you predict to see in the data comparing the upstream and downstream locations for this variable? (in other words, How do you predict Paradise Pond will affect this variable (if at all)?). Write your prediction and explain why you made that prediction below:**
@@ -70,7 +75,7 @@ Paradise Pond is an impoundment in the river that slows the flow and makes it mo
 **For help understanding the variable better and how the pond might affect it, see the [Background Information on Water Quality Measurements](https://docs.google.com/document/d/1j0aGgQS0CMSPLzv-2JTGoWulUJEeRxhiMKhggGTxysU/edit?usp=sharing)**
 
 ::: {.callout-note appearance="minimal" icon="false"}
-\[Delete this text and place your answer here\]
+Delete this text and place your answer here
 :::
 
 ## Missing Data
@@ -82,14 +87,17 @@ Make sure you spell and capitalize the variable name EXACTLY how it is in the wa
 ```{r}
 #| label: Summary of Data
 
-summary(waterQ$____) #replace the blank with the column name of your variable
+#replace the blank with the column name of your variable
+summary(waterQ$____) 
 
 ```
+
+If the output is hard to read because of a smaller screen, try clicking the "Show in New Window" pop-out icon in the upper right of the output to open the output in its own window.
 
 **Question: How many NA's (=missing data) does your variable of interest have?**
 
 ::: {.callout-note appearance="minimal" icon="false"}
-\[Delete this text and place your answer here\]
+Delete this text and place your answer here
 :::
 
 Let's remove the NA's for your variable. Run the code below making sure to replace the blank below with the name of your variable of interest (again, use the exact match to the column name of the variable of interest)
@@ -97,6 +105,7 @@ Let's remove the NA's for your variable. Run the code below making sure to repla
 ```{r}
 #| label: remove NAs
 
+#replace the blank with the column name of your variable
 waterQ2 <- waterQ |> 
   filter(!is.na(_____))
 
@@ -107,8 +116,9 @@ While this step is not strictly necessary, let's remove some of the columns we d
 ```{r}
 #| label: remove unneeded columns
 
+#replace the blank with the column name of your variable
 waterQ2 <- waterQ2 |> 
-  select(date, year, season, location, sampleID, sampling, microhabitat, quadrat, _______)
+  select(date, year, season, location, sampleID, sampling, microhabitat, quadrat, ___)
 
 ```
 
@@ -116,27 +126,52 @@ Look at the new dataset (waterQ2) in the Global Environment. The new number of o
 
 ## Descriptive Statistics
 
-Next let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data. Run the code below making sure to replace the blanks below with the name of your variable of interest. (note - do not place anything in the empty parentheses in the n(), only replace the underlined blanks for the mean, median, SD and IQR)
+Descriptive statistics are useful to understand your data including
+
+-  What is a typical value (mean, median, mode)
+-  What is the dispersion - or amount of variability (SD, IQR, Min, Max, Range)
+-  What is the sample size within each group (N)
+
+These values also are useful to know to make decisions about how to report your results. For example, the standard deviation (SD) gives the average amount of variability in the data and helps us determine how to round values appropriately. The minimum and maximum values can help you determine what the best values would be for your axis limits on a graph. 
+
+Let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data. Replace the blanks as directed in the comments then run the code below.
 
 ```{r}
 #| label: descriptive stats
 
-waterQ2 |>                        #name of the data frame is here
-  group_by(location) |>           #name of grouping variable (=factor) is here
-  summarize(mean = mean(___),     #water quality variable name here
-            median = median(___), #water quality variable name here
-            SD = sd(___),         #water quality variable name here
-            IQR = IQR(___),       #water quality variable name here
-            n())                  #don't put anything here, leave as is
+# replace the blank below with a continuous variable you want to summarize
+x.var <- "___" 
+
+
+# replace the blank with the dataframe name where you removed missing values
+___  |>  
+  # remove missing values from continuous variables
+  filter(!is.na(.data[[x.var]])) |> 
+  
+  # replace the blank with the categorical variable(s)
+  group_by(___) |> 
+  
+  # calculate the descriptive stats
+  # do not place anything in the empty parentheses in the n()
+  # N represents the sample size within each group
+  summarize(Mean = mean(.data[[x.var]]), 
+            Median = median(.data[[x.var]]), 
+            SD = sd(.data[[x.var]]), 
+            IQR = IQR(.data[[x.var]]), 
+            Min = min(.data[[x.var]]),
+            Max = max(.data[[x.var]]),
+            N = n())
 
 ```
+
+If the output is hard to read because of a smaller screen, try clicking the "Show in New Window" pop-out icon in the upper right of the output to open the output in its own window.
 
 How do we report these values? We have to round appropriately and include the correct units.
 
 **Question: What units is your variable of interest measured in? (Look at the "waterQ_metadata.txt" file in the dataviz folder and then scroll down to your variable of interest to see what units it was measured in)**
 
 ::: {.callout-note appearance="minimal" icon="false"}
-\[Delete this text and place your answer here\]
+Delete this text and place your answer here
 :::
 
 How should we round these values?
@@ -145,126 +180,201 @@ Note, you can look at the "waterQ_metadata.txt" file in the data folder and then
 
 Personally, I think it is easiest to use the standard deviation (SD) to tell us on average how much variability there is in the data.
 
-Start by rounding the standard deviation (SD) to 2 SIGNIFICANT DIGITS. (Look above for the descriptive results you already calculated, the SD for each location is given there)
+Start by rounding the standard deviation (SD) to 2 SIGNIFICANT DIGITS.
 
-**Question: Give the rounded values for SD (use 2 significant digits) for each group below:**
-
-::: {.callout-note appearance="minimal" icon="false"}
-Downstream SD:
-
-Upstream SD:
-:::
-
-To round the mean, you round it to the same DECIMAL place as the SD. Rounding the SD tells us how variable the data are and how many decimals we can report to.
-
-**Question: Give the rounded values for mean for each group below:**
-
-::: {.callout-note appearance="minimal" icon="false"}
-Downstream mean:
-
-Upstream mean:
-:::
-
-Round the median and interquartile range (IQR) the same way you did for the mean.
-
-**Question: Give the rounded values for median and IQR for each group below:**
-
-::: {.callout-note appearance="minimal" icon="false"}
-Downstream median:
-
-Downstream IQR:
-
-Upstream median:
-
-Upstream IQR:
-:::
-
-**Question: Are the values for the mean and median within each group similar or different? (compare the downstream mean to the downstream median, then compare the upstream mean to the upstream median. You have to use some judgment about what is "similar" vs "different" at this point)**
-
-::: {.callout-note appearance="minimal" icon="false"}
-\[Delete this text and place your answer here\]
-:::
-
-**Question: Can you tell at this point if the data for your variable of interest is normally distributed or not?**
-
-::: {.callout-note appearance="minimal" icon="false"}
-\[Delete this text and place your answer here\]
-:::
-
-## Data Visualization
-
-Next we are going to visualize the data. Before you do this for the Mill River water quality data, let's first get some practice by doing the "Graphing with ggplot" lesson from "Intro to R for Biology".
-
-IT IS A GOOD IDEA TO SAVE THIS .qmd FILE BEFORE YOU START THE TUTORIAL IN CASE YOU HAVE ANY PROBLEMS!!
-
-Complete the tutorial called [Intro to R for Biology: Graphing with ggplot](https://shiny.smith.edu:3838/mcpratt/r4bio/ggplot/)
-
-(remember to use the [Smith College VPN](https://www.smith.edu/its/tara/networking/vpn.html) if you are off campus to access the tutorial)
-
-### Histogram
-
-Let's first use a histogram to look at the distribution of your water quality variable of interest for each group. (just note that we are graphing these histograms sideways compared to how they are typically graphed to keep things consistent with the having the water quality variable as the y-variable)
-
-The code to make histograms for each of the water quality variables is included in the code chunk below. Notice that the only thing that you need to change is the **y-variable** (must match column name for your water quality variable from dataframe), the **binwidth**, and the **y-label** (the nicer label that will show up on the figure). Place the name of the column of your water quality variable in the first blank, play with the binwidth to give you enough but not too many bins (something similar to the SD you got above might be a good starting place), and replace the ylab line using the following code below as needed:
-
-```         
-ylab("Flow Rate (m/s)") +
-
-ylab("Dissolved Oxygen (mg/L)") +
-
-ylab(~paste("PAR"," ", "(" ,mu, "mol m"^-2,"s"^-1, ")")) +
-
-ylab("pH") +
-
-ylab("Water Temperature ("~degree~"C)") +
-
-ylab("Turbidity (NTU)") +
-
-ylab(~paste("Conductivity"," ", "(" ,mu, "S cm"^-1, ")")) +
-
-ylab("Nitrate Concentration (mg/L)") +
-
-ylab(expression(Alkalinity~(ppm~of~CaCO[3]))) +
-
-ylab(expression(Phosphate~Concentration~(ppm~of~PO[4]^{"3-"}))) +
-```
+We will use the `signif` function with digits=2 to round the SD. replace the blanks below as directed then run the code.
 
 ```{r}
-#| label: Histogram
+#| label: rounded SD
 
-#Histogram  
-ggplot(data = waterQ2, 
-       aes(y = __, fill=location)) + #y = water quality variable
-  geom_histogram(binwidth = __,   #adjust the binwidth as needed
-                 color = "white", show.legend = FALSE) + 
-  facet_grid(location ~ .) +
-  ylab("_____") + #replace this line with appropriate one above
-  xlab("Count") +
-  coord_cartesian(expand=FALSE) +
-  theme_classic(base_size=20) #this number can be decreased if labels get cut off
+# replace the blank below with a continuous variable of interest
+x.var <- "___" 
+
+
+# replace the blank with the dataframe name where you removed missing values
+___  |>   
+  # remove missing values from continuous variables
+  filter(!is.na(.data[[x.var]])) |> 
+  
+  # replace the blank with the categorical variable(s)
+  group_by(___) |> 
+  
+  # calculate the SD rounded to 2 significant digits
+  summarize(SD = signif(sd(.data[[x.var]]), digits=2))
 
 ```
+
+To round other values (mean, median, IQR, etc), round to the same DECIMAL place as the SD rounded to 2 significant figures. Rounding the SD tells us how variable the data are and how many decimals we can report to. Thus, look at what decimal place the SD was rounded to for 2 significant digits.
+
+We will use the `round` function to round our values. This is what the help file says about the `round` function
+
+"`round` rounds the values in its first argument to the specified number of decimal places (default 0). See ‘Details’ about “round to even” when rounding off a 5.
+
+Rounding to a negative number of digits means rounding to a power of ten, so for example round(x, digits = -2) rounds to the nearest hundred."
+
+Use the following for digits in the `round` function
+
+-   rounding to the tens place use digits=-1
+-   rounding to the ones place use digits=0
+-   rounding to the tenths place use digits=1
+-   rounding to the hundredths place use digits=2
+
+```{r}
+#| label: rounded descriptive stats
+
+# replace the blank below with a continuous variable you want to summarize
+x.var <- "___" 
+
+
+# replace the blank with the dataframe name where you removed missing values
+___  |>  
+  # remove missing values from continuous variables
+  filter(!is.na(.data[[x.var]])) |> 
+  
+  # replace the blank with the categorical variable(s)
+  group_by(___) |> 
+  
+  # calculate the descriptive stats
+  # replace the blanks with the number of digits 
+  # to the right of the decimal place based on the rounded SD
+  # the SD is rounded to 2 significant digits using signif  
+  # do not place anything in the empty parentheses in the n() 
+  # N represents the sample size within each group
+  summarize(Mean = round(mean(.data[[x.var]]), digits=__), 
+            SD = signif(sd(.data[[x.var]]), digits=2), 
+            Median = round(median(.data[[x.var]]), digits=__),
+            IQR = round(IQR(.data[[x.var]]), digits=__), 
+            Min = round(min(.data[[x.var]]), digits=__),
+            Max = round(max(.data[[x.var]]), digits=__),
+            N = n())
+
+```
+
+The table we have made is better now that it has rounded values, but it is rarely necessary to report ALL these values. What values should you report when? We will discuss this after we have looked at the data to determine the distribution.
+
+Here are some basic guiding principles for choosing descriptive statistics to report (keep in mind that most statisticians will tell you that you need sample sizes larger than \~30 to get a good estimate for descriptive statistics):
+
+-   Mean and SD are most appropriate when you have a large sample size and the data are reasonably normally distributed
+-   Median and IQR are useful for non-normal data with a large sample size (report the IQR as the 25th and 75th percentiles as a hyphenated range, recall that the IQR gives you the middle 50% of the data)
+-   For smaller samples, getting a good estimate of these values is more difficult. Thus, you should probably report the median and range to be safe (report the range by giving the min and max)
+-   You should always give the sample number within each group (report the N)
+
+Go to the "script_templates" folder in the files tab in the lower right window, then go to the "data_description" folder. Choose the script that will give you the code for the best choice of descriptive statistics to report given your data. Select all and copy the code in the script template. Then paste the code template below and fill in the blanks as directed in the comments.
+
+```{r}
+#| label: formatted descriptive stats table
+
+
+
+
+
+
+```
+
+**Question: Explain why you chose the descriptive statistics to report that you chose**
+
+::: {.callout-note appearance="minimal" icon="false"}
+Delete this text and place your answer here
+:::
+
+## Data Visualization & Reporting Results
+
+Next we are going to visualize the data and decide how to best report our results using tables and graphs. 
+
+::: callout-tip
+If you would like to really understand how to use ggplot for graphing, then complete the tutorial called [Intro to R for Biology: Graphing with ggplot](https://posit2.smith.edu:3939/r4bio/ggplot/)
+
+(remember to use your smith username without the @smith.edu and usual password to login, and use the [Smith College VPN](https://www.smith.edu/its/tara/networking/vpn.html) if you are off campus to access the tutorial)
+:::
+
+Before we make choices about how to best report our results using tables and graphs, it is helpful to understand the distribution of the data.
+
+### Visualizing to Test for Normal Distribution
+
+We are going to use a quantile-quantile plot (Q-Q plot) to visually determine if the distribution of your water quality variable of interest for each group is normal.
+
+Replace the blanks as indicated by the comments and run the code below.
+
+```{r}
+#| label: QQ plot
+
+ggpubr::ggqqplot(
+  data = ___,    #put the data frame name here 
+  "___",         #put the continuous variable name here
+  facet.by = "___")  #put the categorical variable here
+
+```
+
+If the data are normally distributed, then the points will generally follow the line and won't go outside the grey 95% confidence intervals.
+
+If you would like to know more about what Q-Q plots are, see [QQ Plot: Uses, Benefits & Interpreting](https://statisticsbyjim.com/graphs/qq-plot/).
 
 **Question: Does the distribution for each location look like a normal distribution?**
 
 ::: {.callout-note appearance="minimal" icon="false"}
-\[Delete this text and place your answer here\]
+Delete this text and place your answer here
+:::
+
+## Reporting Results
+
+Now that we know whether or not the data are normally distributed (using the Q-Q plot), and we know the sample size of our data (from the full descriptive statistics), we can make some decisions about how to report the results.
+
+### Reporting Descriptive Statistics
+
+There are times when just a graph is sufficient to summarize our data, and reporting the descriptive statistics values is not necessary. But there may also be cases where you want to report values of particular descriptive statistics in a nicely formatted table with rounded values.
+
+Here are some basic guiding principles for choosing descriptive statistics to report (keep in mind that most statisticians will tell you that you need sample sizes within groups larger than around 30 to get a good estimate for descriptive statistics):
+
+-   Mean and SD are most appropriate when you have a large enough sample size and the data are reasonably normally distributed
+-   Median and IQR are useful for non-normal data with a large enough sample size (report the IQR as the 25th and 75th percentiles as a hyphenated range)
+-   For smaller samples, getting a good estimate of these values is more difficult. Thus, you should probably report the median and range to be safe (report the range by giving the min and max)
+-   You should always give the sample number within each group (report the N)
+
+For more information on expectations for this class, see [Reporting Descriptive Statistics](https://docs.google.com/document/d/16tpGHgfl_s3R6m2__G2aCfzoKLH_2KJ1K5cvh_WaEGk/edit?usp=sharing).
+
+Based on the information you have gotten so far in terms of sample size and distribution, decide what descriptive statistics should be reported for your variable of interest.
+
+Go to the "script_templates" folder in the files tab in the lower right window, then go to the "data_description" folder. Choose the script that will give you the code for the best choice of descriptive statistics to report given your data. Select all and copy the code in the script template. Then paste the code template below and fill in the blanks as directed in the comments.
+
+```{r}
+#| label: formatted descriptive stats table
+
+
+
+
+
+```
+
+**Question: Explain why you chose the descriptive statistics to report that you chose**
+
+::: {.callout-note appearance="minimal" icon="false"}
+Delete this text and place your answer here
 :::
 
 ### Choosing the Best Graph
 
+Next we are going to visualize the data and decide how to best graph our results.
+
+::: callout-tip
+If you would like to understand how to use ggplot for graphing in some depth, then complete the tutorial called [Intro to R for Biology: Graphing with ggplot](https://posit2.smith.edu:3939/r4bio/ggplot/)
+
+(remember to use your smith username without the @smith.edu and usual password to login, and use the [Smith College VPN](https://www.smith.edu/its/tara/networking/vpn.html) if you are off campus to access the tutorial)
+:::
+
 In the final activity for this assignment, you will make a graph that shows the water quality variable you chose for both locations. Think about what type of variables each is (what type of variable is the water quality variable? what type of variable is location?), and then which one should be the dependent variable (on the y-axis) and which should be the independent variable (on the x-axis). We want to know what effect the independent variable has on the dependent variable.
 
-Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean and/or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) or show all the points. Take a look at this link to remind you of some of the best practices in [choosing a graph type](https://docs.google.com/presentation/d/1qSSHUw_SIXtrRFIxIqa4IfHOwUJetSD9qi6GUC7GsoE/edit?usp=sharing).
+Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean and/or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) and/or show all the points. Take a look at this link to remind you of some of the best practices in [choosing a graph type](https://docs.google.com/presentation/d/1qSSHUw_SIXtrRFIxIqa4IfHOwUJetSD9qi6GUC7GsoE/edit?usp=sharing).
 
-Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced), or by writing what the sample size is in the figure legend below the graph (you will write the figure legend in a Google Doc). Recall that you had R calculate descriptive statistics including the sample size for each group above.
+Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced), by writing what the sample size is in the figure legend below the graph (you will write the figure legend in a Google Doc), or include a table of descriptive statistics that includes the sample size. 
 
-I have created a bunch of scripts with a template you can fill in the blanks for to make your own version of what you think is the best graphing option. Open the "script_templates" folder and look through the script files for the code you want to try. Copy the code of the graph type you think would be best and paste the code in the code chunk below (feel free to try several before you decide which one is best).
+Open the "script_templates" folder and look through the script files for the code you want to try. Copy the code of the graph type you think would be best and paste the code in the code chunk below (feel free to try several before you decide which one is best). Replace the blanks in the code as indicated by the surrounding comments.
 
 Tweak the script template code so that it works with your water quality variable of interest. Feel free to play around to see what happens when you remove or change things in the code.
 
 ```{r}
 #| label: best graph
+
+
 
 
 
@@ -277,14 +387,14 @@ How do you save a copy of your graph to use elsewhere?
 
 The simplest thing to do is probably just right-click (Windows) or control-click (Mac) on the graph and select "Copy Image" and then just paste the image where you want it. However, if you want a higher quality image where you can specify the size, image quality, and file type you can use the `ggsave()` function.
 
-When saving with the `ggsave()` function, you need to name the resulting file with surrounding " ", and indicate the size via height, width, and units. Don't forget to save the graph with a dpi call between 300-500 to make it nice and crisp! Look at the `ggsave()` help file for more information and options.
+When saving with the `ggsave()` function, you need to name the resulting file with surrounding " ", and indicate the size via height, width, and units. Don't forget to save the graph with a dpi call between 300-500 to make it nice and crisp! Look at the `ggsave()` help file for more information and options. 
 
 ```{r}
 #| label: Save your graph
 #| eval: false
 
-# save the graph! (.png or .jpg file types are recommended)
-ggsave(filename = "datavizGraph.png",  
+# save the graph!
+ggsave(filename="datavizGraph.png",  #recommended to use.png or .jpg file types
        height = 7, width = 8, units = "in", 
        dpi = 300)
 
@@ -302,18 +412,24 @@ If you are working on the Smith server, you will first need to export this file 
 
 You can now insert this graph into your Results document (see the lab notebook entry for today for more details).
 
+
+
 ## Render this File to HTML & Print to PDF
 
-Now that you are all done with this activity, complete the following:
+You are now all done with this activity, but you want to make sure to save all your work and put a copy of it in your Individual Google Drive folder for this class (along side your lab notebook). Ultimately, you need a PDF file to put into your lab notebook. 
 
--   Save this file and give it the name "dataviz_yourname.qmd"
+-   Before you Render
+
+    -   Make sure that each code chunk has an unique label name or no name
+
+    -   Save this file (make sure this file is named "dataviz_YourName.qmd" (replace "YourName" with your full name)
 
 -   Render this Quarto file to HTML (just select the Render menu item at the top of this window)
 
--   If the HTML file didn't already open in your browser, then click on the name of the file in the Files window and select "View in Web Browser"
+-   If the HTML file didn't already open in your browser (if it tries to block the pop-up, just tell it to allow it to open), then click on the name of the file in the Files window and select "View in Web Browser"
 
--   Once the HTML file is open in your web browser, then use the print function within your browser to save it as a PDF
+-   Once the HTML file is open in your web browser, then use the print function within your browser to save it as a PDF. Please name your PDF file "dataviz_YourName.pdf" (replace "YourName" with your full name)
 
--   Make sure the PDF file is saved somewhere on your computer that you can get to (as with the graph file above, you will first need to export this file to your computer if you are working on the Smith server)
+-   Make sure the PDF file is saved somewhere on your computer that you can get to (as with the graph file above, you may need to export this file to your computer if you are working on the Smith server)
 
--   Place a copy of the PDF file in your Individual Google Drive folder for this class
+-   Place a copy of the PDF file in your INDIVIDUAL Google Drive folder for this class
