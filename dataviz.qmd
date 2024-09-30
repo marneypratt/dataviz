@@ -381,6 +381,13 @@ Tweak the script template code so that it works with your water quality variable
 
 ```
 
+
+**Question: Explain why you chose the graph that you chose**
+
+::: {.callout-note appearance="minimal" icon="false"}
+Delete this text and place your answer here
+:::
+
 ## Exporting your best graph
 
 How do you save a copy of your graph to use elsewhere?
