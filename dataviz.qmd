@@ -252,30 +252,6 @@ ___  |>
 
 The table we have made is better now that it has rounded values, but it is rarely necessary to report ALL these values. What values should you report when? We will discuss this after we have looked at the data to determine the distribution.
 
-Here are some basic guiding principles for choosing descriptive statistics to report (keep in mind that most statisticians will tell you that you need sample sizes larger than \~30 to get a good estimate for descriptive statistics):
-
--   Mean and SD are most appropriate when you have a large sample size and the data are reasonably normally distributed
--   Median and IQR are useful for non-normal data with a large sample size (report the IQR as the 25th and 75th percentiles as a hyphenated range, recall that the IQR gives you the middle 50% of the data)
--   For smaller samples, getting a good estimate of these values is more difficult. Thus, you should probably report the median and range to be safe (report the range by giving the min and max)
--   You should always give the sample number within each group (report the N)
-
-Go to the "script_templates" folder in the files tab in the lower right window, then go to the "data_description" folder. Choose the script that will give you the code for the best choice of descriptive statistics to report given your data. Select all and copy the code in the script template. Then paste the code template below and fill in the blanks as directed in the comments.
-
-```{r}
-#| label: formatted descriptive stats table
-
-
-
-
-
-
-```
-
-**Question: Explain why you chose the descriptive statistics to report that you chose**
-
-::: {.callout-note appearance="minimal" icon="false"}
-Delete this text and place your answer here
-:::
 
 ## Data Visualization & Reporting Results
 
