@@ -17,6 +17,8 @@ df.sum <- ___  |>
   summarize(Mean = mean(.data[[x.var]]), 
             Median = median(.data[[x.var]]), 
             SD = sd(.data[[x.var]]), 
+            Q1 = quantile(.data[[x.var]], .25),
+            Q3 = quantile(.data[[x.var]], .75),
             IQR = IQR(.data[[x.var]]), 
             Min = min(.data[[x.var]]),
             Max = max(.data[[x.var]]),
