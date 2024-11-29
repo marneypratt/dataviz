@@ -128,11 +128,11 @@ Look at the new dataset (waterQ2) in the Global Environment. The new number of o
 
 Descriptive statistics are useful to understand your data including
 
--  What is a typical value (mean, median, mode)
--  What is the dispersion - or amount of variability (SD, IQR, Min, Max, Range)
--  What is the sample size within each group (N)
+-   What is a typical value (mean, median, mode)
+-   What is the dispersion - or amount of variability (SD, IQR, Min, Max, Range)
+-   What is the sample size within each group (N)
 
-These values also are useful to know to make decisions about how to report your results. For example, the standard deviation (SD) gives the average amount of variability in the data and helps us determine how to round values appropriately. The minimum and maximum values can help you determine what the best values would be for your axis limits on a graph. 
+These values also are useful to know to make decisions about how to report your results. For example, the standard deviation (SD) gives the average amount of variability in the data and helps us determine how to round values appropriately. The minimum and maximum values can help you determine what the best values would be for your axis limits on a graph.
 
 Let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data. Replace the blanks as directed in the comments then run the code below.
 
@@ -252,10 +252,9 @@ ___  |>
 
 The table we have made is better now that it has rounded values, but it is rarely necessary to report ALL these values. What values should you report when? We will discuss this after we have looked at the data to determine the distribution.
 
-
 ## Data Visualization & Reporting Results
 
-Next we are going to visualize the data and decide how to best report our results using tables and graphs. 
+Next we are going to visualize the data and decide how to best report our results using tables and graphs.
 
 ::: callout-tip
 If you would like to really understand how to use ggplot for graphing, then complete the tutorial called [Intro to R for Biology: Graphing with ggplot](https://posit2.smith.edu:3939/r4bio/ggplot/)
@@ -298,7 +297,7 @@ There are times when just a graph is sufficient to summarize our data, and repor
 Here are some basic guiding principles for choosing descriptive statistics to report (keep in mind that most statisticians will tell you that you need sample sizes within groups larger than around 30 to get a good estimate for descriptive statistics):
 
 -   Mean and SD are most appropriate when you have a large enough sample size and the data are reasonably normally distributed
--   Median and IQR or range are useful for non-normal data with a large enough sample size. Journals often require reporting the IQR as the 25th (Q1) and 75th (Q3) percentiles as a hyphenated range rather than the value of the difference. Similarly, the range should be reported the hyphenated range between the min and max values. 
+-   Median and IQR or range are useful for non-normal data with a large enough sample size. Journals often require reporting the IQR as the 25th (Q1) and 75th (Q3) percentiles as a hyphenated range rather than the value of the difference. Similarly, the range should be reported the hyphenated range between the min and max values.
 -   For smaller samples, getting a good estimate of these values is more difficult. Thus, you should probably report the median and range to be safe (report as the hyphenated range between the min and max values)
 -   You should always give the sample number within each group (report the N)
 
@@ -306,18 +305,15 @@ For more information on expectations for this class, see [Reporting Descriptive 
 
 Based on the information you have gotten so far in terms of sample size and distribution, decide what descriptive statistics should be reported for your variable of interest.
 
-
 **Question: What descriptive statistics would be useful to report? Explain your reasoning.**
 
 ::: {.callout-note appearance="minimal" icon="false"}
 Delete this text and place your answer here
 :::
 
-
-#### Optional Formatted Table 
+#### Optional Formatted Table
 
 If you want a nicely formatted table using the `flextable` package, you can add a code chunk below and then find the appropriate code by going to the "script_templates" folder in the files tab in the lower right window, then go to the "data_description" and select "formatted_tables". Choose the script that will give you the code for the best choice of descriptive statistics to report given your data. Select all and copy the code in the script template. Then paste the code template below and fill in the blanks as directed in the comments.
-
 
 ### Choosing the Best Graph
 
@@ -333,7 +329,7 @@ In this section, you will make a graph that shows the water quality variable you
 
 Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean and/or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) and/or show all the points. Take a look at this link to remind you of some of the best practices in [choosing a graph type](https://docs.google.com/presentation/d/1qSSHUw_SIXtrRFIxIqa4IfHOwUJetSD9qi6GUC7GsoE/edit?usp=sharing).
 
-Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced), by writing what the sample size is in the figure legend below the graph (you will write the figure legend in a Google Doc), or include a table of descriptive statistics that includes the sample size. 
+Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced), by writing what the sample size is in the figure legend below the graph (you will write the figure legend in a Google Doc), or include a table of descriptive statistics that includes the sample size.
 
 Open the "script_templates" folder and look through the script files for the code you want to try. Copy the code of the graph type you think would be best and paste the code in the code chunk below (feel free to try several before you decide which one is best). Replace the blanks in the code as indicated by the surrounding comments.
 
@@ -349,7 +345,6 @@ Tweak the script template code so that it works with your water quality variable
 
 ```
 
-
 **Question: Explain why you chose the graph that you chose**
 
 ::: {.callout-note appearance="minimal" icon="false"}
@@ -362,7 +357,7 @@ How do you save a copy of your graph to use elsewhere?
 
 The simplest thing to do is probably just right-click (Windows) or control-click (Mac) on the graph and select "Copy Image" and then just paste the image where you want it. However, if you want a higher quality image where you can specify the size, image quality, and file type you can use the `ggsave()` function.
 
-When saving with the `ggsave()` function, you need to name the resulting file with surrounding " ", and indicate the size via height, width, and units. Don't forget to save the graph with a dpi call between 300-500 to make it nice and crisp! Look at the `ggsave()` help file for more information and options. 
+When saving with the `ggsave()` function, you need to name the resulting file with surrounding " ", and indicate the size via height, width, and units. Don't forget to save the graph with a dpi call between 300-500 to make it nice and crisp! Look at the `ggsave()` help file for more information and options.
 
 ```{r}
 #| label: Save your graph
@@ -389,27 +384,27 @@ If you are working on the Smith server, you will first need to export this file 
 
 You can now insert this graph into your Results document (see the lab notebook entry for today for more details).
 
-## Inference
+## Inference - Effect Size
 
 How do we know if there is a difference for this water quality variable between the upstream and downstream locations? We use inferential statistics to help us determine whether a sample can help tell us about the full population and make comparisons. In this case, we want to compare between two groups (upstream vs downstream).
 
-You will learn much more about inferential statistics in a full statistics course. In this class, we are just going to discuss effect sizes. An effect size tells us how big the difference is between groups while usually taking into account the variability as well.
+You will learn much more about inferential statistics in a full statistics course. In this class, we are just going to discuss effect sizes. An effect size tells us how big the difference is between groups while taking into account the variability as well.
 
-To choose the right effect size, you need to take the distribution and variance into account. Look back at your QQ plot and see if the data is normally distributed or not. Look at your descriptive statistics and graph to see if the dispersion (SD, IQR, range, etc) looks similar or not.
+To choose the right effect size, you need to take the distribution and variance into account. Look back at your QQ plot and see if the data is normally distributed or not. Look at your descriptive statistics and graph to see if the dispersion (SD, IQR, range, etc) looks similar or not between the two locations.
 
-### Normal Distribution, Equal Variance
+**Normal Distribution, Equal Variance**
 
 If the data is normal, and the two groups have similar dispersion (i.e. similar variance), then you should use "regular" **Cohen's d effect size** (see **Cohen’s d for Student t-test** on the [T-test Effect Size using Cohen's d Measure](https://www.datanovia.com/en/lessons/t-test-effect-size-using-cohens-d-measure/) webpage for more detailed information)
 
-
-### Normal Distribution, Unequal Variance
+**Normal Distribution, Unequal Variance**
 
 If the data is normal, but the two groups have unequal dispersion (i.e. unequal variance), then you should use the **Cohen's d for Welch test effect size** (see **Cohen’s d for Welch test** on the [T-test Effect Size using Cohen's d Measure](https://www.datanovia.com/en/lessons/t-test-effect-size-using-cohens-d-measure/) webpage for more detailed information)
 
-
-### Non-normal Distribution
+**Non-normal Distribution**
 
 If the data is NOT normal, then you should use the **Wilcoxon effect size** (see **Effect size** under **Wilcoxon rank sum test** on the [Wilcoxon Test in R](https://www.datanovia.com/en/lessons/wilcoxon-test-in-r/#effect-size-1) webpage for more detailed information)
+
+Choose the correct effect size test for your data and then copy and paste the corresponding code from the "inference" subfolder in the "script_templates" folder and paste it below.
 
 ```{r}
 #| label: effect size
@@ -418,11 +413,23 @@ If the data is NOT normal, then you should use the **Wilcoxon effect size** (see
 
 ```
 
+Write the following down in your lab notebook so you will have it all to include in your Results:
 
+-   what type of effect size you calculated (Cohen's d, Cohen's d for unequal variance, or Wilcoxon effect size)
+
+-   effect size (labeled **effsize** in the results table)
+
+-   95% confidence interval (labeled **conf.low** & **conf.high**)
+
+-   magnitude of the effect (labeled **magnitude**)
+
+-   sample size for each location (labeled **n1** & **n2** - make sure you also note which location is group1 and which is group2 so you know which sample size goes with which location)
+
+The effect size is standardized by the amount of variation in the data (the exact equation depends on which effect size you use). The interpretation of the standardized effect size is included in the magnitude column - negligible, small, moderate, or large. This will help you determine if the difference between means or medians is meaningful or not. The 95% confidence intervals will also help you interpret how accurately the effect size was estimated.
 
 ## Render this File to HTML & Print to PDF
 
-You are now all done with this activity, but you want to make sure to save all your work and put a copy of it in your Individual Google Drive folder for this class (along side your lab notebook). Ultimately, you need a PDF file to put into your lab notebook. 
+You are now all done with this activity, but you want to make sure to save all your work and put a copy of it in your Individual Google Drive folder for this class (along side your lab notebook). Ultimately, you need a PDF file to put into your lab notebook.
 
 -   Before you Render
 
