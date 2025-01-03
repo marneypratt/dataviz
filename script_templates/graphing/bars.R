@@ -15,7 +15,7 @@ df.sum <- ___ |>      #put the data frame name here
 
 
 #make bar graph
-ggplot(
+bar.plot <- ggplot(
   data=df.sum, 
   aes(x=___,y=mean))+    #put the factor here
   geom_bar(stat="identity",  width = 0.5, fill = "steelblue")+
@@ -25,7 +25,7 @@ ggplot(
   coord_cartesian(xlim = c(0.5,2.5), expand=FALSE) +
   theme_classic(base_size=16) +
   theme(legend.position="none")
-
+bar.plot
 
 #see the resources below for some additional options to make a nice plot 
 # https://www.datanovia.com/en/lessons/ggplot-barplot/

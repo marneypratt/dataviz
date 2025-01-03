@@ -24,9 +24,7 @@ mixed.plot <- ___ |>   #put the data frame name here
   theme_classic(base_size=16) +
   theme(legend.position="none")
 
-ggpubr::ggpar(mixed.plot, palette = c("#EE7733", "#0077BB"))
-#choose another colorblind friendly set of colors if you want
-#try QUALITATIVE COLOUR SCHEMES from https://personal.sron.nl/~pault/
+mixed.plot
 
 #see the resources below for some additional options to make a nice plot 
 # https://www.datanovia.com/en/lessons/ggplot-violin-plot/

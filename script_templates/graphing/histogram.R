@@ -3,7 +3,7 @@
 # play with the binwidth to give you enough but not too many bins 
 # (something similar to the SD can be a good starting place for the binwidth)
 
-ggplot(
+hist.plot <- ggplot(
   data = ___, #put the data frame name here 
   aes(x = ___, fill=___)) + #continuous variable = x, factor = fill
   geom_histogram(binwidth = __, #change the binwidth as needed
@@ -12,6 +12,8 @@ ggplot(
   xlab("___") + #put formatted label for the axis here (include units as needed)
   ylab("Count") +
   theme_classic(base_size=18) 
+
+hist.plot
 
 #see the resources below for some additional options to make a nice plot 
 # https://www.datanovia.com/en/lessons/ggplot-histogram/

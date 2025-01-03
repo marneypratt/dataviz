@@ -4,7 +4,7 @@
 library(ggdist)
 library(gghalves)
 
-ggplot(
+rain.plot <- ggplot(
   data = ___, #put the data frame name here
   aes(x=___, y=____,  fill = ___)) + #factor = x & fill, continuous variable = y, 
   ggdist::stat_halfeye(
@@ -18,5 +18,7 @@ ggplot(
   theme_classic(base_size=16)  +
   theme(legend.position="none") + #remove this if you want a legend to show
   coord_flip()
+
+rain.plot
 
 # see https://www.cedricscherer.com/2021/06/06/visualizing-distributions-with-raincloud-plots-and-how-to-create-them-with-ggplot2/

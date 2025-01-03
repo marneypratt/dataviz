@@ -2,7 +2,7 @@
 # this code will make a violin plot with boxplots inside
 
 
-ggplot(
+mixed.plot <- ggplot(
   data = ___, #put the data frame name here 
   aes(x = ___, y = ___, fill=___)) + #factor = x & fill, continuous variable = y, 
   geom_violin(width=1, alpha=0.8) + 
@@ -11,6 +11,8 @@ ggplot(
   xlab("___") + #put formatted label for the axis here (include units as needed)
   theme_classic(base_size=18) +
   theme(legend.position="none") # remove this line if you DO want a legend/key
+
+mixed.plot
 
 #see the resources below for some additional options to make a nice plot 
 # https://www.datanovia.com/en/lessons/ggplot-violin-plot/

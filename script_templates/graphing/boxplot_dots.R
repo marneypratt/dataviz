@@ -4,7 +4,7 @@
 # alternatively, you can use geom_jitter() instead
 
 
-ggplot(
+box.dot.plot <- ggplot(
   data = ___, #put the data frame name here 
   aes(x = ___, y = ___, fill = ___)) + #factor = x and fill, continuous variable = y
   geom_boxplot(width=0.1, color="black", alpha=0.8, 
@@ -17,6 +17,8 @@ ggplot(
   coord_cartesian(expand=TRUE) +
   theme_classic(base_size=16)  +
   theme(legend.position="none") # remove this line if you DO want a legend/key
+
+box.dot.plot 
 
 #see the resources below for some additional options to make a nice plot 
 # https://www.datanovia.com/en/lessons/ggplot-boxplot/

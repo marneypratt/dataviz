@@ -11,7 +11,7 @@ sample_size = ___  |>  #put the data frame name here
 
 
 #dotplot with box plots and sample sizes
-___ |>   #put the data frame name here
+box.dot.plot <- ___ |>   #put the data frame name here
   left_join(sample_size, by="___") |> #put the factor variable name here
   mutate(myaxis = paste0(___, "\n", "n=", num)) |>  #put the factor variable name here
   
@@ -25,6 +25,8 @@ ___ |>   #put the data frame name here
   coord_cartesian(expand=TRUE) +
   theme_classic(base_size=16)  + #change the number here to change font size
   theme(legend.position="none") #remove this line if you DO want a legend/key
+
+box.dot.plot
 
 #see the resources below for some additional options to make a nice plot 
 # https://www.datanovia.com/en/lessons/ggplot-boxplot/

@@ -2,7 +2,7 @@
 # this code will make a scatter plot 
 # if you do not want a line of best fit, then delete the geom_smooth() line
 
-ggplot(
+scatter.plot <- ggplot(
   data = ___, #put the data frame name here
   aes(x = ___, y = ___, color=___)) + #continuous variables = X & y, factor = color
   geom_point(size = 3, alpha=0.8) +                   #play with the point attributes as needed
@@ -11,6 +11,8 @@ ggplot(
   xlab("___") + #put formatted label for the axis here (include units as needed)
   labs(color = "___") +
   theme_classic(base_size = 18)
+
+scatter.plot
 
 #see the resources below for some additional options to make a nice scatter plot 
 # https://www.datanovia.com/en/lessons/ggplot-scatter-plot/
