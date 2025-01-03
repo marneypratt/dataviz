@@ -4,9 +4,9 @@
 # replace the blank below with a continuous variable you want to summarize
 x.var <- "___" 
 
-
 # replace the blank below with the name of the dataframe
-df.sum <- ___  |>  
+df.sum <- ___  |> 
+  
   # remove missing values from continuous variables
   filter(!is.na(.data[[x.var]])) |> 
   
@@ -14,14 +14,14 @@ df.sum <- ___  |>
   group_by(___) |> 
   
   # calculate the descriptive stats
-  summarize(Mean = mean(.data[[x.var]]), 
-            Median = median(.data[[x.var]]), 
-            SD = sd(.data[[x.var]]), 
-            Q1 = quantile(.data[[x.var]], .25),
-            Q3 = quantile(.data[[x.var]], .75),
-            IQR = IQR(.data[[x.var]]), 
-            Min = min(.data[[x.var]]),
-            Max = max(.data[[x.var]]),
-            Sample.size = n())
+  # do not place anything in the empty parentheses in the n()
+  summarize(Sample.size = n(),
+            Min = min(.data[[dep.var]]),
+            Q1 = quantile(.data[[dep.var]], .25),
+            Median = median(.data[[dep.var]]),
+            Q3 = quantile(.data[[dep.var]], .75),
+            Max = max(.data[[dep.var]]),
+            Mean = mean(.data[[dep.var]]),              
+            SD = sd(.data[[dep.var]]))
 
 df.sum

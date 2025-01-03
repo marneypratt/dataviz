@@ -1,8 +1,6 @@
 # to use this code, the following packages must be loaded
 # tidyverse
 # flextable
-
-
 #see https://davidgohel.github.io/flextable/ for more info & formatting options
 
 #We will use the `round` function to round our values. This is what the help file says about the `round` function
@@ -23,8 +21,9 @@
 #set the number of digits to round to based on the rules above
 round.digit <- ___
 
-# replace the blank below with a continuous variable you want to summarize
+# replace the blank below with a continuous variable of interest
 x.var <- "___" 
+
 
 #calculate descriptive stats
 #replace the blank below with the name of the dataframe
@@ -37,10 +36,17 @@ df.sum <- ___ |>
   filter(!is.na(.data[[x.var]])) |> 
   
   # calculate the descriptive stats
+  # replace the blanks with the number of digits 
+  # to the right of the decimal place based on the rounded SD
   # do not place anything in the empty parentheses in the n() 
-  summarise(Mean = round(mean(.data[[dep.var]]), digits=round.digit), 
-            SD = signif(sd(.data[[x.var]]), digits=2),
-            N = n())
+  # N represents the sample size within each group
+  summarise(Median = round(median(.data[[x.var]]), digits=__),
+            min = round(min(.data[[x.var]]), digits=__),
+            max = round(max(.data[[x.var]]), digits=__),
+            N = n()) |> 
+  mutate(Range = paste(min, max, sep = "-")) |> 
+  dplyr::select(-min, -max) |> 
+  relocate(N, .after = last_col())
 
 #create the formatted table
 ft <- flextable(df.sum,
@@ -49,8 +55,9 @@ ft <- flextable(df.sum,
   #bold the headings
   bold(part = "header") |> 
   
-  #center columns
-  align(align = "center", part = "all" )
+  #center columns & autofit
+  align(align = "center", part = "all" ) |> 
+  set_table_properties(layout = "autofit")
 
 #print the table
 #right click on the table, choose select all, 
