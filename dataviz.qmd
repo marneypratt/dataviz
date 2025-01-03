@@ -24,7 +24,6 @@ It is recommended that you put all your code to load packages in one R chunk at 
 
 library(tidyverse) ## for readr, dplyr, ggplot2
 library(ggbeeswarm) ## for jittering points in a dotplot
-library(flextable) ## for making formatted tables that can be pasted into Word or Google Docs
 library(ggpubr) ## for making QQ-plots
 
 ```
@@ -36,7 +35,7 @@ Run the code below to import the water quality data
 ```{r}
 #| label: import data
 
-waterQ <- read_csv("waterQ.csv",
+waterQ <- read_csv("data/waterQ.csv",
           col_types = cols(
             date = col_date(format = "%Y-%m-%d"), 
             year = col_factor(),
@@ -48,13 +47,13 @@ waterQ <- read_csv("waterQ.csv",
                   "USR", "UFR", "UM", "USH", "USU"))
                             ))
 
+metadata <- read_csv("data/waterQ_variable_metadata.csv")
+
 ```
 
-Use the skills you learned in the "Getting Data into R" tutorial to look at the structure of the dataframe that was just imported.
+To look at the structure of the dataframe that was just imported, click on the name of the dataframe (in this case waterQ) in the Global Environment as a shortcut to using the View() function, and click on the blue arrow next to the dataframe in the Global Environment to see all the variable names and types.
 
-I personally usually click on the name of the dataframe in the Global Environment as a shortcut to using the View() function, and click on the blue arrow next to the dataframe in the Global Environment to see all the variable names and types
-
-Also click on the Files tab and click on the file called "waterQ_metadata.txt" to see a full description of the data including how to cite the data, what each variable represents, and how measurements were made using what tools.
+A metadata file was also imported that gives some brief information about the variables. A text file called "waterQ_metadata.txt" has a more full description of the data including how to cite the data, what each variable represents, and how measurements were made using what tools.
 
 ## How does Paradise Pond affect water quality in the Mill River?
 
@@ -118,23 +117,28 @@ While this step is not strictly necessary, let's remove some of the columns we d
 
 #replace the blank with the column name of your variable
 waterQ2 <- waterQ2 |> 
-  select(date, year, season, location, sampleID, sampling, microhabitat, quadrat, ___)
+  select(date, year, location, ___)
 
 ```
 
-Look at the new dataset (waterQ2) in the Global Environment. The new number of observations should be the original number minus the number of NA's. The number of variables (=columns) should be 9.
+Look at the new dataset (waterQ2) in the Global Environment. The new number of observations should be the original number minus the number of NA's. The number of variables (=columns) should be 4.
 
 ## Descriptive Statistics
 
 Descriptive statistics are useful to understand your data including
 
--   What is a typical value (mean, median, mode)
--   What is the dispersion - or amount of variability (SD, IQR, Min, Max, Range)
+-   What is the measure of central tendancy - or typical value (mean, median, mode)
+-   What is the dispersion - or amount of variability (SD, IQR (Q1-Q3), Range (min-max))
 -   What is the sample size within each group (N)
 
 These values also are useful to know to make decisions about how to report your results. For example, the standard deviation (SD) gives the average amount of variability in the data and helps us determine how to round values appropriately. The minimum and maximum values can help you determine what the best values would be for your axis limits on a graph.
 
-Let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data. Replace the blanks as directed in the comments then run the code below.
+Note that when reporting a range (such as the full range or the interquartile range), the best practice is to give the lower and upper value of that range rather than the difference. For example, you would give the min - max for the range such as: "The pH had a larger range upstream of Paradise Pond (7.1 - 8.3) than it did downstream (7.0 - 7.7)." Thus, we will calculate the min, max, first quartile (Q1), and third quartile (Q3) rather than the range and the interquartile range values. Report the full range as min - max, and the interquartile range as Q1 - Q3.
+
+Let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data grouped by location. Replace the blanks as directed in the comments then run the code below. 
+
+Note that we are defining the continuous variable once as x.var and then using .data[[x.var]] to put that variable in each function so we don't have to type the variable name a bunch of times. 
+
 
 ```{r}
 #| label: descriptive stats
@@ -142,25 +146,22 @@ Let's calculate the descriptive statistics for your variable of interest for the
 # replace the blank below with a continuous variable you want to summarize
 x.var <- "___" 
 
-
 # replace the blank with the dataframe name where you removed missing values
 ___  |>  
-  # remove missing values from continuous variables
-  filter(!is.na(.data[[x.var]])) |> 
-  
+
   # replace the blank with the categorical variable(s)
   group_by(___) |> 
   
   # calculate the descriptive stats
   # do not place anything in the empty parentheses in the n()
-  # N represents the sample size within each group
-  summarize(Mean = mean(.data[[x.var]]), 
-            Median = median(.data[[x.var]]), 
-            SD = sd(.data[[x.var]]), 
-            IQR = IQR(.data[[x.var]]), 
-            Min = min(.data[[x.var]]),
-            Max = max(.data[[x.var]]),
-            N = n())
+  summarize(Sample.size = n(),
+            Min = min(.data[[dep.var]]),
+            Q1 = quantile(.data[[dep.var]], .25),
+            Median = median(.data[[dep.var]]),
+            Q3 = quantile(.data[[dep.var]], .75),
+            Max = max(.data[[dep.var]]),
+            Mean = mean(.data[[dep.var]]),              
+            SD = sd(.data[[dep.var]]))
 
 ```
 
@@ -193,8 +194,6 @@ x.var <- "___"
 
 # replace the blank with the dataframe name where you removed missing values
 ___  |>   
-  # remove missing values from continuous variables
-  filter(!is.na(.data[[x.var]])) |> 
   
   # replace the blank with the categorical variable(s)
   group_by(___) |> 
@@ -204,7 +203,7 @@ ___  |>
 
 ```
 
-To round other values (mean, median, IQR, etc), round to the same DECIMAL place as the SD rounded to 2 significant figures. Rounding the SD tells us how variable the data are and how many decimals we can report to. Thus, look at what decimal place the SD was rounded to for 2 significant digits.
+To round other values (mean, median, quartiles, etc), round to the same DECIMAL place as the SD rounded to 2 significant figures. Rounding the SD tells us how variable the data are and how many decimals we can report to. Thus, look at what decimal place the SD was rounded to for 2 significant digits.
 
 We will use the `round` function to round our values. This is what the help file says about the `round` function
 
@@ -222,31 +221,28 @@ Use the following for digits in the `round` function
 ```{r}
 #| label: rounded descriptive stats
 
-# replace the blank below with a continuous variable you want to summarize
-x.var <- "___" 
+#set the number of digits to round to based on the rules above
+round.digit <- ___
 
+# replace the blank below with a continuous variable of interest
+x.var <- "___" 
 
 # replace the blank with the dataframe name where you removed missing values
 ___  |>  
-  # remove missing values from continuous variables
-  filter(!is.na(.data[[x.var]])) |> 
-  
+
   # replace the blank with the categorical variable(s)
   group_by(___) |> 
   
   # calculate the descriptive stats
-  # replace the blanks with the number of digits 
-  # to the right of the decimal place based on the rounded SD
-  # the SD is rounded to 2 significant digits using signif  
   # do not place anything in the empty parentheses in the n() 
-  # N represents the sample size within each group
-  summarize(Mean = round(mean(.data[[x.var]]), digits=__), 
-            SD = signif(sd(.data[[x.var]]), digits=2), 
-            Median = round(median(.data[[x.var]]), digits=__),
-            IQR = round(IQR(.data[[x.var]]), digits=__), 
-            Min = round(min(.data[[x.var]]), digits=__),
-            Max = round(max(.data[[x.var]]), digits=__),
-            N = n())
+  summarize(Sample.size = n(),
+            Min = round(min(.data[[dep.var]]), digits=round.digit),
+            Q1 = round(quantile(.data[[dep.var]], .25), digits=round.digit),
+            Median = round(median(.data[[dep.var]]), digits=round.digit),
+            Q3 = round(quantile(.data[[dep.var]], .75), digits=round.digit),
+            Max = round(max(.data[[dep.var]]), digits=round.digit),
+            Mean = round(mean(.data[[dep.var]]), digits=round.digit),              
+            SD = signif(sd(.data[[dep.var]]), digits=2))
 
 ```
 
@@ -292,12 +288,12 @@ Delete this text and place your answer here
 
 ### Reporting Descriptive Statistics
 
-There are times when just a graph is sufficient to summarize our data, and reporting the descriptive statistics values is not necessary. But there may also be cases where you want to report values of particular descriptive statistics in a nicely formatted table with rounded values.
+There are times when just a graph is sufficient to summarize our data, and reporting the descriptive statistics values is not necessary. But there may also be cases where you want to report values of particular descriptive statistics (making sure we round appropriately). If we have enough values, we may want to report them in a nicely formatted table.
 
 Here are some basic guiding principles for choosing descriptive statistics to report (keep in mind that most statisticians will tell you that you need sample sizes within groups larger than around 30 to get a good estimate for descriptive statistics):
 
 -   Mean and SD are most appropriate when you have a large enough sample size and the data are reasonably normally distributed
--   Median and IQR or range are useful for non-normal data with a large enough sample size. Journals often require reporting the IQR as the 25th (Q1) and 75th (Q3) percentiles as a hyphenated range rather than the value of the difference. Similarly, the range should be reported the hyphenated range between the min and max values.
+-   Median and IQR or range are useful for non-normal data with a large enough sample size. Journals often require reporting the IQR as the 25th (Q1) and 75th (Q3) percentiles as a hyphenated range rather than the value of the difference. Similarly, the range should be reported as the hyphenated range between the min and max values.
 -   For smaller samples, getting a good estimate of these values is more difficult. Thus, you should probably report the median and range to be safe (report as the hyphenated range between the min and max values)
 -   You should always give the sample number within each group (report the N)
 
@@ -315,6 +311,10 @@ Delete this text and place your answer here
 
 If you want a nicely formatted table using the `flextable` package, you can add a code chunk below and then find the appropriate code by going to the "script_templates" folder in the files tab in the lower right window, then go to the "data_description" and select "formatted_tables". Choose the script that will give you the code for the best choice of descriptive statistics to report given your data. Select all and copy the code in the script template. Then paste the code template below and fill in the blanks as directed in the comments.
 
+
+
+
+
 ### Choosing the Best Graph
 
 Next we are going to visualize the data and decide how to best graph our results.
@@ -327,9 +327,9 @@ If you would like to understand how to use ggplot for graphing in some depth, th
 
 In this section, you will make a graph that shows the water quality variable you chose for both locations. Think about what type of variables each is (what type of variable is the water quality variable? what type of variable is location?), and then which one should be the dependent variable (on the y-axis) and which should be the independent variable (on the x-axis)? We want to know what effect the independent variable has on the dependent variable.
 
-Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean and/or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) and/or show all the points. Take a look at this link to remind you of some of the best practices in [choosing a graph type](https://docs.google.com/presentation/d/1qSSHUw_SIXtrRFIxIqa4IfHOwUJetSD9qi6GUC7GsoE/edit?usp=sharing).
+Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) and/or show all the points. Take a look at this link to remind you of some of the best practices in [choosing a graph type](https://docs.google.com/presentation/d/1qSSHUw_SIXtrRFIxIqa4IfHOwUJetSD9qi6GUC7GsoE/edit?usp=sharing).
 
-Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced), by writing what the sample size is in the figure legend below the graph (you will write the figure legend in a Google Doc), or include a table of descriptive statistics that includes the sample size.
+Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced) or by writing what the sample size is in the figure legend below the graph (you will write the figure legend in a Google Doc).
 
 Open the "script_templates" folder and look through the script files for the code you want to try. Copy the code of the graph type you think would be best and paste the code in the code chunk below (feel free to try several before you decide which one is best). Replace the blanks in the code as indicated by the surrounding comments.
 
@@ -344,6 +344,23 @@ Tweak the script template code so that it works with your water quality variable
 
 
 ```
+
+
+```{r}
+#| label: best graph with accessibile colors
+
+#put the object name of your plot in the blank below
+best.plot <- ggpar(___, palette = c("#EE7733", "#0077BB"))
+best.plot
+
+#choose another colorblind friendly set of colors if you want
+#try other colors from https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40
+#or https://cambiocteach.com/accessibility/colourchoice/
+
+
+```
+
+
 
 **Question: Explain why you chose the graph that you chose**
 
@@ -365,7 +382,7 @@ When saving with the `ggsave()` function, you need to name the resulting file wi
 
 # save the graph!
 ggsave(filename="results/datavizGraph.png",  #recommended to use.png or .jpg file types
-       plot = ___,   #put the object name of your plot here
+       plot = best.plot,   #put the object name of your plot here
        height = 7, width = 8, units = "in", 
        dpi = 300,
        create.dir = TRUE)
@@ -382,50 +399,8 @@ If you are working on the Smith server, you will first need to export this file 
 
 -   Select "Export" and then save the file to your computer
 
-You can now insert this graph into your Results document (see the lab notebook entry for today for more details).
+You can now insert this graph into your Water Quality Results document (see the lab notebook entry for today for more details).
 
-## Inference - Effect Size
-
-How do we know if there is a difference for this water quality variable between the upstream and downstream locations? We use inferential statistics to help us determine whether a sample can help tell us about the full population and make comparisons. In this case, we want to compare between two groups (upstream vs downstream).
-
-You will learn much more about inferential statistics in a full statistics course. In this class, we are just going to discuss effect sizes. An effect size tells us how big the difference is between groups while taking into account the variability as well.
-
-To choose the right effect size, you need to take the distribution and variance into account. Look back at your QQ plot and see if the data is normally distributed or not. Look at your descriptive statistics and graph to see if the dispersion (SD, IQR, range, etc) looks similar or not between the two locations.
-
-**Normal Distribution, Equal Variance**
-
-If the data is normal, and the two groups have similar dispersion (i.e. similar variance), then you should use "regular" **Cohen's d effect size** (see **Cohen’s d for Student t-test** on the [T-test Effect Size using Cohen's d Measure](https://www.datanovia.com/en/lessons/t-test-effect-size-using-cohens-d-measure/) webpage for more detailed information)
-
-**Normal Distribution, Unequal Variance**
-
-If the data is normal, but the two groups have unequal dispersion (i.e. unequal variance), then you should use the **Cohen's d for Welch test effect size** (see **Cohen’s d for Welch test** on the [T-test Effect Size using Cohen's d Measure](https://www.datanovia.com/en/lessons/t-test-effect-size-using-cohens-d-measure/) webpage for more detailed information)
-
-**Non-normal Distribution**
-
-If the data is NOT normal, then you should use the **Wilcoxon effect size** (see **Effect size** under **Wilcoxon rank sum test** on the [Wilcoxon Test in R](https://www.datanovia.com/en/lessons/wilcoxon-test-in-r/#effect-size-1) webpage for more detailed information)
-
-Choose the correct effect size test for your data and then copy and paste the corresponding code from the "inference" subfolder in the "script_templates" folder and paste it below.
-
-```{r}
-#| label: effect size
-
-
-
-```
-
-Write the following down in your lab notebook so you will have it all to include in your Results:
-
--   what type of effect size you calculated (Cohen's d, Cohen's d for unequal variance, or Wilcoxon effect size)
-
--   effect size (labeled **effsize** in the results table)
-
--   95% confidence interval (labeled **conf.low** & **conf.high**)
-
--   magnitude of the effect (labeled **magnitude**)
-
--   sample size for each location (labeled **n1** & **n2** - make sure you also note which location is group1 and which is group2 so you know which sample size goes with which location)
-
-The effect size is standardized by the amount of variation in the data (the exact equation depends on which effect size you use). The interpretation of the standardized effect size is included in the magnitude column - negligible, small, moderate, or large. This will help you determine if the difference between means or medians is meaningful or not. The 95% confidence intervals will also help you interpret how accurately the effect size was estimated.
 
 ## Render this File to HTML & Print to PDF
 

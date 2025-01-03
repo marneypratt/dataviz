@@ -9,8 +9,8 @@ sample_size = ___ |>  #put the data frame name here
   summarize (num=n()) #don't change anything here
 
 
-#violin plot with box plots and sample sizes
-___ |>   #put the data frame name here
+#violin with box plots, dot plot, and sample sizes
+mixed.plot <- ___ |>   #put the data frame name here
   left_join(sample_size, by="___") |> #put the factor variable name here
   mutate(myaxis = paste0(___, "\n", "n=", num)) |>  #put the factor variable name here
   
@@ -23,6 +23,10 @@ ___ |>   #put the data frame name here
   xlab("___") + #put formatted label for the axis here (include units as needed)
   theme_classic(base_size=16) +
   theme(legend.position="none")
+
+ggpubr::ggpar(mixed.plot, palette = c("#EE7733", "#0077BB"))
+#choose another colorblind friendly set of colors if you want
+#try QUALITATIVE COLOUR SCHEMES from https://personal.sron.nl/~pault/
 
 #see the resources below for some additional options to make a nice plot 
 # https://www.datanovia.com/en/lessons/ggplot-violin-plot/
