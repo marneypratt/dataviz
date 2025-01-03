@@ -1,6 +1,9 @@
 # to use this code, the following packages must be loaded
 # tidyverse
 # flextable
+
+library(flextable) ## for making formatted tables that can be pasted into Word or Google Docs
+
 #see https://davidgohel.github.io/flextable/ for more info & formatting options
 
 #We will use the `round` function to round our values. This is what the help file says about the `round` function

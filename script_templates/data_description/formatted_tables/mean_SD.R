@@ -2,6 +2,7 @@
 # tidyverse
 # flextable
 
+library(flextable) ## for making formatted tables that can be pasted into Word or Google Docs
 
 #see https://davidgohel.github.io/flextable/ for more info & formatting options
 
