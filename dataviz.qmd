@@ -345,12 +345,16 @@ Tweak the script template code so that it works with your water quality variable
 
 ```
 
+Once you have the type of plot you think would be best, we will use the `ggpar()` function from the `ggpub` package to change the color palatte to something that is more color-blind friendly.
+
+Replace the blank below with the object name of your best plot. Feel free to replace the hex codes with other color-blind friendly color options.
+
 
 ```{r}
 #| label: best graph with accessibile colors
 
 #put the object name of your plot in the blank below
-best.plot <- ggpar(___, palette = c("#EE7733", "#0077BB"))
+best.plot <- ggpubr::ggpar(___, palette = c("#EE7733", "#0077BB"))
 best.plot
 
 #choose another colorblind friendly set of colors if you want
