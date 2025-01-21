@@ -137,14 +137,14 @@ Note that when reporting a range (such as the full range or the interquartile ra
 
 Let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data grouped by location. Replace the blanks as directed in the comments then run the code below. 
 
-Note that we are defining the continuous variable once as x.var and then using .data[[x.var]] to put that variable in each function so we don't have to type the variable name a bunch of times. 
+Note that we are defining the continuous dependent variable once as dep.var and then using .data[[dep.var]] to put that variable in each function so we don't have to type the variable name a bunch of times. 
 
 
 ```{r}
 #| label: descriptive stats
 
 # replace the blank below with a continuous variable you want to summarize
-x.var <- "___" 
+dep.var <- "___" 
 
 # replace the blank with the dataframe name where you removed missing values
 ___  |>  
@@ -169,7 +169,7 @@ If the output is hard to read because of a smaller screen, try clicking the "Sho
 
 How do we report these values? We have to round appropriately and include the correct units.
 
-**Question: What units is your variable of interest measured in? (Look at the "waterQ_metadata.txt" file in the dataviz folder and then scroll down to your variable of interest to see what units it was measured in)**
+**Question: What units is your variable of interest measured in? (Look at the metadata file in your Environment to see what units your variable was measured in)**
 
 ::: {.callout-note appearance="minimal" icon="false"}
 Delete this text and place your answer here
@@ -177,9 +177,9 @@ Delete this text and place your answer here
 
 How should we round these values?
 
-Note, you can look at the "waterQ_metadata.txt" file in the data folder and then scroll down to your variable of interest to see that level of accuracy the variable was measured to. You can usually go one digit to the right beyond the level of accuracy (because that next digit is the estimated digit) at most. Note that it is okay to be a little more conservative and round more, you just don't want to give the impression that you have more accuracy than you do by giving too many digits.
+You can use the accuracy of the tool to determine how to round your value. Look at the "waterQ_metadata.txt" file in the data folder and then scroll down to your variable of interest to see that level of accuracy the variable was measured to. You can usually go one digit to the right beyond the level of accuracy (because that next digit is the estimated digit) at most. Note that it is okay to be a little more conservative and round more, you just don't want to give the impression that you have more accuracy than you do by giving too many digits.
 
-Personally, I think it is easiest to use the standard deviation (SD) to tell us on average how much variability there is in the data.
+Personally, I think it is easier to use the standard deviation (SD) to tell us on average how much variability there is in the data.
 
 Start by rounding the standard deviation (SD) to 2 SIGNIFICANT DIGITS.
 
@@ -189,7 +189,7 @@ We will use the `signif` function with digits=2 to round the SD. replace the bla
 #| label: rounded SD
 
 # replace the blank below with a continuous variable of interest
-x.var <- "___" 
+dep.var <- "___" 
 
 
 # replace the blank with the dataframe name where you removed missing values
@@ -199,7 +199,7 @@ ___  |>
   group_by(___) |> 
   
   # calculate the SD rounded to 2 significant digits
-  summarize(SD = signif(sd(.data[[x.var]]), digits=2))
+  summarize(SD = signif(sd(.data[[dep.var]]), digits=2))
 
 ```
 
@@ -221,11 +221,11 @@ Use the following for digits in the `round` function
 ```{r}
 #| label: rounded descriptive stats
 
-#set the number of digits to round to based on the rules above
+#set the number of digits to round to based on the rules above (this blank should be just a number)
 round.digit <- ___
 
 # replace the blank below with a continuous variable of interest
-x.var <- "___" 
+dep.var <- "___" 
 
 # replace the blank with the dataframe name where you removed missing values
 ___  |>  
@@ -251,12 +251,6 @@ The table we have made is better now that it has rounded values, but it is rarel
 ## Data Visualization & Reporting Results
 
 Next we are going to visualize the data and decide how to best report our results using tables and graphs.
-
-::: callout-tip
-If you would like to really understand how to use ggplot for graphing, then complete the tutorial called [Intro to R for Biology: Graphing with ggplot](https://posit2.smith.edu:3939/r4bio/ggplot/)
-
-(remember to use your smith username without the @smith.edu and usual password to login, and use the [Smith College VPN](https://www.smith.edu/its/tara/networking/vpn.html) if you are off campus to access the tutorial)
-:::
 
 Before we make choices about how to best report our results using tables and graphs, it is helpful to understand the distribution of the data.
 
