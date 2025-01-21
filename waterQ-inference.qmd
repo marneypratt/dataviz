@@ -34,7 +34,7 @@ Run the code below to import the water quality data
 ```{r}
 #| label: import data
 
-waterQ <- read_csv("waterQ.csv",
+waterQ <- read_csv("data/waterQ.csv",
           col_types = cols(
             date = col_date(format = "%Y-%m-%d"), 
             year = col_factor(),
@@ -45,6 +45,8 @@ waterQ <- read_csv("waterQ.csv",
                 c("DSR", "DFR", "DM", "DSH", "DSP",
                   "USR", "UFR", "UM", "USH", "USU"))
                             ))
+
+metadata <- read_csv("data/waterQ_variable_metadata.csv")
 
 #replace the blanks with the column name of your variable
 waterQ2 <- waterQ |> 
