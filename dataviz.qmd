@@ -2,7 +2,7 @@
 title: "dataviz_NAME"
 subtitle: "BIO 131 Intro to Data Visualization"
 author: "Your Name Here"
-date: "Oct , 2024"
+date: "Feb , 2025"
 format: 
   html:
     code-overflow: wrap
@@ -12,6 +12,12 @@ format:
 Before you start working, give this file a new name so it doesn't get written over if you accidentally download the GitHub repository a second time. Go to File in the menu and choose "Save as" and then give it the name "dataviz_Name.qmd" (replace "Name" with your full name)
 
 ## Load necessary packages
+
+Base R includes the basics of the R coding language, no frills graphing, and basic statistics (among other things). However, people can write additional packages that contain functions that help you do additional tasks. For example, the ggplot2 package includes flexible and powerful graphing capabilities. To use these additional packages, we need to download and install them on our system (like downloading an app on your phone), but then to actually use them during a session you have to load that package (like opening an app on your phone).
+
+If you are working on the Smith server, the packages have been downloaded and installed for you. If you are working on your own desktop version of R and R Studio, you will need to download and install the following packages: tidyverse, ggbeeswarm, ggpubr. If you don't know how to install packages or you run into any problems installing any of them, then I recommend using the server instead.
+
+Everyone will need to load the packages we need for today's activity.
 
 Run the code below at the start of the session to make sure all the necessary packages are loaded.
 
@@ -53,7 +59,7 @@ metadata <- read_csv("data/waterQ_variable_metadata.csv")
 
 To look at the structure of the dataframe that was just imported, click on the name of the dataframe (in this case waterQ) in the Global Environment as a shortcut to using the View() function, and click on the blue arrow next to the dataframe in the Global Environment to see all the variable names and types.
 
-A metadata file was also imported that gives some brief information about the variables. A text file called "waterQ_metadata.txt" has a more full description of the data including how to cite the data, what each variable represents, and how measurements were made using what tools.
+A metadata file was also imported that gives some brief information about the variables. A text file called "waterQ_metadata.txt" in the "data" folder has a more full description of the data including how to cite the data, what each variable represents, and how measurements were made using what tools.
 
 ## How does Paradise Pond affect water quality in the Mill River?
 
@@ -135,10 +141,9 @@ These values also are useful to know to make decisions about how to report your 
 
 Note that when reporting a range (such as the full range or the interquartile range), the best practice is to give the lower and upper value of that range rather than the difference. For example, you would give the min - max for the range such as: "The pH had a larger range upstream of Paradise Pond (7.1 - 8.3) than it did downstream (7.0 - 7.7)." Thus, we will calculate the min, max, first quartile (Q1), and third quartile (Q3) rather than the range and the interquartile range values. Report the full range as min - max, and the interquartile range as Q1 - Q3.
 
-Let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data grouped by location. Replace the blanks as directed in the comments then run the code below. 
+Let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data grouped by location. Replace the blanks as directed in the comments then run the code below.
 
-Note that we are defining the continuous dependent variable once as dep.var and then using .data[[dep.var]] to put that variable in each function so we don't have to type the variable name a bunch of times. 
-
+Note that we are defining the continuous dependent variable once as dep.var and then using .data\[\[dep.var\]\] to put that variable in each function so we don't have to type the variable name a bunch of times.
 
 ```{r}
 #| label: descriptive stats
@@ -301,23 +306,9 @@ Based on the information you have gotten so far in terms of sample size and dist
 Delete this text and place your answer here
 :::
 
-#### Optional Formatted Table
-
-If you want a nicely formatted table using the `flextable` package, you can add a code chunk below and then find the appropriate code by going to the "script_templates" folder in the files tab in the lower right window, then go to the "data_description" and select "formatted_tables". Choose the script that will give you the code for the best choice of descriptive statistics to report given your data. Select all and copy the code in the script template. Then paste the code template below and fill in the blanks as directed in the comments.
-
-
-
-
-
 ### Choosing the Best Graph
 
 Next we are going to visualize the data and decide how to best graph our results.
-
-::: callout-tip
-If you would like to understand how to use ggplot for graphing in some depth, then complete the tutorial called [Intro to R for Biology: Graphing with ggplot](https://posit2.smith.edu:3939/r4bio/ggplot/)
-
-(remember to use your smith username without the @smith.edu and usual password to login, and use the [Smith College VPN](https://www.smith.edu/its/tara/networking/vpn.html) if you are off campus to access the tutorial)
-:::
 
 In this section, you will make a graph that shows the water quality variable you chose for both locations. Think about what type of variables each is (what type of variable is the water quality variable? what type of variable is location?), and then which one should be the dependent variable (on the y-axis) and which should be the independent variable (on the x-axis)? We want to know what effect the independent variable has on the dependent variable.
 
@@ -339,10 +330,11 @@ Tweak the script template code so that it works with your water quality variable
 
 ```
 
-Once you have the type of plot you think would be best, we will use the `ggpar()` function from the `ggpub` package to change the color palatte to something that is more color-blind friendly.
+Once you have the type of plot you think would be best, we will use the `ggpar()` function from the `ggpub` package to change the color palette to something that is more color-blind friendly.
 
-Replace the blank below with the object name of your best plot. Feel free to replace the hex codes with other color-blind friendly color options.
+Replace the blank below with the object name of your best plot. The object name is what is written to the left of the arrow (\<-) and as it is used here it is the name given to the graph you made so you can call it up again.
 
+Feel free to replace the hex codes with other color-blind friendly color options.
 
 ```{r}
 #| label: best graph with accessibile colors
@@ -357,8 +349,6 @@ best.plot
 
 
 ```
-
-
 
 **Question: Explain why you chose the graph that you chose**
 
@@ -378,8 +368,9 @@ When saving with the `ggsave()` function, you need to name the resulting file wi
 #| label: Save your graph
 #| eval: false
 
-# save the graph!
-ggsave(filename="results/datavizGraph.png",  #recommended to use.png or .jpg file types
+# save the graph
+# recommended to use.png or .jpg file types
+ggsave(filename = "results/datavizGraph.png",  
        plot = best.plot,   #put the object name of your plot here
        height = 7, width = 8, units = "in", 
        dpi = 300,
@@ -397,8 +388,7 @@ If you are working on the Smith server, you will first need to export this file 
 
 -   Select "Export" and then save the file to your computer
 
-You can now insert this graph into your Water Quality Results document (see the lab notebook entry for today for more details).
-
+Start a Google Doc in your individual folder using this [Water Quality Results template](https://docs.google.com/document/d/1cWRy8rzVOKFaR-qUs82a2Cqhnaal9HESh89ldyviGYI/edit?usp=sharing), and insert your graph into this document (see the lab notebook entry for today for more details).
 
 ## Render this File to HTML & Print to PDF
 
