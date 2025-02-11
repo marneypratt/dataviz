@@ -2,7 +2,7 @@
 title: "dataviz_NAME"
 subtitle: "BIO 131 Intro to Data Visualization"
 author: "Your Name Here"
-date: "Oct , 2024"
+date: "Feb , 2025"
 format: 
   html:
     code-overflow: wrap
@@ -12,6 +12,12 @@ format:
 Before you start working, give this file a new name so it doesn't get written over if you accidentally download the GitHub repository a second time. Go to File in the menu and choose "Save as" and then give it the name "dataviz_Name.qmd" (replace "Name" with your full name)
 
 ## Load necessary packages
+
+Base R includes the basics of the R coding language, no frills graphing, and basic statistics (among other things). However, people can write additional packages that contain functions that help you do additional tasks. For example, the ggplot2 package includes flexible and powerful graphing capabilities. To use these additional packages, we need to download and install them on our system (like downloading an app on your phone), but then to actually use them during a session you have to load that package (like opening an app on your phone).
+
+If you are working on the Smith server, the packages have been downloaded and installed for you. If you are working on your own desktop version of R and R Studio, you will need to download and install the following packages: tidyverse, ggbeeswarm, ggpubr. If you don't know how to install packages or you run into any problems installing any of them, then I recommend using the server instead.
+
+Everyone will need to load the packages we need for today's activity.
 
 Run the code below at the start of the session to make sure all the necessary packages are loaded.
 
