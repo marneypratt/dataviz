@@ -11,6 +11,8 @@ format:
 
 Before you start working, give this file a new name so it doesn't get written over if you accidentally download the GitHub repository a second time. Go to File in the menu and choose "Save as" and then give it the name "dataviz_Name.qmd" (replace "Name" with your full name)
 
+# Getting Set Up
+
 ## Load Packages
 
 Base R includes the basics of the R coding language, no frills graphing, and basic statistics (among other things). However, people can write additional packages that contain functions that help you do additional tasks. For example, the ggplot2 package includes flexible and powerful graphing capabilities. To use these additional packages, we need to download and install them on our system (like downloading an app on your phone), but then to actually use them during a session you have to load that package (like opening an app on your phone).
@@ -34,7 +36,7 @@ library(ggpubr) ## for making QQ-plots
 
 ```
 
-## Import the Water Quality Data
+## Import Data
 
 Run the code below to import the water quality data
 
@@ -61,7 +63,9 @@ To look at the structure of the data frame that was just imported, click on the 
 
 A metadata file was also imported that gives some brief information about the variables. A text file called "waterQ_metadata.txt" in the "data" folder has a more full description of the data including how to cite the data, what each variable represents, and how measurements were made using what tools.
 
-## How does Paradise Pond affect water quality in the Mill River?
+## Choose Your Variable
+
+### **How does Paradise Pond affect water quality in the Mill River?**
 
 We can use this dataset to look at differences in the water quality upstream versus downstream of Paradise Pond to test for possible effects of the pond on water quality in the Mill River.
 
@@ -83,7 +87,7 @@ Delete this text and place your answer here
 Delete this text and place your answer here
 :::
 
-## Missing Data
+## Data Cleaning
 
 Does your variable of interest have missing data? Replace the blank in the code below with the column name of your variable of interest to summarize that variable.
 
@@ -138,8 +142,10 @@ Cleaned data frame name (with missing values removed):
 
 Column name for the continuous variable:
 
-Column name for the categorical variable:
+Column name for the categorical variable (also called a factor):
 :::
+
+# Data Exploration
 
 ## Descriptive Statistics
 
@@ -151,11 +157,9 @@ Descriptive statistics are useful to understand your data including
 
 These values also are useful to know to make decisions about how to report your results. For example, the standard deviation (SD) gives the average amount of variability in the data and helps us determine how to round values appropriately. The minimum and maximum values can help you determine what the best values would be for your axis limits on a graph.
 
-Note that when reporting a range (such as the full range or the interquartile range), the best practice is to give the lower and upper value of that range rather than the difference. For example, you would give the min - max for the range such as: "The pH had a larger range upstream of Paradise Pond (7.1 - 8.3) than it did downstream (7.0 - 7.7)." Thus, we will calculate the min, max, first quartile (Q1), and third quartile (Q3) rather than the range and the interquartile range values. Report the full range as min - max, and the interquartile range as Q1 - Q3.
-
 Let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data grouped by location. Replace the blanks as directed in the comments then run the code below.
 
-Note that we are defining the continuous dependent variable once as dep.var and then using `.data[[dep.var]]` to put that variable in each function so we don't have to type the variable name a bunch of times.
+Note that we are defining the continuous dependent variable once as `dep.var` and then using `.data[[dep.var]]` to put that variable in each function so we don't have to type the variable name a bunch of times.
 
 ```{r}
 #| label: descriptive stats
@@ -194,13 +198,13 @@ Delete this text and place your answer here
 
 How should we round these values?
 
-You can use the accuracy of the tool to determine how to round your value. Look at the "waterQ_metadata.txt" file in the data folder and then scroll down to your variable of interest to see that level of accuracy the variable was measured to. You can usually go one digit to the right beyond the level of accuracy (because that next digit is the estimated digit) at most. Note that it is okay to be a little more conservative and round more, you just don't want to give the impression that you have more accuracy than you do by giving too many digits.
+You can use the accuracy of the tool to determine how to round your value. The accuracy for each variable is included in the "waterQ_metadata.txt" file in the data folder (scroll down to your variable of interest to see that level of accuracy the variable was measured to). You can usually go one digit to the right beyond the level of accuracy (because that next digit is the estimated digit) at most. Note that it is okay to be a little more conservative and round more, you just don't want to give the impression that you have more accuracy than you do by giving too many digits.
 
 Personally, I think it is easier to use the standard deviation (SD) to tell us on average how much variability there is in the data.
 
 Start by rounding the standard deviation (SD) to 2 SIGNIFICANT DIGITS.
 
-We will use the `signif` function with digits=2 to round the SD. replace the blanks below as directed then run the code.
+We will use the `signif` function with `digits=2` to round the SD to 2 significant digits. replace the blanks below as directed then run the code.
 
 ```{r}
 #| label: rounded SD
@@ -265,13 +269,9 @@ ___  |>
 
 The table we have made is better now that it has rounded values, but it is rarely necessary to report ALL these values. What values should you report when? We will discuss this after we have looked at the data to determine the distribution.
 
-## Data Visualization & Reporting Results
+## Test for Normal Distribution
 
-Next we are going to visualize the data and decide how to best report our results using tables and graphs.
-
-Before we make choices about how to best report our results using tables and graphs, it is helpful to understand the distribution of the data.
-
-### Visualizing to Test for Normal Distribution
+Before we make choices about how to best analyze and report our results using tables and graphs, it is helpful to understand the distribution of the data.
 
 We are going to use a quantile-quantile plot (Q-Q plot) to visually determine if the distribution of your water quality variable of interest for each group is normal.
 
@@ -298,7 +298,7 @@ If you would like to know more about what Q-Q plots are, see [The Q-Q Plot: What
 Delete this text and place your answer here
 :::
 
-### Reporting Descriptive Statistics
+## Reporting Descriptive Statistics
 
 There are times when just a graph is sufficient to summarize our data, and reporting the descriptive statistics values is not necessary. But there may also be cases where you want to report values of particular descriptive statistics (making sure we round appropriately). If we have enough values, we may want to report them in a nicely formatted table.
 
@@ -318,6 +318,8 @@ Based on the information you have gotten so far in terms of sample size and dist
 ::: {.callout-note appearance="minimal" icon="false"}
 Delete this text and place your answer here
 :::
+
+# Data Visualization
 
 ### Choosing the Best Graph
 
@@ -347,21 +349,24 @@ Once you have the type of plot you think would be best, we will use the `ggpar()
 
 Replace the blank below with the object name of your best plot. The object name is what is written to the left of the arrow (\<-) and as it is used here it is the name given to the graph you made so you can call it up again.
 
-Feel free to replace the hex codes with other color-blind friendly color options.
-
 ```{r}
-#| label: best graph with accessibile colors
+#| label: best graph with accessible colors
 
 #put the object name of your plot in the blank below
 best.plot <- ggpubr::ggpar(___, palette = c("#EE7733", "#0077BB"))
 best.plot
 
-#choose another colorblind friendly set of colors if you want
-#try other colors from https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40
-#or https://cambiocteach.com/accessibility/colourchoice/
-
-
 ```
+
+Feel free to replace the hex codes above with other color-blind friendly color options.
+
+::: {.callout-note appearance="minimal"}
+## Colorblind Friendly Colors
+
+-   [Coloring for Colorblindness](https://davidmathlogic.com/colorblind/#%23D81B60-%231E88E5-%23FFC107-%23004D40)
+
+-   [Colour Blindness & Colour Choices](https://cambiocteach.com/accessibility/colourchoice/)
+:::
 
 **Question: Explain why you chose the graph that you chose**
 
@@ -386,8 +391,7 @@ When saving with the `ggsave()` function, you need to name the resulting file wi
 ggsave(filename = "results/datavizGraph.png",  
        plot = best.plot,   #put the object name of your plot here
        height = 7, width = 8, units = "in", 
-       dpi = 300,
-       create.dir = TRUE)
+       dpi = 300)
 
 ```
 
@@ -401,11 +405,23 @@ If you are working on the Smith server, you will first need to export this file 
 
 -   Select "Export" and then save the file to your computer
 
-Start a Google Doc in your individual folder using this [Water Quality Results template](https://docs.google.com/document/d/1cWRy8rzVOKFaR-qUs82a2Cqhnaal9HESh89ldyviGYI/edit?usp=sharing), and insert your graph into this document (see the lab notebook entry for today for more details).
+## Write Up Your Results
+
+After you have your relevant, rounded descriptive statistics and best graph, you are ready to write your results.
+
+-   Start a Google Doc in your individual folder using this [Water Quality Results template](https://docs.google.com/document/d/1cWRy8rzVOKFaR-qUs82a2Cqhnaal9HESh89ldyviGYI/edit?usp=sharing), and insert your graph into this document (see the lab notebook entry for today for more details).
+
+-   Make sure to name your Google Doc file: **Bio131_WaterQResults_Name** (example: Bio131_WaterQResults_MarneyPratt) and store it in your individual Google Drive folder for this class
+
+-   Use the [Water Quality Results Expectations & Example](https://docs.google.com/document/d/1vwyOSmhZzTuIfAEbpeiv3yCsU1UMZDsTXgnbE80nPTU/edit?usp=sharing) to help you write your results
+
+# Finishing Up
+
+It is a crucial part of scientific record keeping to keep a complete record of your data analysis process and include it in your lab notebook. We can save a copy of everything we did here in this Quarto document by rendering it and ultimately saving it as a PDF. Unfortunately, we can't insert a PDF into your lab notebook Google Doc, but you will put the PDF in the same folder as your lab notebook.
 
 ## Render this File to HTML & Print to PDF
 
-You are now all done with this activity, but you want to make sure to save all your work and put a copy of it in your Individual Google Drive folder for this class (along side your lab notebook). Ultimately, you need a PDF file to put into your lab notebook.
+Rendering is a way to translate a Quarto document into another file type. Right now, rendering Quarto documents to HTML first works best. Then we will "print" that HTML file to PDF.
 
 -   Before you Render
 
