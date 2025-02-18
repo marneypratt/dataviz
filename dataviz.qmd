@@ -11,7 +11,7 @@ format:
 
 Before you start working, give this file a new name so it doesn't get written over if you accidentally download the GitHub repository a second time. Go to File in the menu and choose "Save as" and then give it the name "dataviz_Name.qmd" (replace "Name" with your full name)
 
-## Load necessary packages
+## Load Packages
 
 Base R includes the basics of the R coding language, no frills graphing, and basic statistics (among other things). However, people can write additional packages that contain functions that help you do additional tasks. For example, the ggplot2 package includes flexible and powerful graphing capabilities. To use these additional packages, we need to download and install them on our system (like downloading an app on your phone), but then to actually use them during a session you have to load that package (like opening an app on your phone).
 
@@ -57,15 +57,15 @@ metadata <- read_csv("data/waterQ_variable_metadata.csv")
 
 ```
 
-To look at the structure of the dataframe that was just imported, click on the name of the dataframe (in this case waterQ) in the Global Environment as a shortcut to using the View() function, and click on the blue arrow next to the dataframe in the Global Environment to see all the variable names and types.
+To look at the structure of the data frame that was just imported, click on the object name (=name of the data frame, in this case waterQ) in the Global Environment as a shortcut to using the View() function, and click on the blue arrow next to the data frame in the Global Environment to see all the variable names and types.
 
 A metadata file was also imported that gives some brief information about the variables. A text file called "waterQ_metadata.txt" in the "data" folder has a more full description of the data including how to cite the data, what each variable represents, and how measurements were made using what tools.
 
 ## How does Paradise Pond affect water quality in the Mill River?
 
-We can use this dataset to look at differences in the water quality upstream versus downstream of Paradise Pond to test for possible effects of the pond on the Mill River.
+We can use this dataset to look at differences in the water quality upstream versus downstream of Paradise Pond to test for possible effects of the pond on water quality in the Mill River.
 
-Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in the winter (November-January) of most years starting in 2019. In today's lab, we will be concentrating more on the general effect of the pond rather than from sediment redistribution.
+Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in the winter (November-January) of most years starting in 2019. The data we have here was collected in the summer and fall - not during sediment distribution. Thus, we will be concentrating more on the general effect of the pond rather than from sediment redistribution.
 
 Paradise Pond is an impoundment in the river that slows the flow and makes it more like a pond and less like a river. The water falling over the dam creates a lot of turbulence. How might the slow flow in the pond and/or the turbulence from the water falling over the dam affect the water quality downstream vs upstream?
 
@@ -127,7 +127,19 @@ waterQ2 <- waterQ2 |>
 
 ```
 
-Look at the new dataset (waterQ2) in the Global Environment. The new number of observations should be the original number minus the number of NA's. The number of variables (=columns) should be 4.
+Look at the new dataset (waterQ2) in the Global Environment. The new number of observations should be the original number minus the number of NA's. The number of variables (=columns) should be 4. This "cleaned data frame" is what we will use going forward.
+
+To fill out the code templates in this lab, you need to be familiar with some terms and know what you are being asked to give.
+
+**Question: Fill in the answers to the requested information below**
+
+::: {.callout-note appearance="minimal"}
+Cleaned data frame name (with missing values removed):
+
+Column name for the continuous variable:
+
+Column name for the categorical variable:
+:::
 
 ## Descriptive Statistics
 
@@ -143,7 +155,7 @@ Note that when reporting a range (such as the full range or the interquartile ra
 
 Let's calculate the descriptive statistics for your variable of interest for the Mill River water quality data grouped by location. Replace the blanks as directed in the comments then run the code below.
 
-Note that we are defining the continuous dependent variable once as dep.var and then using .data\[\[dep.var\]\] to put that variable in each function so we don't have to type the variable name a bunch of times.
+Note that we are defining the continuous dependent variable once as dep.var and then using `.data[[dep.var]]` to put that variable in each function so we don't have to type the variable name a bunch of times.
 
 ```{r}
 #| label: descriptive stats
@@ -151,7 +163,7 @@ Note that we are defining the continuous dependent variable once as dep.var and 
 # replace the blank below with a continuous variable you want to summarize
 dep.var <- "___" 
 
-# replace the blank with the dataframe name where you removed missing values
+# replace the blank with the cleaned data frame name
 ___  |>  
 
   # replace the blank with the categorical variable(s)
@@ -197,7 +209,7 @@ We will use the `signif` function with digits=2 to round the SD. replace the bla
 dep.var <- "___" 
 
 
-# replace the blank with the dataframe name where you removed missing values
+# replace the blank with the cleaned data frame name
 ___  |>   
   
   # replace the blank with the categorical variable(s)
@@ -232,7 +244,7 @@ round.digit <- ___
 # replace the blank below with a continuous variable of interest
 dep.var <- "___" 
 
-# replace the blank with the dataframe name where you removed missing values
+# replace the blank with the cleaned data frame name 
 ___  |>  
 
   # replace the blank with the categorical variable(s)
@@ -273,11 +285,12 @@ ggpubr::ggqqplot(
   "___",         #put the continuous variable name here
   facet.by = "___")  #put the categorical variable here
 
+
 ```
 
 If the data are normally distributed, then the points will generally follow the line and won't go outside the grey 95% confidence intervals.
 
-If you would like to know more about what Q-Q plots are, see [QQ Plot: Uses, Benefits & Interpreting](https://statisticsbyjim.com/graphs/qq-plot/).
+If you would like to know more about what Q-Q plots are, see [The Q-Q Plot: What It Means and How to Interpret It](https://www.datacamp.com/tutorial/qq-plot) and for more on using the `ggqqplot()` function in the `ggpubr` package see [QQ Plots](https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html).
 
 **Question: Does the distribution for each location look like a normal distribution?**
 
