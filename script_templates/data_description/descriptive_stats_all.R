@@ -2,13 +2,13 @@
 # the tidyverse package must be loaded before this will work
 
 # replace the blank below with a continuous variable you want to summarize
-x.var <- "___" 
+dep.var <- "___" 
 
-# replace the blank below with the name of the dataframe
+# replace the blank below with the name of the data frame
 df.sum <- ___  |> 
   
   # remove missing values from continuous variables
-  filter(!is.na(.data[[x.var]])) |> 
+  filter(!is.na(.data[[dep.var]])) |> 
   
   # replace the blank with the categorical variable(s)
   group_by(___) |> 

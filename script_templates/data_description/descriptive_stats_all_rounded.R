@@ -23,13 +23,13 @@
 round.digit <- ___
 
 # replace the blank below with a continuous variable of interest
-x.var <- "___" 
+dep.var <- "___" 
 
-# replace the blank with the dataframe name where you removed missing values
+# replace the blank with the data frame name where you removed missing values
 ___  |>  
   
   # remove missing values from continuous variables
-  filter(!is.na(.data[[x.var]])) |> 
+  filter(!is.na(.data[[dep.var]])) |> 
   
   # replace the blank with the categorical variable(s)
   group_by(___) |> 

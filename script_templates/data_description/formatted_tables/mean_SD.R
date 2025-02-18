@@ -25,22 +25,22 @@ library(flextable) ## for making formatted tables that can be pasted into Word o
 round.digit <- ___
 
 # replace the blank below with a continuous variable you want to summarize
-x.var <- "___" 
+dep.var <- "___" 
 
 #calculate descriptive stats
-#replace the blank below with the name of the dataframe
+#replace the blank below with the name of the data frame
 df.sum <- ___ |> 
   
   # replace the blank with the categorical variable(s)
   group_by(___) |> 
   
   # remove missing values 
-  filter(!is.na(.data[[x.var]])) |> 
+  filter(!is.na(.data[[dep.var]])) |> 
   
   # calculate the descriptive stats
   # do not place anything in the empty parentheses in the n() 
   summarise(Mean = round(mean(.data[[dep.var]]), digits=round.digit), 
-            SD = signif(sd(.data[[x.var]]), digits=2),
+            SD = signif(sd(.data[[dep.var]]), digits=2),
             N = n())
 
 #create the formatted table
