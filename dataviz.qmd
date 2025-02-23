@@ -32,7 +32,7 @@ It is recommended that you put all your code to load packages in one R chunk at 
 
 library(tidyverse) ## for readr, dplyr, ggplot2
 library(ggbeeswarm) ## for jittering points in a dotplot
-library(ggpubr) ## for making QQ-plots
+library(ggpubr) ## for making QQ-plots and changing the color palette
 
 ```
 
