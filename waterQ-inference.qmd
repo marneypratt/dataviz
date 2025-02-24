@@ -95,9 +95,9 @@ From the effect size test output, write the following down in your lab notebook 
 
 -   what type of effect size you calculated (Cohen's d, Cohen's d for Welch test, or Wilcoxon effect size)
 
--   effect size (labeled **effsize** in the results table)
+-   effect size (labeled **effsize** in the results table, round this to 1-2 decimal places)
 
--   95% confidence interval (labeled **conf.low** & **conf.high**)
+-   95% confidence interval (labeled **conf.low** & **conf.high**, round this to 1-2 decimal places)
 
 -   magnitude of the effect (labeled **magnitude**)
 
