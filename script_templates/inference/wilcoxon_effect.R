@@ -13,8 +13,8 @@ rstatix::wilcox_effsize(
   ci = TRUE,
   conf.level = 0.95,
   ci.type = "bca",
-  nboot = 5000)
+  nboot = 1000)
 
 #With the default settings here
 #95% confidence interval is bias-corrected and accelerated
-#5000 bootstrap samples taken 
+#1000 bootstrap samples taken 
