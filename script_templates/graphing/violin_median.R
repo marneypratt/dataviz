@@ -11,7 +11,7 @@ violin.plot <- ggplot(
   stat_summary(
     fun = median, fun.min = median, fun.max = median, #change median to mean if desired
     geom = "crossbar", na.rm = TRUE,
-    width = 0.4, size = 0.75, color = "black") +
+    width = 0.4, linewidth = 0.75, color = "black") +
   ylab("___") + #put formatted label for the axis here (include units as needed)
   xlab("___") + #put formatted label for the axis here (include units as needed)
   theme_classic(base_size=18) +
