@@ -8,10 +8,10 @@ dot.plot <- ggplot(
   data = ___, #put the data frame name here 
   aes(x = ___, y = ___, fill=___)) + #factor = x & fill, continuous variable = y, 
   geom_quasirandom(
-     shape=21, size=3, alpha = 0.75, width=0.3) +
+     shape=21, size=1, alpha = 0.5, width=0.3) +
   stat_summary(fun = median, fun.min = median, fun.max = median, #change median to mean if desired
                geom = "crossbar", na.rm = TRUE,
-               width = 0.4, size = 0.75, color = "black") +
+               width = 0.4, linewidth = 0.75, color = "black") +
   ylab("___") + #put formatted label for the axis here (include units as needed)
   xlab("___") + #put formatted label for the axis here (include units as needed)
   coord_cartesian(expand=TRUE) +
