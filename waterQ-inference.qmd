@@ -64,11 +64,11 @@ You will learn much more about inferential statistics in a full statistics cours
 
 To choose the right effect size, you need to take the distribution and variance into account. Look back at your QQ plot from the last lab and remind yourself if the data is normally distributed or not. Look at your descriptive statistics and graph to see if the dispersion (SD, IQR, range, etc) looks similar or not between the two locations.
 
--   **Normal Distribution, Equal Variance:** If the data is normal, and the two groups have similar dispersion (i.e. similar variance), then you should use "regular" **Cohen's d effect size**
+-   **Normal Distribution, Equal Variance:** If the data is normal, and the two groups have similar dispersion (i.e. similar variance), then you should use "regular" **Cohen's d effect size (*d*)**
 
--   **Normal Distribution, Unequal Variance:** If the data is normal, but the two groups have unequal dispersion (i.e. unequal variance), then you should use the **Cohen's d for Welch test effect size**
+-   **Normal Distribution, Unequal Variance:** If the data is normal, but the two groups have unequal dispersion (i.e. unequal variance), then you should use the **Cohen's d for Welch test effect size (*d*)**
 
--   **Non-normal Distribution:** If the data is NOT normal, then you should use the **Wilcoxon effect size**
+-   **Non-normal Distribution:** If the data is NOT normal, then you should use the **Wilcoxon effect size (*r*)** (also note that some statisticians recommend to use the Cohen's d for Welch test effect size if the variance is very different even if the distribution is not normal)
 
 Choose the correct effect size test for your data using the criteria listed above and then copy and paste the corresponding code from the "inference" subfolder in the "script_templates" folder and paste it below then fill in the blanks as directed.
 
