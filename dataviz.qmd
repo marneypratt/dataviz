@@ -390,7 +390,7 @@ When saving with the `ggsave()` function, you need to name the resulting file wi
 # recommended to use.png or .jpg file types
 ggsave(filename = "results/datavizGraph.png",  
        plot = best.plot,   #put the object name of your plot here
-       height = 7, width = 8, units = "in", 
+       height = 5, width = 8, units = "in", 
        dpi = 300)
 
 ```
