@@ -1,4 +1,4 @@
-This file was originally generated on 2018-08-31 and revised on 2023-09-27 by Marney Pratt
+This file was originally generated on 2018-08-31 and revised on 2025-02-28 by Marney Pratt
 
 
 -------------------
@@ -8,7 +8,7 @@ GENERAL INFORMATION
 
 1. Title of Dataset 
 
-Mill River Water Quality Data for 2018-2023
+Mill River Water Quality Data for 2018-2024
 
 
 2. Author Information
@@ -24,7 +24,7 @@ Mill River Water Quality Data for 2018-2023
 
 3. Date of data collection (single date, range, approximate date) <dates in format YYYY-MM-DD>
 
-2018-06 to 2023-06
+2018-06 to 2024-09
 
 
 4. Geographic location of data collection (where was data collected?): 
@@ -54,11 +54,11 @@ No restrictions other than proper citation/attribution
 
 2. Recommended citation for this metadata text file:
 
-Pratt, MC.  2023.  Mill River water quality data metadata for 2018-2023.  Smith College, Northampton, MA.
+Pratt, MC.  2024.  Mill River water quality data metadata for 2018-2024.  Smith College, Northampton, MA.
 
 7. Recommended citation for the data:
 
-Pratt, MC.  2023.  Mill River water quality data for 2018-2023.  Smith College, Northampton, MA.
+Pratt, MC.  2024.  Mill River water quality data for 2018-2024.  Smith College, Northampton, MA.
 
 
 
@@ -70,7 +70,7 @@ DATA & FILE OVERVIEW
 1. File List
    A. Filename: waterQ.csv       
       Short description:
-Water quality data were measured for both locations (upstream and downstream riffle) in June & September/October 2018-2023
+Water quality data were measured for both locations (upstream and downstream riffle) in June & September/October 2018-2024
 
 
 --------------------------
