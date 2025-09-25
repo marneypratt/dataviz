@@ -3,10 +3,7 @@ title: "effectsize_NAME"
 subtitle: "BIO 131 Intro to Effect Size"
 author: "Your Name Here"
 date: "Mar , 2025"
-format: 
-  html:
-    code-overflow: wrap
-    embed-resources: true
+format: typst
 ---
 
 Before you start working, give this file a new name so it doesn't get written over if you accidentally download the GitHub repository a second time. Go to File in the menu and choose "Save as" and then give it the name "effectsize_Name.qmd" (replace "Name" with your full name)
@@ -127,7 +124,7 @@ The effect size is standardized by the amount of variation in the data (the exac
 -   [Alternatives to P value: confidence interval and effect size](https://pmc.ncbi.nlm.nih.gov/articles/PMC5133225/)
 :::
 
-## Render this File to HTML & Print to PDF
+## Render this File to PDF
 
 You are now all done with this activity, but you want to make sure to save all your work and put a copy of it in your Individual Google Drive folder for this class (along side your lab notebook). Ultimately, you need a PDF file to put into your lab notebook.
 
@@ -137,11 +134,7 @@ You are now all done with this activity, but you want to make sure to save all y
 
     -   Save this file (make sure this file is named "effectsize_YourName.qmd" (replace "YourName" with your full name)
 
--   Render this Quarto file to HTML (just select the Render menu item at the top of this window)
-
--   If the HTML file didn't already open in your browser (if it tries to block the pop-up, just tell it to allow it to open), then click on the name of the file in the Files window and select "View in Web Browser"
-
--   Once the HTML file is open in your web browser, then use the print function within your browser to save it as a PDF. Please name your PDF file "effectsize_YourName.pdf" (replace "YourName" with your full name)
+-   Render this Quarto file to PDF (just select the Render menu item at the top of this window)
 
 -   Make sure the PDF file is saved somewhere on your computer that you can get to (you may need to export this file to your computer if you are working on the Smith server)
 
