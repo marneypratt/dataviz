@@ -148,7 +148,7 @@ Column name for the categorical variable (also called a factor):
 
 Descriptive statistics are useful to understand your data including
 
--   What is the measure of central tendancy - or typical value (mean, median, mode)
+-   What is the measure of central tendency - or typical value (mean, median, mode)
 -   What is the dispersion - or amount of variability (SD, IQR (Q1-Q3), Range (min-max))
 -   What is the sample size within each group (N)
 
@@ -428,7 +428,7 @@ Rendering is a way to translate a Quarto document into another file type. Right 
 
 -   Render this Quarto file to PDF using the typst format (just select the Render menu item at the top of this window)
 
--   If the file didn't already open, then double click on the name of the file in the Files window 
+-   If the file didn't already open, then double click on the name of the file in the Files window
 
 -   Please name your PDF file "dataviz_YourName.pdf" (replace "YourName" with your full name)
 
