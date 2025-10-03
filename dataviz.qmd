@@ -2,7 +2,7 @@
 title: "dataviz_NAME"
 subtitle: "BIO 131 Intro to Data Visualization"
 author: "Your Name Here"
-date: "September , 2025"
+date: "October , 2025"
 format: typst
 ---
 
@@ -44,13 +44,12 @@ waterQ <- read_csv("data/waterQ.csv",
           col_types = cols(
             date = col_date(format = "%Y-%m-%d"), 
             year = col_factor(),
-            season = col_factor(levels = c("Summer", "Fall")),
-            location = col_factor(levels = c("Downstream","Upstream")),
-            microhabitat = col_factor(
-              levels = 
-                c("DSR", "DFR", "DM", "DSH", "DSP",
-                  "USR", "UFR", "UM", "USH", "USU"))
-                            ))
+            season = col_factor
+            (levels = c("Winter","Spring", "Summer", "Fall")),
+            location = col_factor
+            (levels = c("Downstream","Upstream")),
+                                        )) |> 
+  filter(season != "Winter", season != "Spring")
 
 metadata <- read_csv("data/waterQ_variable_metadata.csv")
 
