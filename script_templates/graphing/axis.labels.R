@@ -19,5 +19,3 @@ ylab(~paste("Conductivity"," ", "(" ,mu, "S cm"^-1, ")")) +
 ylab("Nitrate Concentration (mg/L)") +
   
 ylab(expression(Alkalinity~(ppm~of~CaCO[3]))) +
-  
-ylab(expression(Phosphate~Concentration~(ppm~of~PO[4]^{"3-"}))) +

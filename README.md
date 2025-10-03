@@ -2,7 +2,7 @@
 
 ### by Marney Pratt
 
-### Last updated on September 25, 2025
+### Last updated on October 3, 2025
 
 This webpage details how to download the Introduction to Data Visualization set of activities.
 

@@ -2,7 +2,7 @@
 title: "effectsize_NAME"
 subtitle: "BIO 131 Intro to Effect Size"
 author: "Your Name Here"
-date: "Mar , 2025"
+date: "October , 2025"
 format: typst
 ---
 
@@ -35,15 +35,21 @@ waterQ <- read_csv("data/waterQ.csv",
           col_types = cols(
             date = col_date(format = "%Y-%m-%d"), 
             year = col_factor(),
-            season = col_factor(levels = c("Summer", "Fall")),
-            location = col_factor(levels = c("Downstream","Upstream")),
-            microhabitat = col_factor(
-              levels = 
-                c("DSR", "DFR", "DM", "DSH", "DSP",
-                  "USR", "UFR", "UM", "USH", "USU"))
-                            ))
+            season = col_factor
+            (levels = c("Winter","Spring", "Summer", "Fall")),
+            location = col_factor
+            (levels = c("Downstream","Upstream")),
+                                        )) |> 
+  filter(season != "Winter", season != "Spring")
 
 metadata <- read_csv("data/waterQ_variable_metadata.csv")
+
+```
+
+Replace both of the blanks below with the column name of the water quality variable you worked with last week
+
+```{r}
+#| label: data cleaning
 
 #data cleaning to remove missing values etc
 #replace the blanks with the column name of your variable
@@ -53,19 +59,21 @@ waterQ2 <- waterQ |>
 
 ```
 
+
+
 ## Inference - Effect Size
 
 How do we know if there is a difference for this water quality variable between the locations upstream and downstream of Paradise Pond? We use inferential statistics to help us determine whether a sample can help tell us about the full population and make comparisons. In this case, we want to compare between two groups (upstream vs downstream).
 
 You will learn much more about inferential statistics in a full statistics course. In this class, we are just going to discuss effect sizes. An effect size tells us how big the difference is between groups while taking into account the variability as well.
 
-To choose the right effect size, you need to take the distribution and variance into account. Look back at your QQ plot from the last lab and remind yourself if the data is normally distributed or not. Look at your descriptive statistics and graph to see if the dispersion (SD, IQR, range, etc) looks similar or not between the two locations.
+To choose the right effect size, you need to take the distribution and variance into account. Go to the PDF of last lab's activities that is in your Individual Google Drive Folder for this class. Look back at your QQ plot from the last lab and remind yourself if the data is normally distributed or not. Look at your descriptive statistics and graph to see if the dispersion (SD, IQR, range, etc) looks similar or not between the two locations.
 
 -   **Normal Distribution, Equal Variance:** If the data is normal, and the two groups have similar dispersion (i.e. similar variance), then you should use "regular" **Cohen's d effect size (*d*)**
 
--   **Normal Distribution, Unequal Variance:** If the data is normal, but the two groups have unequal dispersion (i.e. unequal variance), then you should use the **Cohen's d for Welch test effect size (*d*)**
+-   **Unequal Variance:** If the data has unequal dispersion (i.e. unequal variance), then you should use the **Cohen's d for Welch test effect size (*d*)**
 
--   **Non-normal Distribution:** If the data is NOT normal, then you should use the **Wilcoxon effect size (*r*)** (also note that some statisticians recommend to use the Cohen's d for Welch test effect size if the variance is very different even if the distribution is not normal)
+-   **Non-normal Distribution, Equal Variance:** If the data is NOT normal but the two groups have similar dispersion (i.e. similar variance), then you should use the **Wilcoxon effect size (*r*)** (note that some statisticians recommend to use the Cohen's d for Welch test effect size if the variance is very different even if the distribution is not normal)
 
 Choose the correct effect size test for your data using the criteria listed above and then copy and paste the corresponding code from the "inference" subfolder in the "script_templates" folder and paste it below then fill in the blanks as directed.
 
@@ -126,7 +134,7 @@ The effect size is standardized by the amount of variation in the data (the exac
 
 ## Render this File to PDF
 
-You are now all done with this activity, but you want to make sure to save all your work and put a copy of it in your Individual Google Drive folder for this class (along side your lab notebook). Ultimately, you need a PDF file to put into your lab notebook.
+You are now all done with this activity, but you want to make sure to save all your work and put a copy of it in your Individual Google Drive folder for this class (along side your lab notebook). Like in the last lab, you need a PDF file to put next to your lab notebook to keep a record of your data analysis.
 
 -   Before you Render
 
