@@ -235,6 +235,8 @@ Use the following for digits in the `round` function
 -   rounding to the tenths place use digits=1
 -   rounding to the hundredths place use digits=2
 
+Replace only the blanks in the code below, you don't need to change anything else (note: do not place anything in the empty parentheses in the n() )
+
 ```{r}
 #| label: rounded descriptive stats
 
