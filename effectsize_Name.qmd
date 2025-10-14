@@ -59,15 +59,13 @@ waterQ2 <- waterQ |>
 
 ```
 
-
-
 ## Inference - Effect Size
 
 How do we know if there is a difference for this water quality variable between the locations upstream and downstream of Paradise Pond? We use inferential statistics to help us determine whether a sample can help tell us about the full population and make comparisons. In this case, we want to compare between two groups (upstream vs downstream).
 
 You will learn much more about inferential statistics in a full statistics course. In this class, we are just going to discuss effect sizes. An effect size tells us how big the difference is between groups while taking into account the variability as well.
 
-To choose the right effect size, you need to take the distribution and variance into account. Go to the PDF of last lab's activities that is in your Individual Google Drive Folder for this class. Look back at your QQ plot from the last lab and remind yourself if the data is normally distributed or not. Look at your descriptive statistics and graph to see if the dispersion (SD, IQR, range, etc) looks similar or not between the two locations.
+To choose the right effect size, you need to take the distribution and variance into account. Go to the PDF of last lab's activities that is in your Individual Google Drive Folder for this class. Look back at your QQ plot from the last lab and remind yourself if the data is normally distributed or not. We also need to see if the variance is equal. Since the standard deviation is the square root of the variance, you can look at your descriptive statistics (also found in the PDF from the last lab) to see if the SD looks similar or not between the two locations.
 
 -   **Normal Distribution, Equal Variance:** If the data is normal, and the two groups have similar dispersion (i.e. similar variance), then you should use "regular" **Cohen's d effect size (*d*)**
 
@@ -89,7 +87,15 @@ Note the following when filling in the blanks
 #| label: effect size   
 
 
-
+rstatix::wilcox_effsize(
+  data = waterQ2,         #put the dataframe name here
+  light ~ location,            #dependent variable ~ factor
+  paired = FALSE,
+  alternative = "two.sided",
+  ci = TRUE,
+  conf.level = 0.95,
+  ci.type = "bca",
+  nboot = 1000)
 
 
 ```
@@ -100,15 +106,15 @@ From the effect size test output, write the following down in your lab notebook 
 
 -   what type of effect size you calculated (Cohen's d, Cohen's d for Welch test, or Wilcoxon effect size)
 
--   effect size (labeled **effsize** in the results table, round this to 1-2 decimal places)
+-   effect size (labeled **effsize** in the results table, round this to 2 significant figures)
 
--   95% confidence interval (labeled **conf.low** & **conf.high**, round this to 1-2 decimal places)
+-   95% confidence interval (labeled **conf.low** & **conf.high**, round this to 2 significant figures)
 
 -   magnitude of the effect (labeled **magnitude**)
 
 -   sample size for each location (labeled **n1** & **n2** - make sure you also note which location is group1 and which is group2 so you know which sample size goes with which location)
 
-The effect size is standardized by the amount of variation in the data (the exact equation depends on which effect size you use). The interpretation of the standardized effect size is included in the magnitude column - negligible, small, moderate, or large. This will help you determine if the difference between means or medians is meaningful or not. The 95% confidence intervals tells you how precisely the effect size was estimated. If the 95% confidence interval does not include zero, it suggests that the effect is statistically significant
+The effect size is standardized by the amount of variation in the data (the exact equation depends on which effect size you use). The interpretation of the standardized effect size is included in the magnitude column - negligible, small, moderate, or large. This will help you determine if the difference between means or medians is meaningful or not. The 95% confidence intervals tells you how precisely the effect size was estimated. If the 95% confidence interval does not include zero, it suggests that the effect is statistically significant (if conf.low and conf.high are both positive or both negative than that means the 95% CI does not include zero. But if one is positive and the other is negative then that means the 95% CI does include zero).
 
 ::: {.callout-note appearance="minimal"}
 ## Optional Additional Resources on Effect Sizes
