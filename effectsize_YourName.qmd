@@ -1,12 +1,12 @@
 ---
-title: "effectsize_NAME"
+title: "effectsize_YourNAME"
 subtitle: "BIO 131 Intro to Effect Size"
 author: "Your Name Here"
 date: "October , 2025"
 format: typst
 ---
 
-Before you start working, give this file a new name so it doesn't get written over if you accidentally download the GitHub repository a second time. Go to File in the menu and choose "Save as" and then give it the name "effectsize_Name.qmd" (replace "Name" with your full name)
+Before you start working, give this file a new name so it doesn't get written over if you accidentally download the GitHub repository a second time. Go to File in the menu and choose "Save as" and then give it the name "effectsize_YourName.qmd" (replace "YourName" with your full name without any spaces)
 
 ## Load necessary packages
 
