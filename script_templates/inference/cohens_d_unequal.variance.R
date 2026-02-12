@@ -3,6 +3,7 @@
 
 
 #standardized effect size for normal data but unequal variance
+effectSize.results <- 
 rstatix::cohens_d(
   data = ___,         #put the dataframe name here
   __ ~ __,            #dependent variable ~ factor
@@ -13,6 +14,7 @@ rstatix::cohens_d(
   conf.level = 0.95,
   ci.type = "bca",
   nboot = 1000)
+effectSize.results
 
 #With the default settings here
 #95% confidence interval is bias-corrected and accelerated
