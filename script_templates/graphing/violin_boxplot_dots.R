@@ -5,7 +5,7 @@
 mixed.plot <- ggplot(
   data = ___, #put the data frame name here 
   aes(x = ___, y = ___, fill=___)) + #factor = x & fill, continuous variable = y, 
-  geom_violin(width=1, alpha=0.8) + 
+  geom_violin(width=1, alpha=0.25) + 
   geom_quasirandom(                              #adds quasirandom jittered points but colors them by fill
     shape=21, size=1, alpha = 0.5, width=0.4) + #sets the size, shape, and transparency of the points
   geom_boxplot(width=0.1, color="black", alpha=0.8) +

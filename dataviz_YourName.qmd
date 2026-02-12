@@ -2,7 +2,7 @@
 title: "dataviz_YourNAME"
 subtitle: "BIO 131 Intro to Data Visualization"
 author: "Your Name Here"
-date: "October , 2025"
+date: "February , 2026"
 format: typst
 ---
 
@@ -198,7 +198,7 @@ You can use the accuracy of the tool to determine how to round your value. The a
 
 Personally, I think it is easier to use the standard deviation (SD) to tell us on average how much variability there is in the data.
 
-Start by rounding the standard deviation (SD) to 2 SIGNIFICANT DIGITS.
+Start by rounding the standard deviation (SD) to **2 SIGNIFICANT DIGITS**.
 
 We will use the `signif` function with `digits=2` to round the SD to 2 significant digits. replace the blanks below as directed then run the code.
 

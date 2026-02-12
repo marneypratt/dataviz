@@ -15,7 +15,7 @@ mixed.plot <- ___ |>   #put the data frame name here
   mutate(myaxis = paste0(___, "\n", "n=", num)) |>  #put the factor variable name here
   
   ggplot(aes(x=myaxis, y=___, fill=___)) + #put the y-variable first and then the factor for fill
-  geom_violin(width=1, alpha=0.5) +
+  geom_violin(width=1, alpha=0.25) +
   geom_quasirandom(                              #adds quasirandom jittered points but colors them by fill
     shape=21, size=1, alpha = 0.5, width=0.4) + #sets the size, shape, and transparency of the points
   geom_boxplot(width=0.1, color="black", alpha=0.8, outlier.shape= NA) +
