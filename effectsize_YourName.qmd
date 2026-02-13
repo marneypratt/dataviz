@@ -2,7 +2,7 @@
 title: "effectsize_YourNAME"
 subtitle: "BIO 131 Intro to Effect Size"
 author: "Your Name Here"
-date: "October , 2025"
+date: "February , 2026"
 format: typst
 ---
 
@@ -20,7 +20,10 @@ It is recommended that you put all your code to load packages in one R chunk at 
 #| message: false
 
 library(tidyverse) ## for readr, dplyr, ggplot2
+library(ggbeeswarm) ## for jittering points in a dotplot
+library(ggpubr) ## for making QQ-plots and changing the color palette
 library(rstatix) ## for effect sizes
+library(patchwork)  ## for joining graphs
 
 ```
 
@@ -54,8 +57,31 @@ Replace both of the blanks below with the column name of the water quality varia
 #data cleaning to remove missing values etc
 #replace the blanks with the column name of your variable
 waterQ2 <- waterQ |> 
-  filter(!is.na(_____)) |> 
+  filter(!is.na(___)) |> 
   select(date, year, location, ___)
+
+```
+
+## Re-graph Water Quality Data
+
+We are going to add some statistical results to your graph. Thus, first we need the code that created your graph from last time added into THIS Quarto document.
+
+Go back to your previous Quarto document ("dataviz_YourName.qmd") and copy the code from the `best graph` code chunk and paste that below
+
+```{r}
+#| label: best graph
+
+
+
+
+```
+
+Go back to your previous Quarto document ("dataviz_YourName.qmd") and copy the code from the `best graph with accessible colors` code chunk and paste that below
+
+```{r}
+#| label: best graph with accessible colors
+
+
 
 ```
 
@@ -63,11 +89,11 @@ waterQ2 <- waterQ |>
 
 How do we know if there is a difference for this water quality variable between the locations upstream and downstream of Paradise Pond? We use inferential statistics to help us determine whether a sample can help tell us about the full population and make comparisons. In this case, we want to compare between two groups (upstream vs downstream).
 
-You will learn much more about inferential statistics in a full statistics course. In this class, we are just going to discuss effect sizes. An effect size tells us how big the difference is between groups while taking into account the variability as well.
+You will learn much more about inferential statistics in a full statistics course. In this class, we are just going to discuss effect sizes. An effect size tells us how big the difference is between groups while also considering the amount of variability.
 
-To choose the right effect size, you need to take the distribution and variance into account. Go to the PDF of last lab's activities that is in your Individual Google Drive Folder for this class. Look back at your QQ plot from the last lab and remind yourself if the data is normally distributed or not. We also need to see if the variance is equal. Since the standard deviation is the square root of the variance, you can look at your descriptive statistics (also found in the PDF from the last lab) to see if the SD looks similar or not between the two locations.
+To choose the right effect size, you need to take the distribution and variance into account. Remind yourself about whether the data is normally distributed or not for your water quality variable (HINT: look at your graph and see if it looks normal. Alternatively, go to the PDF of last lab's activities that is in your Individual Google Drive Folder for this class and look at your QQ plot). We also need to see if the variance is equal. Since the standard deviation is the square root of the variance, you can look at your descriptive statistics (also found in the PDF from the last lab) to see if the SD looks similar or not between the two locations.
 
--   **Normal Distribution, Equal Variance:** If the data is normal, and the two groups have similar dispersion (i.e. similar variance), then you should use "regular" **Cohen's d effect size (*d*)**
+-   **Normal Distribution, Equal Variance:** If the data is normal, and the two groups have similar dispersion (i.e. similar variance), then you should use the "regular" **Cohen's d effect size (*d*)**
 
 -   **Unequal Variance:** If the data has unequal dispersion (i.e. unequal variance), then you should use the **Cohen's d for Welch test effect size (*d*)**
 
@@ -87,20 +113,14 @@ Note the following when filling in the blanks
 #| label: effect size   
 
 
-rstatix::wilcox_effsize(
-  data = waterQ2,         #put the dataframe name here
-  light ~ location,            #dependent variable ~ factor
-  paired = FALSE,
-  alternative = "two.sided",
-  ci = TRUE,
-  conf.level = 0.95,
-  ci.type = "bca",
-  nboot = 1000)
+
+
+
 
 
 ```
 
-## Add Effect Size Results to Water Quality Results
+## Record Effect Size Results
 
 From the effect size test output, write the following down in your lab notebook so you will have it all to include in your Water Quality Results:
 
@@ -114,7 +134,49 @@ From the effect size test output, write the following down in your lab notebook 
 
 -   sample size for each location (labeled **n1** & **n2** - make sure you also note which location is group1 and which is group2 so you know which sample size goes with which location)
 
-The effect size is standardized by the amount of variation in the data (the exact equation depends on which effect size you use). The interpretation of the standardized effect size is included in the magnitude column - negligible, small, moderate, or large. This will help you determine if the difference between means or medians is meaningful or not. The 95% confidence intervals tells you how precisely the effect size was estimated. If the 95% confidence interval does not include zero, it suggests that the effect is statistically significant (if conf.low and conf.high are both positive or both negative than that means the 95% CI does not include zero. But if one is positive and the other is negative then that means the 95% CI does include zero).
+The effect size is the difference between typical values standardized by the amount of variation in the data (the exact equation depends on which effect size you use). The 95% confidence interval was calculated by using the adjusted bootstrap percentile (BCa) method with 1000 bootstrapped samples.
+
+The interpretation of the standardized effect size is included in the magnitude column - negligible, small, moderate, or large. This will help you determine if the difference between means or medians is meaningful or not. The 95% confidence intervals tells you how precisely the effect size was estimated. If the 95% confidence interval does not include zero, it suggests that the effect is statistically significant (if conf.low and conf.high are both positive or both negative than that means the 95% CI does not include zero. But if one is positive and the other is negative then that means the 95% CI does include zero).
+
+## Graph Effect Size Results
+
+Graphing the results of the effect size test makes it easier to understand and interpret. Thus, we will next graph your standardized effect size and the bootstrapped 95% confidence interval that you just calculated above. You don't need to change anything in the code below, just run it.
+
+```{r}
+#| label: effect size graph
+
+#graph the results to make it easier to visualize
+effect.plot <- effectSize.results  |>    
+  ggplot(aes(
+    x = .y., 
+    y = effsize)) +
+  
+  geom_pointrange(aes(ymin = conf.low, ymax = conf.high),
+                  size = 1, # Adjust point size
+                  linewidth = 0.8, # Adjust line thickness
+                  color = "forestgreen") + # Set color
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey50") + # Add a reference line at 0
+  
+  #nicer axis labels
+  xlab("") +
+  ylab("Standardized Effect Size") +
+  
+  #to set the limits of the y-axis
+  #you can replace these NA values as needed
+  coord_cartesian(ylim = c(NA, NA)) +
+  
+  #additional formatting
+  theme_classic(base_size = 14)  +  #sets the font size
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+  theme(legend.position = "none")   #controls legend/key
+
+effect.plot
+
+
+```
+
+In your written resutls, make sure to talk about the magnitude of the effect (negligible, small, moderate, large? See `effectSize.results` output from the previous code chunk) and whether the effect was significantly different from zero or not (using the 95% CI). Does the 95% CI cross the dashed zero line? If the 95% CI includes zero, that means you cannot say that the effect size was significantly different from zero. If the 95% CI does not cross or touch the zero line, then you can say the effect was significant.
 
 ::: {.callout-note appearance="minimal"}
 ## Optional Additional Resources on Effect Sizes
@@ -137,6 +199,48 @@ The effect size is standardized by the amount of variation in the data (the exac
 
 -   [Alternatives to P value: confidence interval and effect size](https://pmc.ncbi.nlm.nih.gov/articles/PMC5133225/)
 :::
+
+## Join Original Graph and Effect Size Results
+
+Now let's make one image that joins your original graph with the effect size results graph together.
+
+```{r}
+#| label: data plus effect size graph
+
+patch.plot <- best.plot + effect.plot +
+  plot_layout(widths = c(3, 1))
+
+patch.plot 
+
+# save the graph
+# recommended to use.png or .jpg file types
+ggsave(filename = "results/datavizWithEffectSize.png",  
+       plot = patch.plot,   #put the object name of your plot here
+       height = 5, width = 8, units = "in", 
+       dpi = 300)
+
+
+```
+
+The above code will save your new graph that includes the effect size results and call it "datavizWithEffectSize.png". This file will appear in the "results" subfolder of the dataviz folder under the Files tab in the lower right quadrant of this window.
+
+If you are working on the Smith server, you will first need to export this file to your computer:
+
+-   Check the box next to the "datavizWithEffectSize.png" file
+
+-   Go to the "More" menu with the gear icon and click the drop down arrow
+
+-   Select "Export" and then save the file to your computer
+
+Once you have a PNG image file saved on your computer, replace the graph you made during the last lab in your Water Quality Results first draft with this new image. Make sure to update the figure legend of your new graph to add a description of the effect size that includes:
+
+-   What type of standardized effect size test was it? (Cohen's d, Cohen's d for Welch test, or Wilcoxon effect size)
+
+-   What does the green point represent?
+
+-   What do the green vertical lines represent?
+
+-   What does the horizontal dashed line represent?
 
 ## Render this File to PDF
 
