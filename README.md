@@ -2,13 +2,18 @@
 
 ### by Marney Pratt
 
-### Last updated on October 3, 2025
+### Last updated on February 15, 2026
 
 This webpage details how to download the Introduction to Data Visualization set of activities.
 
-It is assumed that you have access to R and Rstudio (installed on your computer or access to an RStudio cloud-based server) and you have access to the **Intro to R for Biology** tutorials.
+It is assumed that you have access to R and Rstudio (installed on your computer or access to an RStudio cloud-based server) and you have installed the following packages:
 
-Note that if you are not part of Smith College and need to install the **Intro to R for Biology** tutorials locally on your computer, you can follow instructions here: [Intro to R for Biology learnr tutorials](https://github.com/marneypratt/r4bio).
+- `tidyverse` ## for readr, dplyr, ggplot2
+- `ggbeeswarm`  ## for jittering points in a dotplot
+- `ggpubr`  ## for making QQ-plots and changing the color palette
+- `rstatix` ## for effect sizes
+- `patchwork`  ## for joining graphs
+- `usethis`  ## for downloading and unzipping this repository
 
 ## Download this repository from GitHub using the usethis package
 
@@ -32,4 +37,4 @@ This series of instructions will copy all the files you need from here on GitHub
 
 A new session of RStudio will open with the unzipped folder containing all the files you need ready for you.
 
-Make sure you have the `tidyverse` and `ggbeeswarm` packages installed before you run through this activity.
+Make sure you have all the packages listed above installed before you run through this activity.
