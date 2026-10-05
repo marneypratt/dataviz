@@ -2,7 +2,8 @@
 title: "dataviz_YourNAME"
 subtitle: "BIO 131 Intro to Data Visualization"
 author: "Your Name Here"
-date: "February , 2026"
+date: today
+date-format: long
 format: typst
 ---
 
@@ -65,9 +66,9 @@ A metadata file was also imported that gives some brief information about the va
 
 We can use this dataset to look at differences in the water quality upstream versus downstream of Paradise Pond to test for possible effects of the pond on water quality in the Mill River.
 
-Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in the winter (November-January) of most years starting in 2019. The data we have here was collected in the summer and fall - not during sediment distribution. Thus, we will be concentrating more on the general effect of the pond rather than from sediment redistribution.
+Keep in mind that Paradise Pond can have effects on the downstream environment beyond sediment redistribution. Sediment redistribution that occurred during the collection of this water quality dataset was in the winter (November-January) of most years starting in 2019. The data we have here was collected in the summer and fall - not during sediment distribution. Thus, we will be concentrating more on the general effect of the pond on water quality rather than from sediment redistribution.
 
-Paradise Pond is an impoundment in the river that slows the flow and makes it more like a pond and less like a river. The water falling over the dam creates a lot of turbulence. How might the slow flow in the pond and/or the turbulence from the water falling over the dam affect the water quality downstream vs upstream?
+Paradise Pond is an impoundment in the river that slows the flow and makes it more like a pond and less like a river. The water falling over the dam creates a lot of turbulence. How might the slow flow in the pond and/or the turbulence from the water falling over the dam affect the water quality downstream vs upstream? If there is a lot of decaying matter in the pond (leaf matter, sticks, other organic matter), how might this impact the water quality?
 
 **Question: Look at the water quality variables and choose ONE that you want to explore today. Type below which variable you chose:**
 
@@ -327,7 +328,7 @@ In this section, you will make a graph that shows the water quality variable you
 
 Given what you have learned above (what is the sample size in each group? is your water quality variable normally distributed?), think about what would be the best way to represent the water quality variable Upstream vs Downstream of Paradise Pond in the Mill River. Remember that it is a best practice to include something that shows the distribution of your numerical variables and include a measure of central tendency (mean or median as appropriate). You also want to give a measure of dispersion (IQR, SD, range, etc) and/or show all the points. Take a look at this link to remind you of some of the best practices in [choosing a graph type](https://docs.google.com/presentation/d/1qSSHUw_SIXtrRFIxIqa4IfHOwUJetSD9qi6GUC7GsoE/edit?usp=sharing).
 
-Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only chose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced) or by writing what the sample size is in the figure legend below the graph (you will write the figure legend in a Google Doc).
+Finally, make sure you give an indication of the sample size in each group by either including that on the graph itself (this is more advanced code, so I recommend that you only choose this if you already have some experience graphing in ggplot2 and want to push yourself to learn something more advanced) or by writing what the sample size is in the figure legend below the graph (you will write the figure legend in a Google Doc).
 
 Open the "script_templates" folder and look through the script files for the code you want to try. Copy the code of the graph type you think would be best and paste the code in the code chunk below (feel free to try several before you decide which one is best). Replace the blanks in the code as indicated by the surrounding comments.
 
@@ -345,7 +346,7 @@ Tweak the script template code so that it works with your water quality variable
 
 Once you have the type of plot you think would be best, we will use the `ggpar()` function from the `ggpub` package to change the color palette to something that is more color-blind friendly.
 
-Replace the blank below with the object name of your best plot. The object name is what is written to the left of the arrow (\<-) and as it is used here it is the name given to the graph you made so you can call it up again.
+Replace the blank below with the object name of your best plot. The object name is what is written to the left of the arrow (<-) and as it is used here it is the name given to the graph you made so you can call it up again.
 
 ```{r}
 #| label: best graph with accessible colors
