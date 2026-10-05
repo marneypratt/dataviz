@@ -2,7 +2,8 @@
 title: "effectsize_YourNAME"
 subtitle: "BIO 131 Intro to Effect Size"
 author: "Your Name Here"
-date: "March , 2026"
+date: today
+date-format: long
 format: typst
 ---
 
