@@ -137,7 +137,7 @@ From the effect size test output, write the following down in your lab notebook 
 
 The effect size is the difference between typical values standardized by the amount of variation in the data (the exact equation depends on which effect size you use). The 95% confidence interval was calculated by using the adjusted bootstrap percentile (BCa) method with 1000 bootstrapped samples.
 
-The interpretation of the standardized effect size is included in the magnitude column - negligible, small, moderate, or large. This will help you determine if the difference between means or medians is meaningful or not. The 95% confidence intervals tells you how precisely the effect size was estimated. If the 95% confidence interval does not include zero, it suggests that the effect is statistically significant (if conf.low and conf.high are both positive or both negative than that means the 95% CI does not include zero. But if one is positive and the other is negative then that means the 95% CI does include zero).
+The interpretation of the standardized effect size is included in the magnitude column - negligible, small, moderate, or large. This will help you determine if the difference between means or medians is meaningful or not. The 95% confidence intervals tells you how precisely the effect size was estimated. If the 95% confidence interval does not include zero, it suggests that the effect is statistically significantly different from zero (if conf.low and conf.high are both positive or both negative than that means the 95% CI does not include zero. But if one is positive and the other is negative then that means the 95% CI does include zero).
 
 ## Graph Effect Size Results
 
