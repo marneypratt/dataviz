@@ -2,7 +2,8 @@
 title: "dataviz_YourNAME"
 subtitle: "BIO 131 Intro to Data Visualization"
 author: "Your Name Here"
-date: "February , 2026"
+date: today
+date-format: long
 format: 
   html:
     code-overflow: wrap
